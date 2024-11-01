@@ -1,0 +1,688 @@
+/**
+ * @component my-u-button
+ */
+:root {
+  /**
+   * @type input
+   * @desc Mini按钮高度,如：1px
+   * @depAttrs {"size":["mini"]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height-mini: var(--height-mini);
+
+  /**
+   * @type input
+   * @desc Small按钮高度,如：1px
+   * @depAttrs {"size":["small"]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height-small: var(--height-small);
+
+  /**
+   * @type input
+   * @desc 按钮高度,如：1px
+   * @depAttrs {"size":["normal",null]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height: var(--height-base);
+
+  /**
+   * @type input
+   * @desc Medium按钮高度,如：1px
+   * @depAttrs {"size":["medium"]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height-medium: var(--height-medium);
+
+  /**
+   * @type input
+   * @desc Large按钮高度,如：1px
+   * @depAttrs {"size":["large"]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height-large: var(--height-large);
+
+  /**
+   * @type input
+   * @desc Huge按钮高度,如：1px
+   * @depAttrs {"size":["huge"]}
+   * @depStaticStyles ["height"]
+   */
+  --button-height-huge: var(--height-huge);
+
+  /**
+   * @type input
+   * @desc Mini按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["mini"]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y-mini: var(--button-padding-y);
+
+  /**
+   * @type input
+   * @desc Small按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["small"]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y-small: var(--button-padding-y);
+
+  /**
+   * @type input
+   * @desc 按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["normal",null]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y: 0px;
+
+  /**
+   * @type input
+   * @desc Medium按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["medium"]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y-medium: var(--button-padding-y);
+
+  /**
+   * @type input
+   * @desc Large按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["large"]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y-large: var(--button-padding-y);
+
+  /**
+   * @type input
+   * @desc Huge按钮垂直方向内边距,如：1px
+   * @depAttrs {"size":["huge"]}
+   * @depStaticStyles ["padding-top","padding-bottom"]
+   */
+  --button-padding-y-huge: var(--button-padding-y);
+
+  /**
+   * @type input
+   * @desc Mini按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["mini"]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x-mini: 16px;
+
+  /**
+   * @type input
+   * @desc Small按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["small"]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x-small: 20px;
+
+  /**
+   * @type input
+   * @desc 按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["normal",null]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x: 24px;
+
+  /**
+   * @type input
+   * @desc Medium按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["medium"]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x-medium: 28px;
+
+  /**
+   * @type input
+   * @desc Large按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["large"]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x-large: 32px;
+
+  /**
+   * @type input
+   * @desc Huge按钮水平方向内边距,如：1px
+   * @depAttrs {"size":["huge"]}
+   * @depStaticStyles ["padding-left","padding-right"]
+   */
+  --button-padding-x-huge: 36px;
+
+  /**
+   * @type color
+   * @desc 主要按钮背景色,如：#223325
+   * @depAttrs {"color":["primary"]}
+   * @depStaticStyles ["background-color"]
+   */
+  --button-background-primary: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 次要按钮背景色,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   * @depStaticStyles ["background-color"]
+   */
+  --button-background-primary-secondary: white;
+
+  /**
+   * @type color
+   * @desc 按钮默认背景色,如：#223325
+   * @depAttrs {"color":["default",null]}
+   * @depStaticStyles ["background-color"]
+   */
+  --button-background: white;
+
+  /**
+   * @type color
+   * @desc 危险按钮背景色,如：#223325
+   * @depAttrs {"color":["danger"]}
+   * @depStaticStyles ["background-color"]
+   */
+  --button-background-danger: var(--brand-error);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮背景色,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   * @depStaticStyles ["background-color"]
+   */
+  --button-background-danger-secondary: white;
+
+  /**
+   * @type color
+   * @desc 主要按钮hover背景色,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-background-primary-hover: var(--brand-primary-light);
+
+  /**
+   * @type color
+   * @desc 次要按钮hover背景色,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-background-primary-secondary-hover: white;
+
+  /**
+   * @type color
+   * @desc 按钮hover背景色,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-background-hover: white;
+
+  /**
+   * @type color
+   * @desc 危险按钮hover背景色,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-background-danger-hover: var(--brand-error-light);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮hover背景色,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-background-danger-secondary-hover: white;
+
+  /**
+   * @type color
+   * @desc 主要按钮背景色（激活状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-background-primary-active: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 次要按钮背景色（激活状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-background-primary-secondary-active: white;
+
+  /**
+   * @type color
+   * @desc 按钮背景色（激活状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-background-active: white;
+
+  /**
+   * @type color
+   * @desc 危险按钮背景色（激活状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-background-danger-active: var(--brand-error);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮背景色（激活状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-background-danger-secondary-active: white;
+
+  /**
+   * @type color
+   * @desc 主要按钮背景色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-background-primary-disabled: var(--brand-primary-disabled);
+
+  /**
+   * @type color
+   * @desc 次要按钮背景色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-background-primary-secondary-disabled: var(--button-background-disabled);
+
+  /**
+   * @type color
+   * @desc 按钮背景色（禁用状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-background-disabled: #f5f5f5;
+
+  /**
+   * @type color
+   * @desc 危险按钮背景色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-background-danger-disabled: var(--brand-error-lighter);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮背景色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-background-danger-secondary-disabled: var(--button-background-disabled);
+
+  /**
+   * @type color
+   * @desc 主要按钮边框颜色,如：#223325
+   * @depAttrs {"color":["primary"]}
+   * @depStaticStyles ["border-color"]
+   */
+  --button-border-color-primary: var(--button-background-primary);
+
+  /**
+   * @type color
+   * @desc 次要按钮边框颜色,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   * @depStaticStyles ["border-color"]
+   */
+  --button-border-color-primary-secondary: var(--button-background-primary);
+
+  /**
+   * @type color
+   * @desc 按钮边框颜色,如：#223325
+   * @depAttrs {"color":["default",null]}
+   * @depStaticStyles ["border-color"]
+   */
+  --button-border-color: var(--border-color-dark);
+
+  /**
+   * @type color
+   * @desc 危险按钮边框颜色,如：#223325
+   * @depAttrs {"color":["danger"]}
+   * @depStaticStyles ["border-color"]
+   */
+  --button-border-color-danger: var(--button-background-danger);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮边框颜色,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   * @depStaticStyles ["border-color"]
+   */
+  --button-border-color-danger-secondary: var(--button-background-danger);
+
+  /**
+   * @type color
+   * @desc 主要按钮边框颜色(hover状态),如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-border-color-primary-hover: var(--button-background-primary-hover);
+
+  /**
+   * @type color
+   * @desc 次要按钮边框颜色(hover状态),如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-border-color-primary-secondary-hover: var(--brand-primary-light);
+
+  /**
+   * @type color
+   * @desc 按钮边框颜色(hover状态),如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-border-color-hover: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 危险按钮边框颜色(hover状态),如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-border-color-danger-hover: var(--button-background-danger-hover);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮边框颜色(hover状态),如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-border-color-danger-secondary-hover: var(--brand-error-light);
+
+  /**
+   * @type color
+   * @desc 主要按钮边框颜色(active状态),如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-border-color-primary-active: var(--button-background-primary-active);
+
+  /**
+   * @type color
+   * @desc 次要按钮边框颜色(active状态),如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-border-color-primary-secondary-active: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 按钮边框颜色(active状态),如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-border-color-active: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 危险按钮边框颜色(active状态),如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-border-color-danger-active: var(--button-background-danger-active);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮边框颜色(active状态),如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-border-color-danger-secondary-active: var(--danger-primary);
+
+  /**
+   * @type color
+   * @desc 主要按钮边框颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-border-color-primary-disabled: var(--button-background-primary-disabled);
+
+  /**
+   * @type color
+   * @desc 次要按钮边框颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-border-color-primary-secondary-disabled: var(--button-border-color-disabled);
+
+  /**
+   * @type color
+   * @desc 按钮边框颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-border-color-disabled: #e5e5e5;
+
+  /**
+   * @type color
+   * @desc 危险按钮边框颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-border-color-danger-disabled: var(--button-background-danger-disabled);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮边框颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-border-color-danger-secondary-disabled: var(--button-border-color-disabled);
+
+  /**
+   * @type input
+   * @desc Mini按钮文本字体大小,如：1px
+   * @depAttrs {"size":["mini"]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size-mini: var(--font-size-small);
+
+  /**
+   * @type input
+   * @desc Small按钮文本字体大小,如：1px
+   * @depAttrs {"size":["small"]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size-small: inherit;
+
+  /**
+   * @type input
+   * @desc 按钮文本字体大小,如：1px
+   * @depAttrs {"size":["normal",null]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size: inherit;
+
+  /**
+   * @type input
+   * @desc Medium按钮文本字体大小,如：1px
+   * @depAttrs {"size":["medium"]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size-medium: inherit;
+
+  /**
+   * @type input
+   * @desc Large按钮文本字体大小,如：1px
+   * @depAttrs {"size":["large"]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size-large: var(--font-size-large);
+
+  /**
+   * @type input
+   * @desc Huge按钮文本字体大小,如：1px
+   * @depAttrs {"size":["huge"]}
+   * @depStaticStyles ["font-size"]
+   */
+  --button-font-size-huge: var(--font-size-huge);
+
+  /**
+   * @type color
+   * @desc 主要按钮字体颜色,如：#223325
+   * @depAttrs {"color":["primary"]}
+   * @depStaticStyles ["color"]
+   */
+  --button-color-primary: white;
+
+  /**
+   * @type color
+   * @desc 次要按钮字体颜色,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   * @depStaticStyles ["color"]
+   */
+  --button-color-primary-secondary: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 默认按钮字体颜色,如：#223325
+   * @depAttrs {"color":["default",null]}
+   * @depStaticStyles ["color"]
+   */
+  --button-color: var(--font-second-color);
+
+  /**
+   * @type color
+   * @desc 危险按钮字体颜色,如：#223325
+   * @depAttrs {"color":["danger"]}
+   * @depStaticStyles ["color"]
+   */
+  --button-color-danger: white;
+
+  /**
+   * @type color
+   * @desc 次要危险按钮字体颜色,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   * @depStaticStyles ["color"]
+   */
+  --button-color-danger-secondary: var(--brand-error);
+
+  /**
+   * @type color
+   * @desc 主要按钮字体颜色（hover状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-color-primary-hover: var(--button-color-primary);
+
+  /**
+   * @type color
+   * @desc 次要按钮字体颜色（hover状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-color-primary-secondary-hover: var(--brand-primary-light);
+
+  /**
+   * @type color
+   * @desc 默认按钮字体颜色（hover状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-color-hover: var(--brand-primary);
+
+  /**
+   * @type color
+   * @desc 危险按钮字体颜色（hover状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-color-danger-hover: var(--button-color-danger);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮字体颜色（hover状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-color-danger-secondary-hover: var(--brand-error-light);
+
+  /**
+   * @type color
+   * @desc 主要按钮字体颜色（active状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-color-primary-active: var(--button-color-primary-hover);
+
+  /**
+   * @type color
+   * @desc 次要按钮字体颜色（active状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-color-primary-secondary-active: var(--button-color-primary-secondary-hover);
+
+  /**
+   * @type color
+   * @desc 默认按钮字体颜色（active状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-color-active: var(--button-color-hover);
+
+  /**
+   * @type color
+   * @desc 危险按钮字体颜色（active状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-color-danger-active: var(--button-color-danger-hover);
+
+  /**
+   * @type color
+   * @desc 次要危险按钮字体颜色（active状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-color-danger-secondary-active: var(--button-color-danger-secondary-hover);
+
+  /**
+   * @type color
+   * @desc 主要按钮字体颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-color-primary-disabled: white;
+
+  /**
+   * @type color
+   * @desc 次要按钮字体颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["primary_secondary"]}
+   */
+  --button-color-primary-secondary-disabled: var(--button-color-disabled);
+
+  /**
+   * @type color
+   * @desc 默认按钮字体颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-color-disabled: #999;
+
+  /**
+   * @type color
+   * @desc 危险按钮字体颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-color-danger-disabled: white;
+
+  /**
+   * @type color
+   * @desc 次要危险按钮字体颜色（禁用状态）,如：#223325
+   * @depAttrs {"color":["danger_secondary"]}
+   */
+  --button-color-danger-secondary-disabled: var(--button-color-disabled);
+
+  /**
+   * @type input
+   * @desc 按钮边框宽度,如：1px
+   * @depStaticStyles ["border-top-width","border-right-width","border-bottom-width","border-left-width"]
+   */
+  --button-border-width: var(--border-width-base);
+
+  /**
+   * @type input
+   * @desc 按钮边框圆角,如：1px
+   * @depStaticStyles ["border-top-left-radius","border-top-right-radius","border-bottom-left-radius","border-bottom-right-radius"]
+   */
+  --button-border-radius: var(--border-radius-medium);
+
+  /**
+   * @type color
+   * @desc 按钮边框阴影背景颜色（选中状态）,如：#223325
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-box-shadow-focus-color: var(--brand-primary-opacity-20);
+
+  /**
+   * @type color
+   * @desc 主要按钮边框阴影背景颜色（选中状态）,如：#223325
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-box-shadow-focus-primary-color: var(--brand-primary-opacity-20)  ;
+
+  /**
+   * @type color
+   * @desc 危险按钮边框阴影背景颜色（选中状态）,如：#223325
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-box-shadow-focus-danger-color: var(--brand-danger-opacity-20);
+
+  /**
+   * @type input
+   * @desc 按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+   * @depAttrs {"color":["default",null]}
+   */
+  --button-box-shadow-focus: 0 0 0 2px var(--button-box-shadow-focus-color);
+
+  /**
+   * @type input
+   * @desc 主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+   * @depAttrs {"color":["primary"]}
+   */
+  --button-box-shadow-focus-primary: 0 0 0 2px var(--brand-primary-opacity-20);
+
+  /**
+   * @type input
+   * @desc 危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+   * @depAttrs {"color":["danger"]}
+   */
+  --button-box-shadow-focus-danger: 0 0 0 2px var(--brand-danger-opacity-20);
+
+}

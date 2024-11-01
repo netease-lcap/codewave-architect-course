@@ -1,0 +1,44 @@
+{
+  "id": "1281272",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6196900",
+      "name": "删除",
+      "font_class": "delete",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "5943390",
+      "name": "编辑",
+      "font_class": "edit",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "11992170",
+      "name": "angular",
+      "font_class": "angular",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "15188548",
+      "name": "react",
+      "font_class": "react",
+      "unicode": "e712",
+      "unicode_decimal": 59154
+    },
+    {
+      "icon_id": "27365352",
+      "name": "vuejs",
+      "font_class": "vuejs",
+      "unicode": "ec2c",
+      "unicode_decimal": 60460
+    }
+  ]
+}
