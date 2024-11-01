@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.codewave.hellolib</groupId>
+    <artifactId>helloLib</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <name>helloLib</name>
+
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.9.RELEASE</version><!--与当前制品应用默认版本统一-->
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <artifactId>nasl-metadata-collector</artifactId>
+            <groupId>com.netease.lowcode</groupId>
+            <version>0.10.1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.netease.lowcode</groupId>
+                <artifactId>nasl-metadata-maven-plugin</artifactId>
+                <version>1.4.3</version>
+                <configuration>
+                    <jarWithDependencies>false</jarWithDependencies>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>archive</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven - antrun - plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>show - progress - during - tests</id>
+                        <phase>test - compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="Testing in progress..." />
+                                <echo message="|" />
+                                <!-- 这里可以根据实际测试的步骤数量等情况，添加更多的模拟进度条元素 -->
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+</project>

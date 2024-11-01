@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile="nasl-metadata-collector-0.10.1.jar" -DgroupId="com.netease.lowcode" -DartifactId="nasl-metadata-collector" -Dversion="0.10.1" -Dpackaging="jar" -DgeneratePom=true
