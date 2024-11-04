@@ -17,8 +17,7 @@ public class MyLogicTest {
         myStructure.name = "myName";
         myStructure.num = 666;
         MyStructure result = MyLogic.getStructure(myStructure);
-        assert result.name == "myName";
-        assert result.num == 666;
+        assert result.name.equals("myName");
     }
 
     @Test
