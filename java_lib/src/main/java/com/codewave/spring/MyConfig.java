@@ -6,15 +6,19 @@ import org.springframework.context.annotation.Configuration;
 import com.netease.lowcode.core.annotation.NaslConfiguration;
 import com.netease.lowcode.core.EnvironmentType;
 
-import org.springframework.beans.factory.annotation.Value;
-
 @Configuration
 public class MyConfig {
 
+    /**
+     * 我的主机Host
+     */
     @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = "我的主机"))
     public String myHost;
 
-    @NaslConfiguration(systemScope = true, alias = "spring.redis.host")
-    public String redisHost;
+    /**
+     * MongoDB地址
+     */
+    @NaslConfiguration(systemScope = true, alias = "spring.mongo.host")
+    public String mongoHost;
 
 }

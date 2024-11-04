@@ -1,7 +1,5 @@
 package com.codewave.spring;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +16,8 @@ public class MyComponent {
     private String myHost;
 
 
-    @Value("${spring.redis.host}")
-    private  String redisHost;
+    @Value("${spring.mongo.host}")
+    private  String mongoHost;
 
     /**
      * 示例逻辑：相加
@@ -47,8 +45,8 @@ public class MyComponent {
      * @return
      */
     @NaslLogic
-    public String getMyRedisHost() {
-        return redisHost;
+    public String getMongoHost() {
+        return mongoHost;
     }
 
 }
