@@ -1,6 +1,6 @@
 package com.codewave.logic;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class MyLogicTest {
 
@@ -31,6 +31,7 @@ public class MyLogicTest {
         }
         // 如果没有捕获到异常，则测试失败
         throw new AssertionError("MyMessage");
+
     }
 
 }

@@ -2,11 +2,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.codewave.xiaranGroup</groupId>
-    <artifactId>testHelloArtfactLib</artifactId>
+    <groupId>com.codewave</groupId>
+    <artifactId>helloLib</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
-    <name>testJosephLib</name>
+    <name>helloLib</name>
 
     <url>http://maven.apache.org</url>
 
@@ -50,6 +50,12 @@
             <artifactId>byte-buddy-agent</artifactId>
             <version>1.14.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <build>
@@ -87,12 +93,11 @@
                                 <echo message="|" />
                                 <!-- 这里可以根据实际测试的步骤数量等情况，添加更多的模拟进度条元素 -->
                             </target>
+
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
-
         </plugins>
     </build>
 </project>

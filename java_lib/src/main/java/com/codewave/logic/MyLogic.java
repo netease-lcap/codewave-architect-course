@@ -8,7 +8,6 @@ import com.netease.lowcode.core.annotation.NaslLogic;
  */
 // @Component
 public class MyLogic {
-
     /**
      * 示例逻辑：相加
      * 
