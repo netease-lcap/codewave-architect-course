@@ -15,6 +15,11 @@ public class MyConfig {
     @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = "我的主机"))
     public String myHost;
 
+    @NaslConfiguration(defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "appSecret"),
+            @Environment(type = EnvironmentType.ONLINE, value = "appSecret")
+    })
+    public String appSecret;
     /**
      * MongoDB地址
      */
