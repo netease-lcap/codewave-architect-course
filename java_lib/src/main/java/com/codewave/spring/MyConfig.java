@@ -20,6 +20,7 @@ public class MyConfig {
             @Environment(type = EnvironmentType.ONLINE, value = "appSecret")
     })
     public String appSecret;
+
     /**
      * MongoDB地址
      */
