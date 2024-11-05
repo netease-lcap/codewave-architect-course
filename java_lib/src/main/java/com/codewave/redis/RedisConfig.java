@@ -24,6 +24,14 @@ public class RedisConfig {
     @NaslConfiguration(systemScope= true, alias="spring.redis.database")
     public String database;
 
+
+    /**
+     * redis 用户名
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.username")
+    public String username;
+
+
     /**
      * redis 密码
      */
