@@ -1,0 +1,564 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`u-sidebar.vue > Demo-分组 1`] = `
+<nav class="root" style="min-width: 56px; transition: width 200ms;">
+  <div class="root content" native="true">
+    <div class="wrap">
+      <div class="view">
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航一</span>
+            </div>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航二</span>
+            </div>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`u-sidebar.vue > Demo-分组 2`] = `
+<div>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content" native="true">
+      <div class="wrap">
+        <div class="view">
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航一
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航二
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`u-sidebar.vue > Demo-基本用法 1`] = `
+<nav class="root" style="min-width: 56px; transition: width 200ms;">
+  <div class="root content" native="true">
+    <div class="wrap">
+      <div class="view">
+        <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <span class="content">
+            <span class="root" vusion-slot-name-edit="text">导航一</span>
+          </span>
+        </a>
+        <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <span class="content">
+            <span class="root" vusion-slot-name-edit="text">导航二</span>
+          </span>
+        </a>
+        <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <span class="content">
+            <span class="root" vusion-slot-name-edit="text">导航三</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`u-sidebar.vue > Demo-基本用法 2`] = `
+<div>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content" native="true">
+      <div class="wrap">
+        <div class="view">
+          <a class="root normalRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="lcp-iconv singleicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-calendar" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span class="content">导航一</span>
+          </a>
+          <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="content">导航二</span>
+          </a>
+          <a class="root normalRoot" noicon="true" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="content">导航三</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`u-sidebar.vue > Demo-手风琴模式 1`] = `
+<nav class="root" style="min-width: 56px; transition: width 200ms;">
+  <div class="root content" native="true">
+    <div class="wrap">
+      <div class="view">
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航一</span>
+            </div>
+            <span class="expander"></span>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" style="display: none;" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航二</span>
+            </div>
+            <span class="expander"></span>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" style="display: none;" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航三</span>
+            </div>
+            <span class="expander"></span>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" style="display: none;" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`u-sidebar.vue > Demo-手风琴模式 2`] = `
+<div>
+  <nav class="root" style="min-width: 56px; transition: width 200ms; --sidebar-group-head-padding-left: 46px; --sidebar-item-padding-left: 46px;">
+    <div class="root content" native="true">
+      <div class="wrap">
+        <div class="view">
+          <div class="root normalRoot">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <span class="lcp-iconv singleicon">
+                <span class="iconwrap">
+                  <svg aria-hidden="true" class="iconsvg">
+                    <use xlink:href="#pc-calendar" />
+                  </svg>
+                </span>
+                <div class="icontext" vusion-slot-name="default">
+                </div>
+              </span>
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航一
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot hasIconPadding" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+                <div class="root normalRoot">
+                  <div class="head" data-group-nested-level="1" title="导航一">
+                    <span class="lcp-iconv singleicon">
+                      <span class="iconwrap">
+                        <svg aria-hidden="true" class="iconsvg">
+                          <use xlink:href="#pc-calendar" />
+                        </svg>
+                      </span>
+                      <div class="icontext" vusion-slot-name="default">
+                      </div>
+                    </span>
+                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航一
+                    </div>
+                    <span class="expander"></span>
+                    <span class="extra" vusion-slot-name="extra"></span>
+                  </div>
+                  <transition-stub>
+                    <div class="body" style="display: none;" vusion-slot-name="default">
+                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                        <span class="content">选项一</span>
+                      </a>
+                    </div>
+                  </transition-stub>
+                </div>
+                <div class="root normalRoot">
+                  <div class="head" data-group-nested-level="1" title="导航二">
+                    <span class="lcp-iconv singleicon">
+                      <span class="iconwrap">
+                        <svg aria-hidden="true" class="iconsvg">
+                          <use xlink:href="#pc-calendar" />
+                        </svg>
+                      </span>
+                      <div class="icontext" vusion-slot-name="default">
+                      </div>
+                    </span>
+                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航二
+                    </div>
+                    <span class="expander"></span>
+                    <span class="extra" vusion-slot-name="extra"></span>
+                  </div>
+                  <transition-stub>
+                    <div class="body" style="display: none;" vusion-slot-name="default">
+                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                        <span class="content">选项一</span>
+                      </a>
+                    </div>
+                  </transition-stub>
+                </div>
+                <div class="root normalRoot">
+                  <div class="head" data-group-nested-level="1" title="导航三">
+                    <span class="lcp-iconv singleicon">
+                      <span class="iconwrap">
+                        <svg aria-hidden="true" class="iconsvg">
+                          <use xlink:href="#pc-calendar" />
+                        </svg>
+                      </span>
+                      <div class="icontext" vusion-slot-name="default">
+                      </div>
+                    </span>
+                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航三
+                    </div>
+                    <span class="expander"></span>
+                    <span class="extra" vusion-slot-name="extra"></span>
+                  </div>
+                  <transition-stub>
+                    <div class="body" style="display: none;" vusion-slot-name="default">
+                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                        <span class="content">选项一</span>
+                      </a>
+                    </div>
+                  </transition-stub>
+                </div>
+                <a class="root normalRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="lcp-iconv singleicon">
+                    <span class="iconwrap">
+                      <svg aria-hidden="true" class="iconsvg">
+                        <use xlink:href="#pc-calendar" />
+                      </svg>
+                    </span>
+                    <div class="icontext" vusion-slot-name="default">
+                    </div>
+                  </span>
+                  <span class="content">导航一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <span class="lcp-iconv singleicon">
+                <span class="iconwrap">
+                  <svg aria-hidden="true" class="iconsvg">
+                    <use xlink:href="#pc-calendar" />
+                  </svg>
+                </span>
+                <div class="icontext" vusion-slot-name="default">
+                </div>
+              </span>
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航二
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot">
+            <div class="head" data-group-nested-level="0" title="导航三">
+              <span class="lcp-iconv singleicon">
+                <span class="iconwrap">
+                  <svg aria-hidden="true" class="iconsvg">
+                    <use xlink:href="#pc-calendar" />
+                  </svg>
+                </span>
+                <div class="icontext" vusion-slot-name="default">
+                </div>
+              </span>
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航三
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot">
+            <div class="head" data-group-nested-level="0" title="导航三">
+              <span class="lcp-iconv singleicon">
+                <span class="iconwrap">
+                  <svg aria-hidden="true" class="iconsvg">
+                    <use xlink:href="#pc-calendar" />
+                  </svg>
+                </span>
+                <div class="icontext" vusion-slot-name="default">
+                </div>
+              </span>
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="lcp-iconv">
+                  <span class="iconwrap">
+                    <svg aria-hidden="true" class="iconsvg">
+                      <use xlink:href="#pc-calendar" />
+                    </svg>
+                  </span>
+                  <div class="icontext" vusion-slot-name="default">
+                  </div>
+                </span>
+                <span class="root" vusion-slot-name-edit="text">选项二</span>
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <a class="root normalRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="lcp-iconv singleicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-calendar" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span class="content">导航一</span>
+          </a>
+          <a class="root normalRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="lcp-iconv singleicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-calendar" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span class="content">
+              <span class="lcp-iconv">
+                <span class="iconwrap">
+                  <svg aria-hidden="true" class="iconsvg">
+                    <use xlink:href="#pc-calendar" />
+                  </svg>
+                </span>
+                <div class="icontext" vusion-slot-name="default">
+                </div>
+              </span>
+              <span class="root" vusion-slot-name-edit="text">选项二</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="resizer"></div>
+    <div class="bottom" expanded="true">
+      <div class="expanderIcon" vusion-click-enabled>
+        <span class="lcp-iconv">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-fold" />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`u-sidebar.vue > Demo-折叠功能 1`] = `
+<nav class="root" style="min-width: 56px; transition: width 200ms;">
+  <div class="root content" native="true">
+    <div class="wrap">
+      <div class="view">
+        <div class="root normalRoot" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航一</span>
+            </div>
+            <span class="expander" expanded="true"></span>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+        <div class="root normalRoot" disabled="disabled" noicon="true">
+          <div class="head" data-group-nested-level="0">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">导航二</span>
+            </div>
+            <span class="expander" expanded="true"></span>
+            <span class="extra" vusion-slot-name="extra"></span>
+          </div>
+          <transition-stub>
+            <div class="body" vusion-slot-name="default">
+              <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                <span class="content">
+                  <span class="root" vusion-slot-name-edit="text">选项一</span>
+                </span>
+              </a>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`u-sidebar.vue > Demo-折叠功能 2`] = `
+<div>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content" native="true">
+      <div class="wrap">
+        <div class="view">
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航一
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+                <div class="root normalRoot" noicon="true">
+                  <div class="head" data-group-nested-level="1" title="导航二">
+                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航二
+                    </div>
+                    <span class="expander"></span>
+                    <span class="extra" vusion-slot-name="extra"></span>
+                  </div>
+                  <transition-stub>
+                    <div class="body" style="display: none;" vusion-slot-name="default">
+                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                        <span class="content">选项一</span>
+                      </a>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title"> 导航二
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span class="content">选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

@@ -1,0 +1,16 @@
+{
+  "files": [
+    "runtime/nasl.ui.json",
+    "runtime/nasl.ui.d.ts",
+    "runtime/index.js",
+    "runtime/index.css",
+    "runtime/theme.config.json",
+    "runtime/i18n.json"
+  ],
+  "env": {
+    "framework": "vue2",
+    "platform": "http://cunzhang.codewave.163.com",
+    "version": "1.0.0",
+    "type": "pc"
+  }
+}

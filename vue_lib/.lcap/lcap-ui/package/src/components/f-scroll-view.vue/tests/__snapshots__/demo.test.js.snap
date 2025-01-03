@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`f-scroll-view.vue > Demo-原生滚动条 1`] = `
+<div>
+  <div class="root" color="light" native="true" style="display: inline-block; height: 300px; width: 200px;">
+    <div class="wrap">
+      <div class="view">
+        <div style="display: inline-block; height: 600px; width: 400px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`f-scroll-view.vue > Demo-基本用法 1`] = `
+<div>
+  <div class="root" color="light" style="display: inline-block; height: 300px; width: 200px;">
+    <div class="wrap">
+      <div class="view">
+        <div style="display: inline-block; height: 600px; width: 400px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
