@@ -12,7 +12,7 @@ public class MyConfig {
     /**
      * 我的主机Host
      */
-    @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = "我的主机"))
+    @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = ""))
     public String myHost;
 
     @NaslConfiguration(defaultValue = {
