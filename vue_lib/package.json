@@ -42,7 +42,6 @@
     "@joskii/jflow-vue2-plugin": "^0.1.1",
     "@lcap/validator": "1.0.0",
     "@lcap/vue2-utils": "1.0.0",
-    "@popo-bridge/web": "^0.2.43",
     "@popperjs/core": "^2.10.2",
     "animate.css": "^4.1.1",
     "chinese-lunar-calendar": "^1.0.1",
