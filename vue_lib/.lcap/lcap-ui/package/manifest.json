@@ -1,0 +1,23 @@
+{
+  "nasl": [
+    "dist-theme/nasl.ui.json",
+    "dist-theme/nasl.ui.d.ts"
+  ],
+  "runtime": [
+    "dist-theme/index.js",
+    "dist-theme/index.css"
+  ],
+  "theme": [
+    "dist-theme/theme.config.json",
+    "dist-theme/theme/index.html"
+  ],
+  "package": [
+    "zip.tgz"
+  ],
+  "i18n": [
+    "dist-theme/i18n.json"
+  ],
+  "ide": [
+    "dist-theme/ide/index.js"
+  ]
+}
