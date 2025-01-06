@@ -1,5 +1,7 @@
 # Codewave服务端可扩展开发
 
+
+
 ## 开发环境
 - 运行时： openjdk 1.8
 - 构建工具： Maven 3.9
@@ -16,3 +18,6 @@ mvn test
 mvn package
 
 ```
+
+## Redis测试环境
+可以在 https://cloud.redis.io/ 注册免费版本的Redis服务。
