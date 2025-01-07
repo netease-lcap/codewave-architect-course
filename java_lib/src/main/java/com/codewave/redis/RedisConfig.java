@@ -11,13 +11,19 @@ public class RedisConfig {
     /**
      * redis 地址
      */
-    @NaslConfiguration(systemScope= true, alias="spring.redis.host")
+    @NaslConfiguration(systemScope= true, alias="spring.redis.host",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "127.0.0.1"),
+            @Environment(type = EnvironmentType.ONLINE, value = "127.0.0.1")
+    })
     public String redisHost;
 
     /**
      * redis 端口
      */
-    @NaslConfiguration(systemScope= true, alias="spring.redis.port")
+    @NaslConfiguration(systemScope= true, alias="spring.redis.port",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "6379"),
+            @Environment(type = EnvironmentType.ONLINE, value = "6379")
+    })
     public String redisPort;
 
     /**
@@ -32,7 +38,10 @@ public class RedisConfig {
     /**
      * redis 密码
      */
-    @NaslConfiguration(systemScope= true, alias="spring.redis.password")
+    @NaslConfiguration(systemScope= true, alias="spring.redis.password",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "111111"),
+            @Environment(type = EnvironmentType.ONLINE, value = "111111")
+    })
     public String password;
 
 

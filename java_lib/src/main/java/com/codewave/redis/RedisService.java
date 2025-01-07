@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisService {
 
     @Autowired
-    @Lazy // 延迟加载 如果不使用此依赖库时可以不配置redis连接参数
+//    @Lazy // 延迟加载 如果不使用此依赖库时可以不配置redis连接参数
     public RedisTemplate<String, String> redisTemplate;
 
     public RedisService(RedisTemplate<String, String> redisTemplate) {
