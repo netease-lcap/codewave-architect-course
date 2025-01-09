@@ -4,7 +4,7 @@
 
     <groupId>com.netease.lowcode</groupId>
     <artifactId>nasl-metadata-maven-plugin</artifactId>
-    <version>1.4.3</version>
+    <version>1.5.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>Nasl Metadata Maven Plugin</name>

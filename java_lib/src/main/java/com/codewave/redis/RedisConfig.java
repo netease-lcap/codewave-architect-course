@@ -27,22 +27,22 @@ public class RedisConfig {
     public String redisPort;
 
     /**
-     * redis 数据库
-     */
-    @NaslConfiguration(systemScope= true, alias="spring.redis.database" ,defaultValue = {
-            @Environment(type = EnvironmentType.DEV, value = "0"),
-            @Environment(type = EnvironmentType.ONLINE, value = "0")
-    })
-    public String database;
-
-    /**
      * redis 密码
      */
     @NaslConfiguration(systemScope= true, alias="spring.redis.password",defaultValue = {
-            @Environment(type = EnvironmentType.DEV, value = "111111"),
-            @Environment(type = EnvironmentType.ONLINE, value = "111111")
+            @Environment(type = EnvironmentType.DEV, value = ""),
+            @Environment(type = EnvironmentType.ONLINE, value = "")
     })
     public String password;
+
+//    /**
+//     * redis 数据库
+//     */
+//    @NaslConfiguration(systemScope= true, alias="spring.redis.database" ,defaultValue = {
+//            @Environment(type = EnvironmentType.DEV, value = "0"),
+//            @Environment(type = EnvironmentType.ONLINE, value = "0")
+//    })
+//    public Integer database;
 
 
 //    /**
