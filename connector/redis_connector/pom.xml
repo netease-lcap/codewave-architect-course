@@ -6,7 +6,7 @@
 
     <groupId>com.netease.cloud</groupId>
     <artifactId>RedisConnectorStudy</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.6</version>
     <description>测试连接器基本功能</description>
     <name>Redis连接器(学习版)</name>
 
@@ -35,6 +35,11 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>3.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
         </dependency>
     </dependencies>
 
