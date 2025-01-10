@@ -1,8 +1,7 @@
 package com.codewave.connector;
 
 import com.netease.lowcode.core.annotation.NaslConnector;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
@@ -13,7 +12,8 @@ import java.util.function.Function;
 @NaslConnector(connectorKind = "redisConnector")
 public class RedisConnector {
 
-    private static final Logger log = LoggerFactory.getLogger(RedisConnector.class);
+//    private static final Logger log = LoggerFactory.getLogger(RedisConnector.class);
+
 
     private Jedis jedis;
 
@@ -32,7 +32,7 @@ public class RedisConnector {
         jedis.auth(password);
         // 选择使用的数据库（这里选择第0个数据库，可按需更改）
 //        jedis.select(0);
-        return redisConnector;
+        return this;
     }
 
     /**
@@ -51,9 +51,37 @@ public class RedisConnector {
     }
 
 
+    /**
+     * 指定 key 的值为指定字符串
+     * @param key
+     * @param value
+     * @return
+     */
+    @NaslConnector.Logic
+    public String setValue(String key, String value ) {
+       return jedis.set(key, value);
+    }
+
+    /**
+     * 获取key对应的字符串值
+     * @param key
+     * @return
+     */
+    @NaslConnector.Logic
+    public String getValue(String key ) {
+        return jedis.get(key);
+    }
+
+
     @NaslConnector.Logic
     public Integer publish(String channel, String msg ) {
-        jedis.publish(channel,msg);
+//        log.debug("redis publish:" + msg);
+        try {
+            jedis.publish(channel,msg);
+        } catch (Exception e) {
+//            log.error("publish InterruptedException",e);
+            throw new RuntimeException(e);
+        }
         return 0;
     }
 
@@ -68,7 +96,7 @@ public class RedisConnector {
             public void onMessage(String channel, String message) {
 
                 String processedMessage = handleMsg.apply(message);
-                log.debug("处理后的消息: " + processedMessage);
+//                log.debug("处理后的消息: " + processedMessage);
             }
         };
 
@@ -83,11 +111,13 @@ public class RedisConnector {
     public static void main(String[] args) {
 
         // 验证联通性方法
-        test();
+//        test();
 
         // 异步测试 订阅发布
-        asyncTest();
+//        asyncTest();
 
+        // 同步测试 订阅发布
+        subscribe();
 
     }
 
@@ -100,13 +130,11 @@ public class RedisConnector {
                 "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
         );
 
-        log.debug("testConnection : "+ ret.toString());
+//        log.debug("testConnection : "+ ret.toString());
     }
 
 
     private static void asyncTest() {
-
-
         // 创建一个线程池，用于同时执行发布者和订阅者逻辑（这里使用固定大小为2的线程池，可根据需求调整）
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
@@ -156,11 +184,11 @@ public class RedisConnector {
 //        log.debug("testConnection : "+ ret.toString());
 
         Function<String, String> handleMsg = msg -> {
-            log.debug("handleMsg receive msg==> "+ msg);
+//            log.debug("handleMsg receive msg==> "+ msg);
             return "handleMsg retrun " ;
         };
 
-        log.debug("subscribe...");
+//        log.debug("subscribe...");
         connector.subscribe("test",handleMsg);
     }
 
@@ -176,7 +204,7 @@ public class RedisConnector {
         // 测试链接
 //        Boolean ret = connector.testConnection();
 //        log.debug("testConnection: "+ ret.toString());
-        log.debug("publish...abc");
+//        log.debug("publish...abc");
         // 订阅消息
         connector.publish("test","abc");
     }
