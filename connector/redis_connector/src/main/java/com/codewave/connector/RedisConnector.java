@@ -1,6 +1,7 @@
-package com.codewave.connector;
 
+package com.codewave.connector;
 import com.netease.lowcode.core.annotation.NaslConnector;
+<<<<<<< HEAD
 import io.lettuce.core.RedisFuture;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.sync.RedisCommands;
@@ -15,97 +16,171 @@ import io.lettuce.core.RedisClient;
 import io.lettuce.core.RedisURI;
 import io.lettuce.core.pubsub.api.reactive.RedisPubSubReactiveCommands;
 import io.lettuce.core.pubsub.api.sync.RedisPubSubCommands;
+=======
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
+import io.lettuce.core.api.StatefulRedisConnection;
+import io.lettuce.core.pubsub.RedisPubSubListener;
+import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.data.redis.connection.MessageListener;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+>>>>>>> redis-template
 
-@NaslConnector(connectorKind = "redisConnector")
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.util.function.Function;
+
+/**
+ * Redis 连接器，可连接第三方Redis服务并执行操作
+ */
+@NaslConnector(connectorKind = "redis_connector")
 public class RedisConnector {
 
-    private RedisClient client;
+    private static final Logger logger = LoggerFactory.getLogger(RedisConnector.class);
+
+    // RedisTemplate
+    private RedisTemplate<String, String> redisTemplate;
 
 
     /**
-     * 初始化Redis
-     * @param host 地址
-     * @param port 端口
-     * @param password 密码
+     * 初始化 Redis 连接
+     *
+     * @param host     redis地址
+     * @param port     redis端口
+     * @param password redis密码
+     * @param database redis数据库
      * @return
      */
     @NaslConnector.Creator
-    public RedisConnector initRedis(String host, Integer port, String password) {
-        RedisConnector connector = new RedisConnector();
-        // 创建RedisURI对象，设置连接信息
-        RedisURI redisURI = RedisURI.builder()
-                .withHost(host)
-                .withPort(port)
-                .withPassword(password.toCharArray())
-                .build();
-        // 创建Redis客户端
-        connector.client  = RedisClient.create(redisURI);
+    public RedisConnector initRedisTemplate(String host, Integer port, String password, Integer database) {
+        // 初始化 RedisConnector
+        RedisConnector redisTool = new RedisConnector();
+        // 初始化 RedisStandaloneConfiguration
+        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+        redisStandaloneConfiguration.setPort(port);
+        redisStandaloneConfiguration.setDatabase(database);
+        redisStandaloneConfiguration.setHostName(host);
+        redisStandaloneConfiguration.setPassword(password);
 
-        return connector;
+        // 初始化 LettuceConnectionFactory 作用：创建 Redis 连接
+        LettuceConnectionFactory redisConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration);
+        redisConnectionFactory.afterPropertiesSet();
+
+        // 初始化 RedisTemplate 作用：设置序列化器
+        RedisTemplate<String, String> _redisTemplate = new RedisTemplate<>();
+        _redisTemplate.setConnectionFactory(redisConnectionFactory);
+        _redisTemplate.setKeySerializer(new StringRedisSerializer());
+        _redisTemplate.setValueSerializer(new StringRedisSerializer());
+        _redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        _redisTemplate.setHashValueSerializer(new StringRedisSerializer());
+        _redisTemplate.afterPropertiesSet();
+        redisTemplate = _redisTemplate;
+        redisTool.redisTemplate = _redisTemplate;
+        return redisTool;
     }
 
     /**
-     * 测试链接
-     * @param host 地址
-     * @param port 端口
-     * @param password 密码
-     * @return true:成功，false:失败
+     * 测试链接是否可用，如果可用，则返回 true，否则返回 false
+     *
+     * @param host     redis地址
+     * @param port     redis端口
+     * @param password redis密码
+     * @param database redis数据库
+     * @return
      */
     @NaslConnector.Tester
-    public Boolean testConnection(String host, Integer port, String password) {
-        RedisURI redisURI = RedisURI.builder()
-                .withHost(host)
-                .withPort(port)
-                .withPassword(password.toCharArray())
-                .build();
-        // 创建Redis客户端
-        RedisClient redisClient = RedisClient.create(redisURI);
-
-        // 获取连接
-        StatefulRedisConnection<String, String> connection = redisClient.connect();
-
-        // 获取发布订阅相关的命令操作对象
-        RedisCommands<String, String> pubSubCommands = connection.sync();
-
-        return pubSubCommands.ping().equals("PONG");
+    public Boolean testConnection(String host, Integer port, String password, Integer database) {
+        // 初始化 RedisURI
+        RedisURI redisURI = RedisURI.Builder.redis(host, port).withPassword(password).withDatabase(database).withTimeout(Duration.of(3, ChronoUnit.SECONDS)).build();
+        // 初始化 RedisClient
+        RedisClient client = RedisClient.create(redisURI);
+        try (StatefulRedisConnection<String, String> connect = client.connect()) {
+            // 测试链接是否可用
+            String pong = connect.sync().ping();
+            logger.info("测试链接是否可用：{}", pong);
+            return "PONG".equals(pong);
+        } catch (Exception e) {
+            return false;
+        } finally {
+            // 连通性测试后关闭连接
+            client.shutdown();
+        }
     }
 
+    /**
+     * 关闭redis连接
+     */
+    public void close() throws Exception {
+        if (redisTemplate != null) {
+            // 获取连接工厂
+            RedisConnectionFactory connectionFactory = redisTemplate.getConnectionFactory();
+            if (connectionFactory != null) {
+                // 关闭连接
+                connectionFactory.getConnection().close();
+                if (connectionFactory instanceof DisposableBean) {
+                    try {
+                        // 关闭连接工厂， 连接工厂也需要关闭，要不然连接池不会回收
+                        ((DisposableBean) connectionFactory).destroy();
+                    } catch (Exception closeException) {
+                        throw closeException;
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * 指定 key 的值为指定字符串
+     *
      * @param key
      * @param value
      * @return
      */
     @NaslConnector.Logic
-    public String setValue(String key, String value ) {
-
-        // 获取连接
-        StatefulRedisConnection<String, String> connection = client.connect();
-
-        // 获取发布订阅相关的命令操作对象
-        RedisCommands<String, String> commands = connection.sync();
-       return commands.set(key, value);
+    public String setValue(final String key, final String value) {
+        redisTemplate.opsForValue().set(key, value);
+        return value;
     }
 
     /**
-     * 获取key对应的字符串值
+     * 删除指定的key
+     *
+     * @param key
+     */
+    @NaslConnector.Logic
+    public Boolean deleteKey(final String key) {
+        redisTemplate.delete(key);
+        return true;
+    }
+
+    /**
+     * 获取指定key的值
+     *
      * @param key
      * @return
      */
     @NaslConnector.Logic
-    public String getValue(String key ) {
-
-        // 获取连接
-        StatefulRedisConnection<String, String> connection = client.connect();
-
-        // 获取发布订阅相关的命令操作对象
-        RedisCommands<String, String> commands = connection.sync();
-        return commands.get(key);
+    public String getValue(final String key) {
+        return redisTemplate.opsForValue().get(key);
     }
 
-
+    /**
+     * 发布消息
+     *
+     * @param channel
+     * @param message
+     */
     @NaslConnector.Logic
+<<<<<<< HEAD
     public Long publish(String channel, String msg ) {
 
         // 获取连接
@@ -210,8 +285,58 @@ public class RedisConnector {
 //                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
 //        );
 //        System.out.println("test: " + ret.toString());
+=======
+    public void publish(String channel, String message) {
+        logger.info("向通道发布消息 {}: {}", channel, message);
+        RedisTemplate<String, String> template = new RedisTemplate<>();
+        template.setConnectionFactory(redisTemplate.getConnectionFactory());
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new StringRedisSerializer());
+        template.afterPropertiesSet();
+        template.convertAndSend(channel, message);
+    }
 
+    /**
+     * 订阅消息
+     *
+     * @param channel    订阅的频道
+     * @param handleMsg  消息处理函数
+     */
+    @NaslConnector.Trigger
+    public void subscribe(String channel, Function<String, String> handleMsg) {
+        logger.info("订阅通道: {}", channel);
 
+        // 获取连接工厂
+        RedisConnectionFactory connectionFactory = redisTemplate.getConnectionFactory();
+
+        // 创建订阅者监听器
+        MessageListener listener = (message, pattern) -> {
+            String channelStr = new String(message.getChannel(), StandardCharsets.UTF_8);
+            String msg = new String(message.getBody(), StandardCharsets.UTF_8);
+            logger.info("从通道接收消息 {}: {}", channelStr, msg);
+            handleMsg.apply(msg);
+        };
+
+        // 创建 Jedis 连接并订阅
+        connectionFactory.getConnection().subscribe(listener, channel.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public static void main(String[] args) {
+        // 初始化 RedisConnector
+        RedisConnector redisTool = new RedisConnector().initRedisTemplate("127.0.0.1", 6379, "abc1234", 0);
+
+        // 测试链接是否可用
+        Boolean testConnection = redisTool.testConnection("127.0.0.1", 6379, "abc1234", 0);
+        System.out.println("测试Redis连接，结果为： " + testConnection);
+>>>>>>> redis-template
+
+        // 订阅消息
+        redisTool.subscribe("test-channel", message -> {
+            System.out.println("收到的消息: " + message);
+            return message;
+        });
+
+<<<<<<< HEAD
         connector = connector.initRedis(
                host,port,password
         );
@@ -240,96 +365,16 @@ public class RedisConnector {
         Thread.sleep(20000);
 
 
+=======
+        // 发布消息
+        redisTool.publish("test-channel", "Hello, Redis!");
+>>>>>>> redis-template
 
+        // 为了保持主线程不退出，可以添加一个等待
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-
-//    public static void test() {
-//        RedisConnector connector = new RedisConnector();
-//        // 测试链接
-//        Boolean ret = connector.testConnection(
-//                "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com",
-//                12394,
-//                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
-//        );
-//
-//        log.debug("testConnection : "+ ret.toString());
-//    }
-//
-//
-//    private static void asyncTest() {
-//
-//
-//        // 创建一个线程池，用于同时执行发布者和订阅者逻辑（这里使用固定大小为2的线程池，可根据需求调整）
-//        ExecutorService executorService = Executors.newFixedThreadPool(2);
-//
-//        // 提交订阅者任务到线程池
-//        executorService.submit(() -> {
-//            subscribe();
-//        });
-//
-//        // 稍作延迟，确保订阅者先启动并准备好接收消息（这里简单延迟1秒，可按需调整）
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        // 提交发布者任务到线程池
-//        executorService.submit(() -> {
-//            publish();
-//        });
-//
-//        // 关闭线程池，等待发布和订阅任务执行完成（这里设置了等待超时时间为5秒，可按需调整）
-//        try {
-//            executorService.shutdown();
-//            if (!executorService.awaitTermination(5, java.util.concurrent.TimeUnit.SECONDS)) {
-//                System.err.println("发布和订阅任务执行超时");
-//                System.exit(0);
-//            }
-//        } catch (InterruptedException e) {
-//            System.err.println("线程池关闭被中断");
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//
-//
-//    private static void subscribe() {
-//        RedisConnector connector = new RedisConnector();
-//        connector.initRedis(
-//                "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com",
-//                12394,
-//                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
-//        );
-//
-//        // 测试链接
-////        Boolean ret = connector.testConnection();
-////        log.debug("testConnection : "+ ret.toString());
-//
-//        Function<String, String> handleMsg = msg -> {
-//            log.debug("handleMsg receive msg==> "+ msg);
-//            return "handleMsg retrun " ;
-//        };
-//
-//        log.debug("subscribe...");
-//        connector.subscribe("test",handleMsg);
-//    }
-//
-//
-//    private static void publish() {
-//        RedisConnector connector = new RedisConnector();
-//        connector.initRedis(
-//                "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com",
-//                12394,
-//                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
-//        );
-//
-//        // 测试链接
-////        Boolean ret = connector.testConnection();
-////        log.debug("testConnection: "+ ret.toString());
-//        log.debug("publish...abc");
-//        // 订阅消息
-//        connector.publish("test","abc");
-//    }
 }
