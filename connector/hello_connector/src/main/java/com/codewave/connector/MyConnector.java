@@ -30,15 +30,9 @@ public class MyConnector {
     }
 
     @NaslConnector.Trigger
-    public void subscribe(String topic, Function<String, String> handleMsg) {
+    public void subscribe(String topic, Function<String, String> handle) {
 
-        handleMsg.apply("msg");
-    }
-
-
-    @NaslConnector.Trigger
-    public void subscribe2(String tttt, Function<String, String> handleMsg) {
-        handleMsg.apply("msg");
+        handle.apply("msg");
     }
 
     public static void main(String[] args) {

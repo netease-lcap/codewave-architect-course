@@ -17,7 +17,6 @@ public class RedisConnector {
 
     private RedisClient client;
 
-
     /**
      * 初始化Redis
      * @param host 地址

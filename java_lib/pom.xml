@@ -5,7 +5,7 @@
     <groupId>com.codewave</groupId>
     <artifactId>helloLib</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.8</version>
+    <version>1.0.14</version>
     <name>helloLib</name>
 
     <url>http://maven.apache.org</url>
@@ -20,7 +20,7 @@
         <dependency>
             <artifactId>nasl-metadata-collector</artifactId>
             <groupId>com.netease.lowcode</groupId>
-            <version>0.10.1</version>
+            <version>0.12.0</version>
             <optional>true</optional>
         </dependency>
 
@@ -67,7 +67,7 @@
             <plugin>
                 <groupId>com.netease.lowcode</groupId>
                 <artifactId>nasl-metadata-maven-plugin</artifactId>
-                <version>1.4.3</version>
+                <version>1.5.1</version>
                 <configuration>
                     <jarWithDependencies>false</jarWithDependencies>
                 </configuration>
@@ -79,15 +79,14 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven - antrun - plugin</artifactId>
+                <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
                 <executions>
                     <execution>
                         <id>show - progress - during - tests</id>
-                        <phase>test - compile</phase>
+                        <phase>test-compile</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
