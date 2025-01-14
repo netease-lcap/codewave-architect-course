@@ -1,27 +1,9 @@
 
 package com.codewave.connector;
 import com.netease.lowcode.core.annotation.NaslConnector;
-<<<<<<< HEAD
-import io.lettuce.core.RedisFuture;
-import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
-import io.lettuce.core.pubsub.RedisPubSubAdapter;
-import io.lettuce.core.pubsub.RedisPubSubListener;
-import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
-import io.lettuce.core.pubsub.api.async.RedisPubSubAsyncCommands;
-
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
-import io.lettuce.core.RedisClient;
-import io.lettuce.core.RedisURI;
-import io.lettuce.core.pubsub.api.reactive.RedisPubSubReactiveCommands;
-import io.lettuce.core.pubsub.api.sync.RedisPubSubCommands;
-=======
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.RedisURI;
 import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.pubsub.RedisPubSubListener;
-import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -31,9 +13,6 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
->>>>>>> redis-template
-
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -49,7 +28,6 @@ public class RedisConnector {
 
     // RedisTemplate
     private RedisTemplate<String, String> redisTemplate;
-
 
     /**
      * 初始化 Redis 连接
@@ -180,112 +158,6 @@ public class RedisConnector {
      * @param message
      */
     @NaslConnector.Logic
-<<<<<<< HEAD
-    public Long publish(String channel, String msg ) {
-
-        // 获取连接
-        StatefulRedisConnection<String, String> connection = client.connect();
-
-        // 获取同步命令对象
-        RedisCommands<String, String> commands = connection.sync();
-
-        // 向指定频道发布消息
-        return commands.publish(channel, msg);
-    }
-
-        @NaslConnector.Trigger
-    public void subscribe(String channel, Function<String, String> handleMsg) throws InterruptedException {
-
-// 官方文档写法
-            StatefulRedisPubSubConnection<String, String> connection = client.connectPubSub();
-
-//            connection.addListener(new RedisPubSubAdapter<String, String>() {
-//                @Override
-//                public void message(String channel, String message) {
-//                    // 处理接收到的消息
-//                    System.out.println("Received message from channel " + channel + ": " + message);
-//                    // 处理消息的逻辑
-//                    String processedMessage = handleMsg.apply(message);
-//                    System.out.println("Processed message: " + processedMessage);
-//                }
-//            });
-
-            // 官方文档写法
-            RedisPubSubCommands<String, String> sync = connection.sync();
-            sync.getStatefulConnection().addListener(new RedisPubSubAdapter<String,String>() {
-                @Override
-                public void message(String channel, String message) {
-                    // 处理接收到的消息
-                    System.out.println("Received message from channel " + channel + ": " + message);
-                    // 处理消息的逻辑
-                    String processedMessage = handleMsg.apply(message);
-                    System.out.println("Processed message: " + processedMessage);
-                }
-            });
-            sync.subscribe(channel);
-
-// async链接
-//            RedisPubSubAsyncCommands<String, String> pubsubCmd = connection.async();
-//            pubsubCmd.psubscribe(channel);
-//            pubsubCmd.psubscribe("CH2");
-//            pubsubCmd.unsubscribe("CH");
-
-
-//            System.out.println("publish %s ");
-            // Reactive Redis
-//            StatefulRedisPubSubConnection<String, String> connection = client.connectPubSub();
-//            RedisPubSubReactiveCommands<String, String> reactive = connection.reactive();
-//            reactive.subscribe(channel).subscribe();
-//            reactive.observeChannels().doOnNext(patternMessage -> {
-//                System.out.println("Received message from channel " + patternMessage.getChannel() + ": " + patternMessage.getMessage());
-//            }).subscribe();
-    }
-
-
-//
-//
-//
-//    @NaslConnector.Trigger
-//    public void subscribe(String channel, Function<String, String> handleMsg) {
-//        // 自定义JedisPubSub的子类，用于处理订阅相关逻辑
-//        JedisPubSub pubSub = new JedisPubSub() {
-//            // 重写onMessage方法，当接收到消息时调用Function接口的方法来处理消息
-//            @Override
-//            public void onMessage(String channel, String message) {
-//
-//                String processedMessage = handleMsg.apply(message);
-//                log.debug("处理后的消息: " + processedMessage);
-//            }
-//        };
-//
-//        // 开始订阅频道
-//        jedis.subscribe(pubSub, channel);
-//        jedis.close();
-//
-//    }
-
-
-
-    public static void main(String[] args) throws InterruptedException {
-        // 远程地址
-//        String host = "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com";
-//        int port = 12394;
-//        String password = "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw";
-
-        String host = "localhost";
-        int port = 6379;
-        String password = "abc1234";
-
-
-        RedisConnector connector = new RedisConnector();
-        // 测试链接
-//        Boolean ret = connector.testConnection(
-//                "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com",
-//                12394,
-//                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
-//        );
-//        System.out.println("test: " + ret.toString());
-=======
     public void publish(String channel, String message) {
         logger.info("向通道发布消息 {}: {}", channel, message);
         RedisTemplate<String, String> template = new RedisTemplate<>();
@@ -328,7 +200,6 @@ public class RedisConnector {
         // 测试链接是否可用
         Boolean testConnection = redisTool.testConnection("127.0.0.1", 6379, "abc1234", 0);
         System.out.println("测试Redis连接，结果为： " + testConnection);
->>>>>>> redis-template
 
         // 订阅消息
         redisTool.subscribe("test-channel", message -> {
@@ -336,39 +207,8 @@ public class RedisConnector {
             return message;
         });
 
-<<<<<<< HEAD
-        connector = connector.initRedis(
-               host,port,password
-        );
-
-//        String ret2 = connector.setValue("fff","123");
-//        System.out.println("setValue:..: "+ ret2 );
-//
-//        String ret3 = connector.getValue("abc");
-//        System.out.println("getValue:..: "+ ret3 );
-
-        connector.subscribe("tset", msg -> {
-            System.out.println("handleMsg receive msg==> "+ msg);
-            return "handleMsg retrun " ;
-        });
-        System.out.println("subscribe...test");
-
-//        RedisConnector connector2 = new RedisConnector();
-//        connector2 = connector2.initRedis(
-//                host,port,password
-//        );
-//        Thread.sleep(4000);
-//        connector2.publish("test","dddd");
-//        System.out.println("publish...ccc");
-
-        // 为了演示，让程序运行一段时间
-        Thread.sleep(20000);
-
-
-=======
         // 发布消息
         redisTool.publish("test-channel", "Hello, Redis!");
->>>>>>> redis-template
 
         // 为了保持主线程不退出，可以添加一个等待
         try {
