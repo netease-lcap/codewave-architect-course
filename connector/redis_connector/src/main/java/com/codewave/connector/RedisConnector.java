@@ -216,11 +216,11 @@ public class RedisConnector {
                host,port,password
         );
 
-        String ret2 = connector.setValue("fff","123");
-        System.out.println("setValue:..: "+ ret2 );
-
-        String ret3 = connector.getValue("abc");
-        System.out.println("getValue:..: "+ ret3 );
+//        String ret2 = connector.setValue("fff","123");
+//        System.out.println("setValue:..: "+ ret2 );
+//
+//        String ret3 = connector.getValue("abc");
+//        System.out.println("getValue:..: "+ ret3 );
 
         connector.subscribe("tset", msg -> {
             System.out.println("handleMsg receive msg==> "+ msg);
@@ -233,8 +233,8 @@ public class RedisConnector {
 //                host,port,password
 //        );
 //        Thread.sleep(4000);
-//        connector2.publish("test","abc");
-//        System.out.println("publish...abc");
+//        connector2.publish("test","dddd");
+//        System.out.println("publish...ccc");
 
         // 为了演示，让程序运行一段时间
         Thread.sleep(20000);
