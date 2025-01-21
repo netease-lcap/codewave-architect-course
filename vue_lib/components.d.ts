@@ -10,6 +10,7 @@ declare module 'vue' {
     AtWho: typeof import('./src/components/at-who/index.vue')['default']
     ElMenu: typeof import('element-ui/lib/menu')['default']
     ElMenuItem: typeof import('element-ui/lib/menu-item')['default']
+    ElMenuItemGroup: typeof import('element-ui/lib/menu-item-group')['default']
     ElSubmenu: typeof import('element-ui/lib/submenu')['default']
     Example1: typeof import('./src/components/my-menu/demo/examples/Example1.vue')['default']
     MyContainer: typeof import('./src/components/my-container/index.vue')['default']
