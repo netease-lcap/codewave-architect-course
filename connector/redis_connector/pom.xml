@@ -6,7 +6,7 @@
 
     <groupId>com.netease.cloud</groupId>
     <artifactId>RedisConnectorStudy</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <description>测试连接器基本功能</description>
     <name>Redis连接器(学习版)</name>
 

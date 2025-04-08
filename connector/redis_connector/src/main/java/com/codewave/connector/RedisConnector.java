@@ -155,17 +155,18 @@ public class RedisConnector {
      * 发布消息
      *
      * @param channel
-     * @param message
+     * @param msg
      */
     @NaslConnector.Logic
-    public void publish(String channel, String message) {
-        logger.info("向通道发布消息 {}: {}", channel, message);
+    public String publish(String channel, String msg) {
+        logger.info("向通道发布消息 {}: {}", channel, msg);
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(redisTemplate.getConnectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new StringRedisSerializer());
         template.afterPropertiesSet();
-        template.convertAndSend(channel, message);
+        template.convertAndSend(channel, msg);
+        return  "";
     }
 
     /**
@@ -175,7 +176,7 @@ public class RedisConnector {
      * @param handleMsg  消息处理函数
      */
     @NaslConnector.Trigger
-    public void subscribe(String channel, Function<String, String> handleMsg) {
+    public String subscribe(String channel, Function<String, String> handleMsg) {
         logger.info("订阅通道: {}", channel);
 
         // 获取连接工厂
@@ -191,9 +192,14 @@ public class RedisConnector {
 
         // 创建 Jedis 连接并订阅
         connectionFactory.getConnection().subscribe(listener, channel.getBytes(StandardCharsets.UTF_8));
+        return "订阅成功";
     }
 
     public static void main(String[] args) {
+//                "redis-12394.c14.us-east-1-2.ec2.redns.redis-cloud.com",
+//                12394,
+//                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
+
         // 初始化 RedisConnector
         RedisConnector redisTool = new RedisConnector().initRedisTemplate("127.0.0.1", 6379, "abc1234", 0);
 
