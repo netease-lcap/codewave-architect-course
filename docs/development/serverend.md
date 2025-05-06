@@ -1,36 +1,209 @@
-# 服务端扩展
-
 ## 一、使用场景
-
+1.  用户需要调用第三方库pinyin4j实现汉字与拼音的转换
+2. 用户需要调用redisTemplate(Spring模版)实现redis接入，连接参数要求可以在平台参数配置
 
 
 ## 二、概念原理
 
-### 1、 依赖库与Jar的关系
 
-### 2、元数据的作用
+
+在 Java 项目里，为提升研发效率，常常会引入第三方依赖库。以汉字转拼音功能为例，只需引入一个拼音相关的第三方依赖库，就能轻松实现这一操作。
+​            ![img](assets/93f9c8fcd042423bbba42f2b2c1a5920.png)   
+CodeWave 编写的项目的服务会端编译成 Java 程序，所以也能实现通过第三方依赖库的实现逻辑扩展。区别在于需要添加元数据定义来精准描述 API 定义。
+
+元数据的作用主要是为了描述API接口信息，比如方法名称、作用、参数类型等。低代码平台会根据元数据将API图形化的形式显示在编辑器中。
+
+
+![image-20250506162035734](assets/image-20250506162035734.png)
+
+在依赖库开发过程中，可以借助专用的Maven插件生成。
+
+比如，若要引入 `Pinyin4j.jar` 这个依赖库，可按以下步骤操作。
+
+1. 创建一个方法，该方法的作用是封装 `Pinyin4j.jar 中的 API；
+2. 使用的注解、 JavaDoc 来标注接口信息，
+
+3. 使用 Maven 进行编译，在编译过程中元数据插件会将注解和 JavaDoc 转换为元数据（ JSON形式 ）；
+
+4. 将元数据与编译后的字节码文件打包成扩展依赖库，（zip 格式）。
+5. 将依赖库上传至CodeWave资产中心；
+6. 在需要时只需要引入应用就可以在【调用逻辑】中找到并调用了。
+
+
+
+代码实例如下：
+
+```java
+public class PinyinConverter {
+
+    /**
+     * 将汉字转换为拼音（全拼，小写，不带声调）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音字符串
+     */
+    @NaslLogic
+    public static String toPinyin(String chineseCharacters) {
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder pinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        pinyin.append(pinyinArray[0]);
+                    }
+                } else {
+                    pinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return pinyin.toString();
+    }
+}
+
+```
+
+
+
+
+
+​            ![img](assets/14d2ddd6191447cbaeed9a30c3d6455e.png)        
+
+
+
+​            ![img](assets/d44368e5fe58422889256c8d3f36b45a.png)
 
 
 
 ## 三、案例展示
 
-### 1、第三方Jar封装
 
-Pinyin依赖库
 
-### 2、自定义参数配置
+### 1、Java静态方法型（第三方Jar封装）
 
-​	Redis连接器
+第三方的API封装是最常见的一种应用场景。也就是说将API封装为服务端逻辑。
 
-### 3、自定义Filter
+由于服务端逻辑本身是一个无状态的静态函数，所以自定义的逻辑也应该编写成java静态方法。
+
+需要加入@NaslLogic注解表示需要导出为扩展逻辑方法。
+
+使用JavaDoc对方法作用与参数进行描述，这些描述会直接转化为元数据。
+
+```java
+public class PinyinConverter {
+
+    /**
+     * 将汉字转换为拼音（全拼，小写，不带声调）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音字符串
+     */
+    @NaslLogic
+    public static String toPinyin(String chineseCharacters) {
+        // 代码实现
+    }
+}
+
+```
+
+
+
+完整代码示例： 
+
+https://github.com/netease-lcap/codewave-architect-course/tree/main/example/java_lib/src/main/java/com/codewave/pinyin
+
+
+
+### 2、Component组件型 - Redis库
+
+在封装redis库的时候并不能适用java静态方法类型原因有两点：
+
+1. 希望通过注入 redisTemplate 实现，静态方法无法实现依赖注入；
+2. 希望实现自定义配置，平台中的自定义配置是通过spring配置类实现的，也无法在静态方法中读取。
+
+所以就需要采用Component组件形式进行封装。
+
+```java
+@Component
+public class RedisService {
+
+    @Autowired
+    @Lazy // 延迟加载 如果不使用此依赖库时可以不配置redis连接参数
+    public RedisTemplate<String, String> redisTemplate;
+
+    public RedisService(RedisTemplate<String, String> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+    /**
+     * 设置 Redis 中指定 key 的值为指定字符串
+     *
+     * @param key   Redis 中的键
+     * @param value Redis 中的值
+     */
+    @NaslLogic
+    public String getValue(String key) {
+        return redisTemplate.opsForValue().get(key);
+    }
+}
+
+```
+
+
+
+在实例化RedisTemplate时会需要注入系统配置，可以通过如下方式定义，
+
+```java
+@Configuration
+public class RedisConfig {
+
+    /**
+     * redis 地址
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.host",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "127.0.0.1"),
+            @Environment(type = EnvironmentType.ONLINE, value = "127.0.0.1")
+    })
+    public String redisHost;
+
+    /**
+     * redis 端口
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.port",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "6379"),
+            @Environment(type = EnvironmentType.ONLINE, value = "6379")
+    })
+    public String redisPort;
+
+    /**
+     * redis 密码
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.password",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = ""),
+            @Environment(type = EnvironmentType.ONLINE, value = "")
+    })
+    public String password;
+}
+```
+
+
+
+### 3、Filter组件型 
 
 ​	安全校验
 
-### 4、自定义Controller
+### 4、Controller组件型
 
 ​	大文件文件上传、Restful接口
 
-### 5、AOP切面
+### 5、AOP切面型
 
 ​	数据库脱敏、接口日志
 
@@ -42,13 +215,13 @@ Pinyin依赖库
 
 ​	并行处理、运行时定时任务、调用低代码逻辑
 
-### 8、连接器
 
-​	Redis连接器
 
-### 9、连接器(订阅发布模式)	
+### 8、 逻辑复写型
 
-​	Redis连接器
+
+
+
 
 
 
