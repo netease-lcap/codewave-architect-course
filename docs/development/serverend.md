@@ -172,7 +172,7 @@ chmod +x install.sh
 
 ##### 2.1.2、  创建项目（脚手架方式）
 
-![img](/Users/josephxia/codewave/codewave-architect-course/docs/development/assets/wps1.jpg) 
+![img](assets/wps1.jpg) 
 
 创建依赖库初始工程：https://libraryinitializr-community1.app.codewave.163.com/init
 
@@ -180,7 +180,7 @@ chmod +x install.sh
 
 ##### 2.1.3、创建扩展逻辑
 
-![img](file:////Users/josephxia/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-josephxia/ksohtml//wps2.jpg) 
+![img](assets/wps2.jpg) 
 
 
 
