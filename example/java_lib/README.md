@@ -14,10 +14,10 @@
 ./install.sh
 
 # 运行测试用例
-mvn test
+mvn clean test
 
 # 依赖库打包
-mvn package
+mvn clean package
 
 ```
 

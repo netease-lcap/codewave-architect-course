@@ -29,7 +29,7 @@ public class MyLogicTest {
             return;
         }
         // 如果没有捕获到异常，则测试失败
-        throw new AssertionError("MyMessage");
+        throw new AssertionError("testThrowMyException  Error");
 
     }
 
