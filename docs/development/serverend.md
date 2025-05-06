@@ -1,58 +1,58 @@
 # 服务端扩展
 
-## 一、使用场景
+## 使用场景
 
 
 
-## 二、概念原理
+## 概念原理
 
-### 1、 依赖库与Jar的关系
+### 依赖库与Jar的关系
 
-### 2、元数据的作用
+### 元数据的作用
 
 
 
-## 三、案例展示
+## 案例展示
 
-### 1、第三方Jar封装
+### 第三方Jar封装
 
 Pinyin依赖库
 
-### 2、自定义参数配置
+### 自定义参数配置
 
 ​	Redis连接器
 
-### 3、自定义Filter
+### 自定义Filter
 
 ​	安全校验
 
-### 4、自定义Controller
+### 自定义Controller
 
 ​	大文件文件上传、Restful接口
 
-### 5、AOP切面
+### AOP切面
 
 ​	数据库脱敏、接口日志
 
-### 6、上下文调整
+### 上下文调整
 
 ​	自定义应用配置
 
-### 7、高阶函数
+### 高阶函数
 
 ​	并行处理、运行时定时任务、调用低代码逻辑
 
-### 8、连接器
+### 连接器
 
 ​	Redis连接器
 
-### 9、连接器(订阅发布模式)	
+### 连接器(订阅发布模式)	
 
 ​	Redis连接器
 
 
 
-## 四、服务端扩展的本质	
+## 服务端扩展的本质	
 
 
 
@@ -64,9 +64,9 @@ Pinyin依赖库
 
 
 
-## 五、实操演示
+## 实操演示
 
-### 1、 开发环境（JDK + Maven + Idea）
+### 开发环境（JDK + Maven + Idea）
 
 Codewave版本： 3.11
 
@@ -82,11 +82,11 @@ Codewave版本： 3.11
 
  
 
-### 2、依赖库开发
+### 依赖库开发
 
-#### 2.1、Java型逻辑（Java静态方法）
+#### Java型逻辑（Java静态方法）
 
-##### 2.1.1、创建项目（maven archetype方式）
+##### 创建项目（maven archetype方式）
 
 利用Maven项目模版功能创建项目
 
@@ -170,7 +170,7 @@ chmod +x install.sh
 </build>
 ```
 
-##### 2.1.2、  创建项目（脚手架方式）
+##### 创建项目（脚手架方式）
 
 ![img](assets/wps1.jpg) 
 
@@ -178,9 +178,9 @@ chmod +x install.sh
 
  
 
-##### 2.1.3、创建扩展逻辑
+##### 创建扩展逻辑
 
-![img](assets/wps2.jpg) 
+![img](/Users/josephxia/codewave/codewave-architect-course/docs/development/assets/wps2.jpg) 
 
 
 
@@ -219,7 +219,7 @@ public class App {
 
  
 
-##### 2.1.4、单元测试
+##### 单元测试
 
 添加测试用例pom.xml
 
