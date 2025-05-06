@@ -22,36 +22,36 @@ module.exports = {
                     text: '部署集成',
                     link: '/development',
                     items: [
-                        { text: '源码导出', link: '/introduction' },
-                        { text: '翻译器定制', link: '/getting - started' },
-                        { text: '日志监控', link: '/getting - started' },
+                        { text: '源码导出', link: '/development/index' },
+                        { text: '翻译器定制', link: '/development/index' },
+                        { text: '日志监控', link: '/development/index' },
                     ]
                 },
                 {
                     text: '应用架构',
-                    link: '/development',
+                    link: '/architecture',
                     items: [
-                        { text: '微前端', link: '/introduction' },
-                        { text: '微服务', link: '/getting - started' },
-                        { text: '认证授权', link: '/getting - started' },
-                        { text: '分布式事务', link: '/getting - started' }
+                        { text: '微前端', link: '/architecture' },
+                        { text: '微服务', link: '/architecture' },
+                        { text: '认证授权', link: '/architecture' },
+                        { text: '分布式事务', link: '/architecture' }
                     ]
                 },
                 {
                     text: '平台定制',
-                    link: '/development',
+                    link: '/platform',
                     items: [
-                        { text: '管控面定制', link: '/introduction' },
-                        { text: 'IDE定制', link: '/getting - started' }
+                        { text: '管控面定制', link: '/platform' },
+                        { text: 'IDE定制', link: '/platform' }
                     ]
                 },
                 {
                     text: '安全强化',
-                    link: '/',
+                    link: '/security',
                 },
                 {
                     text: '性能优化',
-                    link: '/',
+                    link: '/performance',
                 },
             ]
     }
