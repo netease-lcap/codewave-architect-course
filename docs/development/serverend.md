@@ -1,58 +1,59 @@
 # 服务端扩展
 
-## 使用场景
+## 一、使用场景
 
 
 
-## 概念原理
+## 二、概念原理
 
-### 依赖库与Jar的关系
+### 1、 依赖库与Jar的关系
+#### 1.1 xxx
 
-### 元数据的作用
+### 2、元数据的作用
 
 
 
-## 案例展示
+## 三、案例展示
 
-### 第三方Jar封装
+### 1、第三方Jar封装
 
 Pinyin依赖库
 
-### 自定义参数配置
+### 2、自定义参数配置
 
 ​	Redis连接器
 
-### 自定义Filter
+### 3、自定义Filter
 
 ​	安全校验
 
-### 自定义Controller
+### 4、自定义Controller
 
 ​	大文件文件上传、Restful接口
 
-### AOP切面
+### 5、AOP切面
 
 ​	数据库脱敏、接口日志
 
-### 上下文调整
+### 6、上下文调整
 
 ​	自定义应用配置
 
-### 高阶函数
+### 7、高阶函数
 
 ​	并行处理、运行时定时任务、调用低代码逻辑
 
-### 连接器
+### 8、连接器
 
 ​	Redis连接器
 
-### 连接器(订阅发布模式)	
+### 9、连接器(订阅发布模式)	
 
 ​	Redis连接器
 
 
 
-## 服务端扩展的本质	
+## 四、服务端扩展的本质	
 
 
 
@@ -64,9 +65,9 @@ Pinyin依赖库
 
 
 
-## 实操演示
+## 五、实操演示
 
-### 开发环境（JDK + Maven + Idea）
+### 1、 开发环境（JDK + Maven + Idea）
 
 Codewave版本： 3.11
 
@@ -82,11 +83,11 @@ Codewave版本： 3.11
 
  
 
-### 依赖库开发
+### 2、依赖库开发
 
-#### Java型逻辑（Java静态方法）
+#### 2.1、Java型逻辑（Java静态方法）
 
-##### 创建项目（maven archetype方式）
+##### 2.1.1、创建项目（maven archetype方式）
 
 利用Maven项目模版功能创建项目
 
@@ -170,17 +171,17 @@ chmod +x install.sh
 </build>
 ```
 
-##### 创建项目（脚手架方式）
+##### 2.1.2、  创建项目（脚手架方式）
 
-![img](assets/wps1.jpg) 
+![img](/Users/josephxia/codewave/codewave-architect-course/docs/development/assets/wps1.jpg) 
 
 创建依赖库初始工程：https://libraryinitializr-community1.app.codewave.163.com/init
 
  
 
-##### 创建扩展逻辑
+##### 2.1.3、创建扩展逻辑
 
-![img](/Users/josephxia/codewave/codewave-architect-course/docs/development/assets/wps2.jpg) 
+![img](file:////Users/josephxia/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-josephxia/ksohtml//wps2.jpg) 
 
 
 
@@ -219,7 +220,7 @@ public class App {
 
  
 
-##### 单元测试
+##### 2.1.4、单元测试
 
 添加测试用例pom.xml
 
