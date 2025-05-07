@@ -25,10 +25,19 @@ jobs:
         run: npm run build
 
       - name: Deploy to server
-        uses: appleboy/scp-action@master
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
-          host: 111.124.197.134
           username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "docs/.vitepress/dist" # VitePress 构建结果的目录
-          target: "/root" # 服务器上的目标目录
+          server: 111.124.197.134
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          local_path: "docs/.vitepress/dist"
+          remote_path: "/root"
+
+      # - name: Deploy to server
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: 111.124.197.134
+      #     username: root
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     source: "docs/.vitepress/dist" # VitePress 构建结果的目录
+      #     target: "/root" # 服务器上的目标目录
