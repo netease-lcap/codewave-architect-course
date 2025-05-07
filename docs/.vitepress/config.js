@@ -4,6 +4,7 @@ module.exports = {
     title: 'CodeWave架构师课程',
     description: '',
     themeConfig: {
+<<<<<<< HEAD
         outline: {
             level: [2, 6], // 显示 h2 和 h3 标题,
             label: ''
@@ -13,6 +14,9 @@ module.exports = {
             copyright: 'Copyright © 2019-present Evan You'
         },
 
+=======
+        outline: [2, 4], // 显示 h2 和 h3 标题
+>>>>>>> b3a380942aceace2ac7a309885e0d508fc5bc4ca
         nav: [
             { text: '应用开发', link: '/development' },
             { text: '部署集成', link: '/deployment' },
