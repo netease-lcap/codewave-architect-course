@@ -31,7 +31,7 @@ jobs:
           server: 111.124.197.134
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: "docs/.vitepress/dist"
-          remote_path: "/root"
+          remote_path: "/home"
       # - name: Deploy to server
       #   uses: appleboy/scp-action@master
       #   with:
