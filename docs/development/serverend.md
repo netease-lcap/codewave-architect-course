@@ -1,15 +1,7 @@
 # 服务端扩展
 
-## 一、使用场景
 
-1. 用户需要调用第三方库pinyin4j实现汉字与拼音的转换
-
-2. 用户需要调用redisTemplate(Spring模版)实现redis接入，连接参数要求可以在平台参数配置
-
-   
-
-
-## 二、概念原理
+## 一、概念原理
 
 
 
@@ -86,11 +78,11 @@ public class PinyinConverter {
 
 
 
-## 三、案例展示
+## 二、使用场景
 
 
 
-### Java静态方法型（第三方Jar封装）
+### 案例1：Java静态方法型（第三方Jar封装）
 
 第三方的API封装是最常见的一种应用场景。也就是说将API封装为服务端逻辑。
 
@@ -145,7 +137,7 @@ https://github.com/netease-lcap/codewave-architect-course/tree/main/example/java
 
 
 
-### Component组件型 - Redis库
+### 案例2：Component组件型 - Redis库
 
 提供一个依赖库实现对Redis数据库的操作，具体要求如下：
 
@@ -230,29 +222,29 @@ public class RedisConfig {
 
 
 
-### Filter组件型 
+### 案例3：Filter组件型 - 安全教研
 
 ​	安全校验
 
-### Controller组件型
+### 案例4：Controller组件型 - 大文件上传
 
 ​	大文件文件上传、Restful接口
 
-### AOP切面型
+### 案例5：AOP切面型 - 数据脱敏
 
 ​	数据库脱敏、接口日志
 
-### 上下文调整
+### 案例6：上下文调整
 
 ​	自定义应用配置
 
-### 高阶函数
+### 案例7：高阶函数 - 并行处理
 
 ​	并行处理、运行时定时任务、调用低代码逻辑
 
 
 
-### 逻辑复写型
+### 案例8： 逻辑复写型
 
 
 
@@ -274,7 +266,9 @@ public class RedisConfig {
 
 ## 五、实操演示
 
-### 开发环境（JDK1.8 + Maven + Idea）
+### 开发环境准备
+
+
 
 Codewave版本： 3.11
 
@@ -290,7 +284,7 @@ Codewave版本： 3.11
 
  
 
-### 创建项目 
+#### 创建项目 
 
 扩展依赖的项目是一个基于Maven构建的Java项目。和一般Java项目的区别是需要添加相应的依赖和生成元数据的Maven插件。
 
@@ -309,15 +303,37 @@ Codewave版本： 3.11
 
 如果一开始没有想好，为了扩展方便。推荐选择Spring环境。
 
-其余 artifact、group、version等参数就是Maven中pom文件中的包信息的参数，这里不过多啊赘述
+其余 artifact、group、version等参数就是Maven中pom文件中的包信息的参数，这里不过多啊赘述。
 
 
 
- 
+#### 安装依赖库与插件
 
-### 创建Java静态方法型逻辑（Helloworld）
+在下载的项目中 /jar 文件夹中包含一个插件和一个依赖库。
 
-![img](assets/wps2.jpg) 
+需要运行各种文件夹中的 install.sh 文件安装至本地仓库。
+
+![image-20250507204625664](assets/image-20250507204625664.png)
+
+安装后可以运行
+
+```bash
+mvn clean package
+```
+
+确保环境搭建无误。
+
+
+
+
+
+
+
+###  基础知识储备
+
+
+
+#### 创建Java静态方法型逻辑![img](assets/wps2.jpg) 
 
 在 src/main/java/codewave/logic/MyLogic.java 中创建Class编写静态方法add
 
@@ -348,7 +364,7 @@ public class App {
 
 ```
 
-###  单元测试
+####  单元测试
 
 扩展逻辑可以在Maven环境中像普通java方法一样进行单元测试。
 
@@ -387,7 +403,7 @@ mvn clean test
 
  
 
-### 依赖库打包 
+#### 依赖库打包 
 
 使用 maven 命令部署
 
@@ -399,7 +415,11 @@ mvn clean test
 
 
 
-### 创建结构体
+### 
+
+
+
+#### 创建结构体
 
 如果参数或返回值类型不是基本类型需要定义结构体。
 
@@ -452,7 +472,7 @@ public void testGetStructure() {
 }
 ```
 
-### 创建自定义异常
+#### 创建自定义异常
 
 如果需要自定义异常时候可以创建异常类，异常类需要继承 RuntimeException 基
 
@@ -499,7 +519,7 @@ public void testThrowMyException() {
 
 
 
-### 添加系统日志
+#### 添加系统日志
 
 pom.xml
 
@@ -522,109 +542,9 @@ private static final Logger log = LoggerFactory.getLogger("LCAP_EXTENSION_LOGGER
 
 
 
-### Java静态方法型案例（Pinyin转换器）
-
-
-
-pom.xml
-
-```xml
-<dependency>
-  <groupId>com.belerweb</groupId>
-  <artifactId>pinyin4j</artifactId>
-  <version>2.5.1</version>
-</dependency>
-```
-
-
-
-PinyinConverter.java
-
-```java 
-
-package com.codewave.pinyin;
-
-import com.netease.lowcode.core.annotation.NaslLogic;
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
-
-
-public class PinyinConverter {
-
-    /**
-     * 将汉字转换为拼音（全拼，小写，不带声调）
-     *
-     * @param chineseCharacters 要转换的汉字字符串
-     * @return 拼音字符串
-     */
-    @NaslLogic
-    public static String toPinyin(String chineseCharacters) {
-        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
-        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-
-        StringBuilder pinyin = new StringBuilder();
-        char[] charArray = chineseCharacters.toCharArray();
-        for (char c : charArray) {
-            try {
-                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
-                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
-                    if (pinyinArray!= null && pinyinArray.length > 0) {
-                        pinyin.append(pinyinArray[0]);
-                    }
-                } else {
-                    pinyin.append(c);
-                }
-            } catch (BadHanyuPinyinOutputFormatCombination e) {
-                e.printStackTrace();
-            }
-        }
-        return pinyin.toString();
-    }
-
-    /**
-     * 将汉字转换为拼音首字母（大写）
-     *
-     * @param chineseCharacters 要转换的汉字字符串
-     * @return 拼音首字母字符串
-     */
-    @NaslLogic
-    public static String toFirstLetterPinyin(String chineseCharacters) {
-        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
-        format.setCaseType(HanyuPinyinCaseType.UPPERCASE);
-        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-
-        StringBuilder firstLetterPinyin = new StringBuilder();
-        char[] charArray = chineseCharacters.toCharArray();
-        for (char c : charArray) {
-            try {
-                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
-                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
-                    if (pinyinArray!= null && pinyinArray.length > 0) {
-                        firstLetterPinyin.append(pinyinArray[0].charAt(0));
-                    }
-                } else {
-                    firstLetterPinyin.append(c);
-                }
-            } catch (BadHanyuPinyinOutputFormatCombination e) {
-                e.printStackTrace();
-            }
-        }
-        return firstLetterPinyin.toString();
-    }
-}
-```
-
-
-
  
 
- 
-
-### 创建Component组件型逻辑
+#### 创建Component组件型逻辑
 
 如果需要使用Spring的IOC机制注入bean或者配置，可以创建Component类型的扩展逻辑。
 
@@ -748,7 +668,7 @@ public class MyComponetTest {
 
 
 
-### 创建自定义配置
+#### 创建自定义配置
 
 CodeWave平台中的自定义配置是基于Spring配置类实现的。
 
@@ -814,9 +734,114 @@ public class MyConfig {
 
 
 
+
+
+### 开发案例 
+
+
+
+#### 案例1：Java静态方法型案例（Pinyin转换器）
+
+封装 pinyin4j.jar 实现汉字转换拼音功能
+
+pom.xml
+
+```xml
+<dependency>
+  <groupId>com.belerweb</groupId>
+  <artifactId>pinyin4j</artifactId>
+  <version>2.5.1</version>
+</dependency>
+```
+
+
+
+PinyinConverter.java
+
+```java 
+package com.codewave.pinyin;
+
+import com.netease.lowcode.core.annotation.NaslLogic;
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+
+
+public class PinyinConverter {
+
+    /**
+     * 将汉字转换为拼音（全拼，小写，不带声调）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音字符串
+     */
+    @NaslLogic
+    public static String toPinyin(String chineseCharacters) {
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder pinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        pinyin.append(pinyinArray[0]);
+                    }
+                } else {
+                    pinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return pinyin.toString();
+    }
+
+    /**
+     * 将汉字转换为拼音首字母（大写）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音首字母字符串
+     */
+    @NaslLogic
+    public static String toFirstLetterPinyin(String chineseCharacters) {
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.UPPERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder firstLetterPinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        firstLetterPinyin.append(pinyinArray[0].charAt(0));
+                    }
+                } else {
+                    firstLetterPinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return firstLetterPinyin.toString();
+    }
+}
+```
+
+
+
  
 
-### Component组件型逻辑案例（Redis库）
+
+
+#### 案例2：Component组件型逻辑案例（Redis库）
 
 提供一个依赖库实现对Redis数据库的操作，具体要求如下：
 
