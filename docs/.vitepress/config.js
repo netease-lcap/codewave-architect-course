@@ -4,7 +4,7 @@ module.exports = {
     title: 'CodeWave架构师课程',
     description: '',
     themeConfig: {
-        outline: [2, 6], // 显示 h2 和 h3 标题
+        outline: [2, 4], // 显示 h2 和 h3 标题
         nav: [
             { text: '应用开发', link: '/development' },
             { text: '部署集成', link: '/deployment' },
