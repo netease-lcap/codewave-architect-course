@@ -4,7 +4,15 @@ module.exports = {
     title: 'CodeWave架构师课程',
     description: '',
     themeConfig: {
-        outline: [2, 6], // 显示 h2 和 h3 标题
+        outline: {
+            level: [2, 6], // 显示 h2 和 h3 标题,
+            label: ''
+        },
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2019-present Evan You'
+        },
+
         nav: [
             { text: '应用开发', link: '/development' },
             { text: '部署集成', link: '/deployment' },
