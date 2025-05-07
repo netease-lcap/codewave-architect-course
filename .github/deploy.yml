@@ -1,0 +1,34 @@
+name: Deploy VitePress to Server
+
+on:
+  push:
+    branches:
+      - main # 可根据实际情况修改为你的主分支名称
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18 # 可根据项目需求修改 Node.js 版本
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build VitePress
+        run: npm run build
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@master
+        with:
+          host: 111.124.197.134
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "docs/.vitepress/dist" # VitePress 构建结果的目录
+          target: "/root" # 服务器上的目标目录
