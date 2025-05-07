@@ -6,7 +6,7 @@
 
 前端依赖库是指**开发者自行开发或引入的组件、逻辑，用于满足定制化需求和功能扩展**。这些库可被用于自定义界面样式、交互效果、组件功能，或者整合特定的第三方服务（例如微信SDK、钉钉SDK），并且能够被导入到IDE平台中供开发使用。
 
-![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/3ead95cbb81e47c496deef43d6cf1512.png)                
+![img](assets/3ead95cbb81e47c496deef43d6cf1512.png)                
 
 
 
@@ -19,7 +19,7 @@
 3. 发布到目标CodeWave平台
 4. 在CodeWave项目中导入依赖库并使用它们
 
-<img src="/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/gaishu_202411201021_1.DAYhT5If.png" alt="img" style="background:white" />
+
 
 
 
@@ -223,7 +223,7 @@ Todo：案例待补充
 
 ​     ❌ 注意：调试过程中请勾选“绕过以转到网络”，以避免Chrome浏览器的Service workers缓存，导致刷新之后不更新最新组件代码
 
-![image-20250506170732112](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/image-20250506170732112.png)
+![image-20250506170732112](assets/image-20250506170732112.png)
 
 
 
@@ -283,7 +283,7 @@ namespace nasl.ui {
 
 使用@Component来标注，用于组件面板识别排列。效果如下：
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/a1a2d49cdab84649857e3e3a928f1012.png)        
+​            ![img](assets/a1a2d49cdab84649857e3e3a928f1012.png)        
 
 ##### 接口配置：api.ts
 
@@ -335,7 +335,7 @@ namespace nasl.ui {
 
 属性描述即参数配置，使用 @Prop来描述参数、渲染参数配置表单。
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/b7639e5b69544e2492c261ec63af7ba5.png)        
+​            ![img](assets/b7639e5b69544e2492c261ec63af7ba5.png)        
 
 配置示例如下：
 
@@ -359,9 +359,9 @@ size: nasl.core.String = 'small';  // small默认值 'small', nasl.core.String �
 
 下面以按钮组件label属性为例演示扩展组件属性的声明
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/bba8673fcd2247d492e1d0920da85a01.png)        
+​            ![img](assets/bba8673fcd2247d492e1d0920da85a01.png)        
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/6fa7e9750be24bd8964f677b9bb85ced.png)        
+​            ![img](assets/6fa7e9750be24bd8964f677b9bb85ced.png)        
 
 ##### **接口配置：api.ts**
 
@@ -388,7 +388,7 @@ namespace nasl.ui {
 
 属性输入设置setter可以控制平台收集用户输入的方式。
 
-![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/cf9a6c7e9e884d388dc92a0f6c680c7e.png)
+![img](assets/cf9a6c7e9e884d388dc92a0f6c680c7e.png)
 
 目前可用的设置器有：[设置器使用文档](https://community.codewave.163.com/CommunityParent/fileIndex?filePath=40.%E6%89%A9%E5%B1%95%E4%B8%8E%E9%9B%86%E6%88%90%2F10.%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%2F20.%E5%89%8D%E7%AB%AF%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%2F30.%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%2F15.%E7%BB%84%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%BC%96%E5%86%99%E8%AF%B4%E6%98%8E.md&version=3.13&selectType=codewave&title=%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E5%99%A8)
 
@@ -427,9 +427,9 @@ color: 'default' | 'light' | 'success' | 'warning' | 'danger' = 'default';
 
 **其他设计器用例**
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/e3ba1929126b41629e964ac574a97c14.png)            
+​            ![img](assets/e3ba1929126b41629e964ac574a97c14.png)            
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/efda2673a1cb49d398672c828d4231b9.png)            
+​            ![img](assets/efda2673a1cb49d398672c828d4231b9.png)            
 
 ```typescript
 Prop({
@@ -477,7 +477,7 @@ iconPosition: 'left' | 'right' = 'left';
 
 下面以按钮组件点击事件为例演示扩展组件事件的声明
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/0f2c778863b24d0e9b3d681474ac8a2e.png)        
+​            ![img](assets/0f2c778863b24d0e9b3d681474ac8a2e.png)        
 
 ##### **接口配置：api.ts**
 
@@ -507,13 +507,13 @@ namespace nasl.ui {
 
 3. 1. api.ts中声明类型可以使用nasl.core包中的7种原始类型或nasl.collection包中的两种集合类型
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/7cf381b2e80241dab4c1fdda10553b82.png)        
+​            ![img](assets/7cf381b2e80241dab4c1fdda10553b82.png)        
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/ddef5c689c654b9fa6ddfb10a59a1a41.png)        
+​            ![img](assets/ddef5c689c654b9fa6ddfb10a59a1a41.png)        
 
 - 1. 参数传一个，需要多个参数可以用对象形式：
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/6e791602d25948a4a9a1f6cb6bde80a1.png)        
+​            ![img](assets/6e791602d25948a4a9a1f6cb6bde80a1.png)        
 
 
 
@@ -528,7 +528,7 @@ namespace nasl.ui {
 - 标题插槽slotTitle
 - 内容插槽slotDefault
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/cee21f033d454f81954998a505bb94c4.png)        
+​            ![img](assets/cee21f033d454f81954998a505bb94c4.png)        
 
 **接口配置：api.ts**
 
@@ -601,7 +601,7 @@ export class ElMenuOptions extends ViewComponentOptions {
 
 使用@Method来描述组件提供的方法:
 
-​            ![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/5211d42097bb4e4aa0458fce5d1c0d1d.png)        
+​            ![img](assets/5211d42097bb4e4aa0458fce5d1c0d1d.png)        
 
 **接口配置：api.ts**
 
@@ -640,7 +640,7 @@ namespace nasl.ui {
 
 组件的[可访问属性](https://community.codewave.163.com/CommunityParent/fileIndex?filePath=20.应用开发%2F10.页面设计%2F19.组件可访问属性.md&version=3.13)是指在逻辑或表达式的可视化编辑面板中能够直接被访问和操作的组件属性。
 
-![img](/Users/yangtao/Documents/codewave-architect-course/docs/development/assets/658b20ee791c4e91bcd6cbf504b38094.png)        
+![img](assets/658b20ee791c4e91bcd6cbf504b38094.png)        
 
 **功能实现**
 
