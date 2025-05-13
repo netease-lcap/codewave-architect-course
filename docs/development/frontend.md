@@ -25,7 +25,15 @@
 
 ### 前端扩展API与元数据
 
-在开发扩展组件时，除了组件代码之外，我们还需要编写一个api.ts文件，该文件为CodeWave平台提供组件API描述，例如下面示例为MyButton组件声明了两个属性label和type，一个事件my-click：
+与传统前端开发中直接引入第三方依赖库不同，CodeWave开发平台中通过前端扩展的方式引入第三方依赖库：
+
+![image-20250512115028731](assets/image-20250512115028731.png)
+
+在开发扩展组件时，除了组件代码之外，我们还需要编写一个api.ts文件，该文件为CodeWave平台提供组件API描述：
+
+![image-20250512115339818](assets/image-20250512115339818.png)
+
+例如下面示例为MyButton组件声明了两个属性label和type，一个事件my-click：
 
 ![image-20250507114650007](assets/image-20250507114650007.png)
 
@@ -115,13 +123,19 @@ Todo：案例待补充
 
 
 
-### React组件支持
+### Vue3、React扩展组件支持
+
+#### 平台当前组件支持情况
+
+- Vue2：Cloud UI（pc, h5）、element-ui（pc, h5）
+- Vue3：element-plus（pc, h5)
+- React：antd（pc）
 
 Todo：案例待补充
 
 
 
-## 四、实操演示
+## 三、实操演示
 
 ### 开发环境准备
 
@@ -129,8 +143,9 @@ Todo：案例待补充
 
 1. 安装脚手架工具：`pnpm i -g lcap`
 2. 创建项目：`lcap init`
-3. 创建组件：`lcap create component`
-4. 启动项目：`pnpm dev`
+3. 安装依赖：`pnpm i`
+4. 创建组件：`lcap create component`
+5. 启动项目：`pnpm dev`
 
 > 当前演示的lcap版本为v0.5.4，要求提前安装Node.js v18+和pnpm
 
@@ -231,7 +246,7 @@ Todo：案例待补充
 
 #### 概述：View Component API
 
-可通过View Component API描述组件API或适配平台的各种能力，主要包括：
+用户开发的组件可通过View Component API描述其API或适配平台的各种能力，主要包括：
 
 - 组件描述：@Component用于组件面板识别排列
 - 扩展组件：@ExtensionComponent用于描述扩展组件类型、IDE用途等
@@ -333,7 +348,7 @@ namespace nasl.ui {
 
 #### 组件属性@Prop
 
-属性描述即参数配置，使用 @Prop来描述参数、渲染参数配置表单。
+可以使用`@Prop`来描述组件在平台中可配置参数的表单。
 
 ​            ![img](assets/b7639e5b69544e2492c261ec63af7ba5.png)        
 
@@ -471,7 +486,7 @@ iconPosition: 'left' | 'right' = 'left';
 
 #### 组件事件 @event
 
-扩展组件事件可以通过@event定义给平台使用。
+扩展组件事件可以通过@event定义给平台使用，用户可以通过“事件”面板定义特定事件的响应。
 
 ##### **示例：按钮自定义点击事件**
 
@@ -519,7 +534,7 @@ namespace nasl.ui {
 
 #### 组件插槽 @slot
 
-通过@slot装饰器定义组件插槽，平台会识别并显示给用户添加内容。
+通过@slot装饰器定义组件插槽，平台会识别并显示槽位，以便用户向组件添加自定义内容。
 
 ##### **示例：面板插槽**
 
@@ -750,7 +765,7 @@ export default {
 可选项：在 api.ts文件中通过为相关属性设置settable: true可开启属性可赋值
 
 ```typescript
-@Prop({
+@Prop({·
   //...
   settable: true,
 })
@@ -760,6 +775,14 @@ export default {
 ### 开发案例
 
 #### 案例1：封装echarts
+
+##### 效果演示
+
+
+
+##### 组件开发
+
+##### 接口声明
 
 #### 案例2：封装fullcalendar
 
