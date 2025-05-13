@@ -1,20 +1,13 @@
 # 服务端扩展
 
-## 一、使用场景
 
-1.  用户需要调用第三方库pinyin4j实现汉字与拼音的转换
-2. 用户需要调用redisTemplate(Spring模版)实现redis接入，连接参数要求可以在平台参数配置
-
-
-## 二、概念原理
+## 一、概念原理
 
 
 
-在 Java 项目里，为提升研发效率，常常会引入第三方依赖库。以汉字转拼音功能为例，只需引入一个拼音相关的第三方依赖库，就能轻松实现这一操作。
+在 Java 项目里，为提升研发效率，常常会引入第三方依赖库。以汉字转拼音功能为例，只需引入一个拼音相关的第三方依赖库，就能轻松实现。
 ​            ![img](assets/93f9c8fcd042423bbba42f2b2c1a5920.png)   
-CodeWave 编写的项目的服务会端编译成 Java 程序，所以也能实现通过第三方依赖库的实现逻辑扩展。区别在于需要添加元数据定义来精准描述 API 定义。
-
-元数据的作用主要是为了描述API接口信息，比如方法名称、作用、参数类型等。低代码平台会根据元数据将API图形化的形式显示在编辑器中。
+CodeWave 编写的项目运行时会将服务端逻辑编译为 Java代码。所以与普通的Java项目相似，可以引入第三方java依赖库实现逻辑扩展。区别在于需要添加元数据定义来精准描述 API 定义。元数据的作用主要是为了描述API接口信息，比如方法名称、作用、参数类型等。低代码平台会根据元数据将API图形化的形式显示在编辑器中。
 
 
 ![image-20250506162035734](assets/image-20250506162035734.png)
@@ -24,11 +17,11 @@ CodeWave 编写的项目的服务会端编译成 Java 程序，所以也能实�
 比如，若要引入 `Pinyin4j.jar` 这个依赖库，可按以下步骤操作。
 
 1. 创建一个方法，该方法的作用是封装 `Pinyin4j.jar 中的 API；
-2. 使用的注解、 JavaDoc 来标注接口信息，
+2. 使用的注解、 JavaDoc 来标注接口信息
 
-3. 使用 Maven 进行编译，在编译过程中元数据插件会将注解和 JavaDoc 转换为元数据（ JSON形式 ）；
+3. 使用 Maven 进行编译，在编译过程中元数据插件会将注解和 JavaDoc 转换为元数据（ JSON形式 ）
 
-4. 将元数据与编译后的字节码文件打包成扩展依赖库，（zip 格式）。
+4. 将元数据与编译后的字节码文件打包成扩展依赖库，（zip 格式）
 5. 将依赖库上传至CodeWave资产中心；
 6. 在需要时只需要引入应用就可以在【调用逻辑】中找到并调用了。
 
@@ -85,11 +78,11 @@ public class PinyinConverter {
 
 
 
-## 三、案例展示
+## 二、使用场景
 
 
 
-### 1、Java静态方法型（第三方Jar封装）
+### 案例1：Java静态方法型（第三方Jar封装）
 
 第三方的API封装是最常见的一种应用场景。也就是说将API封装为服务端逻辑。
 
@@ -110,7 +103,27 @@ public class PinyinConverter {
      */
     @NaslLogic
     public static String toPinyin(String chineseCharacters) {
-        // 代码实现
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder pinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        pinyin.append(pinyinArray[0]);
+                    }
+                } else {
+                    pinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return pinyin.toString();
     }
 }
 
@@ -124,9 +137,14 @@ https://github.com/netease-lcap/codewave-architect-course/tree/main/example/java
 
 
 
-### 2、Component组件型 - Redis库
+### 案例2：Component组件型 - Redis库
 
-在封装redis库的时候并不能适用java静态方法类型原因有两点：
+提供一个依赖库实现对Redis数据库的操作，具体要求如下：
+
+1. 基于redisTemplate封装实现
+2. Redis连接参数需要在应用配置中进行配置
+
+这类逻辑并不能适用java静态方法类型的逻辑，原因有两点：
 
 1. 希望通过注入 redisTemplate 实现，静态方法无法实现依赖注入；
 2. 希望实现自定义配置，平台中的自定义配置是通过spring配置类实现的，也无法在静态方法中读取。
@@ -204,29 +222,29 @@ public class RedisConfig {
 
 
 
-### 3、Filter组件型 
+### 案例3：Filter组件型 - 安全教研
 
 ​	安全校验
 
-### 4、Controller组件型
+### 案例4：Controller组件型 - 大文件上传
 
 ​	大文件文件上传、Restful接口
 
-### 5、AOP切面型
+### 案例5：AOP切面型 - 数据脱敏
 
 ​	数据库脱敏、接口日志
 
-### 6、上下文调整
+### 案例6：上下文调整
 
 ​	自定义应用配置
 
-### 7、高阶函数
+### 案例7：高阶函数 - 并行处理
 
 ​	并行处理、运行时定时任务、调用低代码逻辑
 
 
 
-### 8、 逻辑复写型
+### 案例8： 逻辑复写型
 
 
 
@@ -248,7 +266,9 @@ public class RedisConfig {
 
 ## 五、实操演示
 
-### 1、 开发环境（JDK1.8 + Maven + Idea）
+### 开发环境准备
+
+
 
 Codewave版本： 3.11
 
@@ -264,7 +284,7 @@ Codewave版本： 3.11
 
  
 
-### 2、利用脚手架创建项目 
+#### 创建项目 
 
 扩展依赖的项目是一个基于Maven构建的Java项目。和一般Java项目的区别是需要添加相应的依赖和生成元数据的Maven插件。
 
@@ -283,15 +303,37 @@ Codewave版本： 3.11
 
 如果一开始没有想好，为了扩展方便。推荐选择Spring环境。
 
-其余 artifact、group、version等参数就是Maven中pom文件中的包信息的参数，这里不过多啊赘述
+其余 artifact、group、version等参数就是Maven中pom文件中的包信息的参数，这里不过多啊赘述。
 
 
 
- 
+#### 安装依赖库与插件
 
-### 3、创建Java静态方法型逻辑（Helloworld）
+在下载的项目中 /jar 文件夹中包含一个插件和一个依赖库。
 
-![img](assets/wps2.jpg) 
+需要运行各种文件夹中的 install.sh 文件安装至本地仓库。
+
+![image-20250507204625664](assets/image-20250507204625664.png)
+
+安装后可以运行
+
+```bash
+mvn clean package
+```
+
+确保环境搭建无误。
+
+
+
+
+
+
+
+###  基础知识储备
+
+
+
+#### 创建Java静态方法型逻辑![img](assets/wps2.jpg) 
 
 在 src/main/java/codewave/logic/MyLogic.java 中创建Class编写静态方法add
 
@@ -322,7 +364,7 @@ public class App {
 
 ```
 
-###  4、单元测试
+####  单元测试
 
 扩展逻辑可以在Maven环境中像普通java方法一样进行单元测试。
 
@@ -341,9 +383,7 @@ public class App {
 
 ```java
 package com.codewave.logic;
-
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.*;
 
 public class MyLogicTest {
@@ -363,7 +403,7 @@ mvn clean test
 
  
 
-### 5、依赖库打包 
+#### 依赖库打包 
 
 使用 maven 命令部署
 
@@ -375,7 +415,11 @@ mvn clean test
 
 
 
-### 6、创建结构体
+### 
+
+
+
+#### 创建结构体
 
 如果参数或返回值类型不是基本类型需要定义结构体。
 
@@ -385,7 +429,6 @@ com.codewave.logic.MyStructure.java
 
 ```java
 package com.codewave.logic;
-
 import com.netease.lowcode.core.annotation.NaslStructure;
 
 @NaslStructure
@@ -429,22 +472,19 @@ public void testGetStructure() {
 }
 ```
 
-### 7、创建自定义异常
+#### 创建自定义异常
 
 如果需要自定义异常时候可以创建异常类，异常类需要继承 RuntimeException 基
 
 创建MyException.java
 ```java
-
 package com.codewave.logic;
 
 public class MyException extends RuntimeException {
-
     public MyException(String message) {
         super(message);
     }
 }
-
 ```
 
 
@@ -479,7 +519,7 @@ public void testThrowMyException() {
 
 
 
-### 8、添加系统日志
+#### 添加系统日志
 
 pom.xml
 
@@ -502,109 +542,9 @@ private static final Logger log = LoggerFactory.getLogger("LCAP_EXTENSION_LOGGER
 
 
 
-### 9、Java静态方法型案例（Pinyin转换器）
-
-
-
-pom.xml
-
-```xml
-<dependency>
-  <groupId>com.belerweb</groupId>
-  <artifactId>pinyin4j</artifactId>
-  <version>2.5.1</version>
-</dependency>
-```
-
-
-
-PinyinConverter.java
-
-```java 
-
-package com.codewave.pinyin;
-
-import com.netease.lowcode.core.annotation.NaslLogic;
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
-
-
-public class PinyinConverter {
-
-    /**
-     * 将汉字转换为拼音（全拼，小写，不带声调）
-     *
-     * @param chineseCharacters 要转换的汉字字符串
-     * @return 拼音字符串
-     */
-    @NaslLogic
-    public static String toPinyin(String chineseCharacters) {
-        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
-        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-
-        StringBuilder pinyin = new StringBuilder();
-        char[] charArray = chineseCharacters.toCharArray();
-        for (char c : charArray) {
-            try {
-                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
-                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
-                    if (pinyinArray!= null && pinyinArray.length > 0) {
-                        pinyin.append(pinyinArray[0]);
-                    }
-                } else {
-                    pinyin.append(c);
-                }
-            } catch (BadHanyuPinyinOutputFormatCombination e) {
-                e.printStackTrace();
-            }
-        }
-        return pinyin.toString();
-    }
-
-    /**
-     * 将汉字转换为拼音首字母（大写）
-     *
-     * @param chineseCharacters 要转换的汉字字符串
-     * @return 拼音首字母字符串
-     */
-    @NaslLogic
-    public static String toFirstLetterPinyin(String chineseCharacters) {
-        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
-        format.setCaseType(HanyuPinyinCaseType.UPPERCASE);
-        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-
-        StringBuilder firstLetterPinyin = new StringBuilder();
-        char[] charArray = chineseCharacters.toCharArray();
-        for (char c : charArray) {
-            try {
-                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
-                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
-                    if (pinyinArray!= null && pinyinArray.length > 0) {
-                        firstLetterPinyin.append(pinyinArray[0].charAt(0));
-                    }
-                } else {
-                    firstLetterPinyin.append(c);
-                }
-            } catch (BadHanyuPinyinOutputFormatCombination e) {
-                e.printStackTrace();
-            }
-        }
-        return firstLetterPinyin.toString();
-    }
-}
-```
-
-
-
  
 
- 
-
-### 10、创建Component组件型逻辑
+#### 创建Component组件型逻辑
 
 如果需要使用Spring的IOC机制注入bean或者配置，可以创建Component类型的扩展逻辑。
 
@@ -728,9 +668,13 @@ public class MyComponetTest {
 
 
 
-### 11、创建自定义配置
+#### 创建自定义配置
 
-使用 @NaslConfiguration 可以实现自定义参数，在应用加载依赖库后可以在应用配置中进行配置。
+CodeWave平台中的自定义配置是基于Spring配置类实现的。
+
+在@Configuration注解修饰下的配置类中使用 @NaslConfiguration 修饰的属性会作为CodeWave的应用配置。
+
+可以实现自定义参数，在应用加载依赖库后可以在应用配置中进行配置。
 
 
 ```java
@@ -758,7 +702,7 @@ public class MyConfig {
 
 ![image-20250506194336639](assets/image-20250506194336639.png)
 
-如果想将自定义参数映射为系统参数可以使用 alias 属性实现。
+如果想将自定义参数映射为系统参数可以使用 alias 属性 + systemScope属性实现。
 
 ```java
 
@@ -790,21 +734,262 @@ public class MyConfig {
 
 
 
- 
 
-### 12、Component组件型逻辑案例（Redis库）
 
-![Xnip2025-05-06_19-39-32](assets/Xnip2025-05-06_19-39-32-6531762.jpg)
+### 开发案例 
 
+
+
+#### 案例1：Java静态方法型案例（Pinyin转换器）
+
+封装 pinyin4j.jar 实现汉字转换拼音功能
 
 pom.xml
 
 ```xml
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
+  <groupId>com.belerweb</groupId>
+  <artifactId>pinyin4j</artifactId>
+  <version>2.5.1</version>
 </dependency>
+```
 
+
+
+PinyinConverter.java
+
+```java 
+package com.codewave.pinyin;
+
+import com.netease.lowcode.core.annotation.NaslLogic;
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+
+
+public class PinyinConverter {
+
+    /**
+     * 将汉字转换为拼音（全拼，小写，不带声调）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音字符串
+     */
+    @NaslLogic
+    public static String toPinyin(String chineseCharacters) {
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder pinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        pinyin.append(pinyinArray[0]);
+                    }
+                } else {
+                    pinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return pinyin.toString();
+    }
+
+    /**
+     * 将汉字转换为拼音首字母（大写）
+     *
+     * @param chineseCharacters 要转换的汉字字符串
+     * @return 拼音首字母字符串
+     */
+    @NaslLogic
+    public static String toFirstLetterPinyin(String chineseCharacters) {
+        HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+        format.setCaseType(HanyuPinyinCaseType.UPPERCASE);
+        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        StringBuilder firstLetterPinyin = new StringBuilder();
+        char[] charArray = chineseCharacters.toCharArray();
+        for (char c : charArray) {
+            try {
+                if (Character.toString(c).matches("[\\u4e00-\\u9fff]")) {
+                    String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, format);
+                    if (pinyinArray!= null && pinyinArray.length > 0) {
+                        firstLetterPinyin.append(pinyinArray[0].charAt(0));
+                    }
+                } else {
+                    firstLetterPinyin.append(c);
+                }
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        }
+        return firstLetterPinyin.toString();
+    }
+}
+```
+
+
+
+ 
+
+
+
+#### 案例2：Component组件型逻辑案例（Redis库）
+
+提供一个依赖库实现对Redis数据库的操作，具体要求如下：
+
+1. 基于redisTemplate封装实现
+2. Redis连接参数需要在应用配置中进行配置
+
+这类逻辑并不能适用java静态方法类型的逻辑，原因有两点：
+
+1. 希望通过注入 redisTemplate 实现，静态方法无法实现依赖注入；
+2. 希望实现自定义配置，平台中的自定义配置是通过spring配置类实现的，也无法在静态方法中读取。
+
+所以就需要采用Component组件形式进行封装。
+
+
+
+1. 引入 redisTemplate
+
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-redis</artifactId>
+   </dependency>
+   ```
+
+   
+
+
+
+2. 首先创建配置类，声明Redis连接配置参数。由于redisTemplate默认读取系统参数（比如spring.reds.host）。所以需要使用 @alias @systemScope属性进行系统参数映射。
+
+创建RedisConfig.java文件
+
+```java
+package com.codewave.redis;
+
+import com.netease.lowcode.core.EnvironmentType;
+import com.netease.lowcode.core.annotation.Environment;
+import com.netease.lowcode.core.annotation.NaslConfiguration;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RedisConfig {
+
+    /**
+     * redis 地址
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.host",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "127.0.0.1"),
+            @Environment(type = EnvironmentType.ONLINE, value = "127.0.0.1")
+    })
+    public String redisHost;
+
+    /**
+     * redis 端口
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.port",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = "6379"),
+            @Environment(type = EnvironmentType.ONLINE, value = "6379")
+    })
+    public String redisPort;
+
+    /**
+     * redis 密码
+     */
+    @NaslConfiguration(systemScope= true, alias="spring.redis.password",defaultValue = {
+            @Environment(type = EnvironmentType.DEV, value = ""),
+            @Environment(type = EnvironmentType.ONLINE, value = "")
+    })
+    public String password;
+}
+
+```
+
+实现的效果
+
+![Xnip2025-05-06_19-39-32](assets/Xnip2025-05-06_19-39-32-6531762.jpg)
+
+
+
+3. 定义 @Component 类，注入redisTemplate
+
+RedisService.java
+
+```java
+package com.codewave.redis;
+
+import com.netease.lowcode.core.annotation.NaslLogic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Component;
+import com.codewave.redis.RedisService;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+@Component
+public class RedisService {
+
+    @Autowired
+    @Lazy // 延迟加载 如果不使用此依赖库时可以不配置redis连接参数
+    public RedisTemplate<String, String> redisTemplate;
+
+    public RedisService(RedisTemplate<String, String> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+    /**
+     * 设置 Redis 中指定 key 的值为指定字符串
+     *
+     * @param key   Redis 中的键
+     * @param value Redis 中的值
+     */
+    @NaslLogic
+    public String getValue(String key) {
+        return redisTemplate.opsForValue().get(key);
+    }
+
+    @NaslLogic
+    public Boolean setValue(String key, String value) {
+        this.redisTemplate
+                .opsForValue()
+                .set(key, value);
+        return true;
+    }
+
+}
+
+
+```
+
+
+
+
+
+4. 单元测试利用mock模拟redisTemplate行为的方式测试。
+
+   引入mock工具库
+
+pom.xml
+
+```xml
 <dependency>
     <groupId>org.mockito</groupId>
     <artifactId>mockito-core</artifactId>
@@ -815,23 +1000,94 @@ pom.xml
 
 
 
+/test/java/com/codewave/redis/RedisServiceTest.java
 
+```java
+package com.codewave.redis;
 
-测试库
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+
+import ch.qos.logback.classic.LoggerContext;
+
+// @ExtendWith(SpringExtension.class)
+// @ContextConfiguration(classes = RedisService.class)
+public class RedisServiceTest {
+
+    @BeforeAll
+    public static void setup() {
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        loggerContext.getLogger("ROOT").setLevel(ch.qos.logback.classic.Level.OFF);
+    }
+
+    @Mock
+    private RedisTemplate<String, String> redisTemplateMock;
+
+    @Mock
+    private ValueOperations<String, String> opsForValueMock;
+
+    // @Autowired
+    public RedisService redisService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        when(redisTemplateMock.opsForValue()).thenReturn(opsForValueMock);
+
+        redisService = new RedisService(redisTemplateMock);
+    }
+
+    @Test
+    public void testSetValue() {
+
+        String key = "testKey";
+        String value = "testValue";
+
+        // 模拟 void 返回的 set 方法
+        doNothing().when(opsForValueMock).set(key, value);
+        redisService.setValue(key, value);
+        // 验证 set 方法被调用
+        verify(opsForValueMock, times(1)).set(key, value);
+    }
+
+    @Test
+    public void testGetValue() {
+        String key = "testKey";
+        String value = "testValue";
+
+        // 模拟 getValue 的返回值
+        when(opsForValueMock.get(key)).thenReturn(value);
+
+        String retrievedValue = redisTemplateMock.opsForValue().get(key);
+
+        // 验证 getValue 的结果
+        assertEquals(value, retrievedValue);
+        verify(opsForValueMock, times(1)).get(key);
+    }
+}
 
 ```
-  host: 'redis-14018.c92.us-east-1-3.ec2.redns.redis-cloud.com',
-  port: 14018,
-  // username: 'default',
-  // database: "Free-db",
-  password: 'x15aid7gDK8HqtM4ipKn13oFzTOJTQE7'
-```
+
+
 
 
 
  
-
-### 3、连接器开发
 
  
 
