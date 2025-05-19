@@ -1,0 +1,7 @@
+{
+  "columnType": "varchar(100)",
+  "columnName": "remark",
+  "defaultValue": "",
+  "notNull": true,
+  "comment": "备注"
+}

@@ -1,0 +1,22 @@
+{
+  "action": "delete",
+  "sql": null,
+  "variables": null,
+  "schemaName": "public",
+  "tableName": "user_info_test",
+  "wheres": {
+    "operator": "=",
+    "left": {
+      "operator": "column",
+      "columnName": "id",
+      "columnType": "bigint",
+      "naslType": null
+    },
+    "right": {
+      "operator": "value",
+      "value": "1",
+      "columnType": "bigint",
+      "naslType": null
+    }
+  }
+}

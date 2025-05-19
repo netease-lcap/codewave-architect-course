@@ -1,0 +1,170 @@
+columnTypeMappings:
+  Double:
+    - columnType: float8
+      defaultMapping: true
+      options: { }
+      alias: [ 'double precision', 'float', 'float8' ]
+    - columnType: float4
+      defaultMapping: false
+      options: { }
+      alias: [ 'real', 'float4' ]
+  Decimal:
+    - columnType: numeric
+      defaultMapping: true
+      options:
+        precision:
+          min: '1'
+          max: '1000'
+          defaultValue: '31'
+          comment: '数字位数'
+          require: false
+          desc: '若存储类型为自动，则数字位数（小数位数+整数位数的总长度）为31；若为非自动，则可以定义在[1,1000]之间的任意整数'
+        scale:
+          min: '0'
+          max: '1000'
+          defaultValue: '2'
+          comment: '小数位数'
+          require: false
+          desc: '若存储类型为自动，小数位数默认为2位，若为非自动，则可以定在[0,1000]之间的任意整数'
+      alias: [ 'numeric', 'decimal' ]
+  Integer:
+    - columnType: integer
+      defaultMapping: true
+      options: { }
+      minValue: "-2147483648"
+      maxValue: "2147483647"
+      alias: [ 'integer', 'int', 'int4', 'serial', 'serial4' ]
+    - columnType: smallint
+      defaultMapping: false
+      options: { }
+      minValue: "-32768"
+      maxValue: "32767"
+      alias: [ 'smallint', 'int2', 'smallserial', 'serial2' ]
+  Long:
+    - columnType: bigint
+      defaultMapping: true
+      options: { }
+      minValue: "-9223372036854775808"
+      maxValue: "9223372036854775807"
+      alias: [ 'bigint', 'int8', 'bigserial', 'serial8' ]
+  String:
+    - columnType: varchar
+      defaultMapping: true
+      options:
+        length:
+          min: '1'
+          max: '4000'
+          defaultValue: '256'
+          comment: '存储长度'
+          require: true
+          desc: '若存储类型为自动，4000；若为非自动，则可以定义在[1,4000]之间的任意整数'
+      minValue: "1"
+      maxValue: "4000"
+      alias: [ 'varchar', 'character varying' ]
+    - columnType: char
+      defaultMapping: false
+      options:
+        length:
+          min: '1'
+          max: '4000'
+          comment: '存储长度'
+          require: true
+          defaultValue: '256'
+          desc: '存储长度可以定义在[1,4000]之间的任意整数'
+      minValue: "1"
+      maxValue: "4000"
+      alias: [ 'char', 'character', 'bpchar' ]
+  Text:
+    - columnType: text
+      defaultMapping: true
+      options: { }
+      alias: [ 'text' ]
+      minValue: "1"
+      maxValue: "1073741824"
+  Boolean:
+    - columnType: boolean
+      defaultMapping: true
+      options: { }
+      alias: [ 'boolean', 'bool' ]
+  Date:
+    - columnType: date
+      defaultMapping: true
+      options: { }
+      alias: [ 'date' ]
+  Time:
+    - columnType: time
+      defaultMapping: true
+      options: { }
+      alias: [ 'time' ]
+  DateTime:
+    - columnType: timestamp
+      defaultMapping: true
+      options: { }
+      alias: [ 'timestamp', 'timestamptz' ]
+  Binary:
+    - columnType: bytea
+      defaultMapping: true
+      options: { }
+      alias: [ 'bytea' ]
+  Enum:
+    - columnType: varchar
+      defaultMapping: true
+      options:
+        length:
+          min: '1'
+          max: '4000'
+          defaultValue: '256'
+          comment: '存储长度'
+          require: true
+          desc: '若存储类型为自动，10485760；若为非自动，则可以定义在[1,10485760]之间的任意整数'
+      alias: [ 'varchar', 'character varying' ]
+      minValue: "1"
+      maxValue: "4000"
+jdbcConnectionConfigInfo:
+  databaseName: postgresql
+  displayName: PostgreSQL-9.4
+  supportSetAutoIncrement: false
+  configList:
+    - inputType: text
+      name: 主机
+      optionKey: host
+      placeHolder: 请输入数据库主机地址
+      required: true
+      bind: { }
+    - inputType: text
+      name: 端口
+      optionKey: port
+      placeHolder: 请输入数据库端口
+      required: true
+      bind: { }
+      checkRule: integer | range(1,65535)
+    - inputType: text
+      name: 用户名
+      optionKey: username
+      placeHolder: 请输入数据库账号
+      required: true
+      bind: { }
+    - inputType: password
+      name: 密码
+      optionKey: password
+      placeHolder: 请输入数据库密码
+      required: true
+      bind: { }
+    - inputType: text
+      name: 数据库名称
+      optionKey: database
+      placeHolder: 数据库名称
+      required: true
+      bind: { }
+    - inputType: text
+      name: 模式（schema）
+      optionKey: schemaName
+      placeHolder: 模式（schema）
+      required: true
+      bind: { }
+    - inputType: text
+      name: 自定义设置
+      optionKey: customSetting
+      placeHolder: 例如:sslmode=require&targetServerType=master
+      required: false
+      bind: { }

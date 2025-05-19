@@ -1,0 +1,6 @@
+{
+  "indexName": "idx_email",
+  "columnNames": ["email"],
+  "unique": true,
+  "comment": "备注索引"
+}
