@@ -494,7 +494,7 @@ IDE 配置
 解决方案：在 idea 的 settings - Bulid Tools - Maven 中查看当前 maven 的版本，可以尝试切换为 Idea 自带的 maven 版本（idea 版本需 >2023.1），或者手动安装 3.6.3 以上版本的 maven。
 ![img-20250520-15.png](assets/img-20250520-15.png)
 #### maven complie 报错
-![img-20250520-15.png](assets/img-20250520-16.png)
+
 解决方案：查看 maven 仓库里 com/neteas/cloud 目录下是否已安装二方包，如已安装，检查当前 jdk 版本是否为 jdk8，并连接阿里云仓库下载依赖（https://maven.aliyun.com/repository/public）。
 
 ### 5.2 freemark 自测报错
@@ -516,5 +516,6 @@ FTL stack trace ("~" means nesting-related):
 这个错误是指实现 SpringProjectExtension 接口，但是没有声明对应的 SPI（在 resources/META-INF/services 下新建 com.netease.cloud.nasl.extension.ExtensionPoint 文件）。
 
 ### 5.4 导出源码提示翻译器安装超时
-![img-20250520-15.png](assets/img-20250520-19.png)
+错误提示：`生成代码失败，原因：等待翻译器插件安装超时，插件ID：xxxx`
+
 这个错误一般是相同翻译器版本重复上传，导致reload失败，将describe里的version+0.0.1，然后重新上传翻译器导出。如果还不能解决需要手动重启nasl-generator-new服务
