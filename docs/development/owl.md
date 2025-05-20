@@ -73,7 +73,7 @@ com.netease.cloud.lowcode.owl.extension.MysqlPlugin
 插件开发前，请确认下述环境是否已准备好：
 1. JDK1.8
 2. Maven
-3. `com.netease.cloud.lowcode:codewave-owl-plugin` 插件 spi 依赖（https://github.com/netease-lcap/codewave-architect-course/blob/dc5404b5cc5fa1fa847d68ebb5cc35ad515b44a3/example/owl/codewave-owl-mysql-8.0/jar/codewave-owl-plugin-1.5.2-SNAPSHOT.jar）
+3. `com.netease.cloud.lowcode:codewave-owl-plugin` 插件 spi 依赖（https://github.com/netease-lcap/codewave-architect-course/tree/main/example/owl/codewave-owl-mysql-8.0/jar/codewave-owl-plugin-1.5.2-SNAPSHOT.jar）
 
 **PS：这里的版本最好以开发时最新版本为准，可以二次确认下，例如 1.5.2**
 ```xml
@@ -129,7 +129,7 @@ com.netease.cloud.lowcode.owl.extension.MysqlPlugin
 4. 方言处理（关键字包装、常量格式等）
 
 #### 插件方法说明
-下面是插件方法的详细说明，以 Mysql8.0 (https://github.com/netease-lcap/codewave-architect-course/blob/dc5404b5cc5fa1fa847d68ebb5cc35ad515b44a3/example/owl/codewave-owl-mysql-8.0)插件为例。
+下面是插件方法的详细说明，以 Mysql8.0 (https://github.com/netease-lcap/codewave-architect-course/tree/main/example/owl/codewave-owl-mysql-8.0)插件为例。
 
 ##### `getPluginJdbcInfo`
 非必须实现，抽象类已经实现统一的方法。
@@ -1740,7 +1740,7 @@ embedded: false
 ##### 参考文件
 以 Mysql 为例：
 
-https://github.com/netease-lcap/codewave-architect-course/blob/dc5404b5cc5fa1fa847d68ebb5cc35ad515b44a3/example/owl/codewave-owl-mysql-8.0/src/main/resources/plugin_info.yaml
+https://github.com/netease-lcap/codewave-architect-course/tree/main/example/owl/codewave-owl-mysql-8.0/src/main/resources/plugin_info.yaml
 
 ##### 类型映射定义
 数据库的数据类型和平台的 Nasl 类型之间的映射关系。多对多映射，一种 nasl 类型可以映射多种数据库类型，而一种数据库类型也可能映射到多种 nasl 类型，不过每种 nasl 类型应该有一种默认映射的数据库存储类型 (defaultMapping = true)。文件参数会用于解析和 Nasl 类型适配，owl 会读取 yaml 文件并解析，对应的类为 `RdbColumnMapping`，类详细信息参考入参实体类介绍。

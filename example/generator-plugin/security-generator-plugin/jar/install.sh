@@ -1,0 +1,6 @@
+mvn install:install-file -Dfile=nasl-translator-extension-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.10-SNAPSHOT -Dpackaging=pom
+mvn install:install-file -Dfile=nasl-ast-3.10-SNAPSHOT.jar -DpomFile=nasl-ast-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-ast -Dversion=3.10-SNAPSHOT
+mvn install:install-file -Dfile=nasl-translator-plugin-3.10-SNAPSHOT.jar -DpomFile=nasl-translator-plugin-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=3.10-SNAPSHOT
+mvn install:install-file -Dfile=nasl-generator-bom-1.3-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-generator-bom -Dversion=1.3-SNAPSHOT -Dpackaging=pom
+mvn install:install-file -Dfile=nasl-context-1.3.jar -DpomFile=nasl-context-1.3.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.3
+mvn install:install-file -Dfile=nasl-context-1.3-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.3-SNAPSHOT -Dpackaging=pom

@@ -1,0 +1,8 @@
+{
+  "symbol": "upgrade-security-version",
+  "name": "组件漏洞修复翻译器插件",
+  "version": "1.0.4",
+  "ideVersion": "3.10",
+  "description": "根据组件安全漏洞报告，升级springboot版本与pom文件依赖版本，支持3.10-3.13版本，需设置翻译器生效范围为导出使用，否则预览发布会失败",
+  "endType": "backend"
+}
