@@ -222,15 +222,21 @@ public class RedisConfig {
 
 
 
-### 案例3：Filter组件型 - 安全校验
+### 案例3：Filter组件型 - ip黑白名单过滤器
 
-​	安全校验
+​	https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
+
+
+
+
 
 ### 案例4：Controller组件型 - 大文件上传
 
 ​	大文件文件上传、Restful接口
 
-### 案例5：AOP切面型 - 数据脱敏
+### 案例5：AOP切面型 - ip黑白名单过滤器
+
+https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
 
 ​	数据库脱敏、接口日志
 
@@ -254,7 +260,11 @@ public class RedisConfig {
 
 ## 四、服务端扩展的本质	
 
-在本地如何调试依赖库
+### 本地调试代码
+
+
+
+ 在本地如何调试依赖库
 
 1.将依赖库安装至mvn本地仓库
 
@@ -265,6 +275,12 @@ mvn clean install
 
 
 2. 导出一个调用该依赖库的应用
+
+
+
+### 巧用SPI机制
+
+Spring Boot 通过 `SpringFactoriesLoader` 自动扫描并加载 `spring.factories` 的根本目的是**实现框架与第三方库的解耦**，并遵循 “约定优于配置” 的原则。这一机制让第三方库能够以标准化的方式集成到 Spring Boot 中，使用者只需引入依赖即可获得功能，无需手动配置，大大提升了开发效率。
 
 
 
