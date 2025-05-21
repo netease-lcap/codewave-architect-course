@@ -55,7 +55,7 @@ Codewave版本： 3.11
 
 源码位置：https://github.com/netease-lcap/codewave-architect-course/tree/main/example/connector
 
-#### 创建项目[](http://localhost:5173/development/serverend.html#创建项目)
+#### 创建项目
 
 扩展依赖的项目是一个基于Maven构建的Java项目。和一般Java项目的区别是需要添加相应的依赖和生成元数据的Maven插件。
 
@@ -63,7 +63,7 @@ Codewave版本： 3.11
 
 脚手架地址：https://libraryinitializr-community1.app.codewave.163.com/init
 
-![img](http://localhost:5173/development/assets/wps1.jpg)
+![img](assets/wps1.jpg)
 
 项目中可以选择Dependencies模块需要选择Spring环境： 支持创建Spring组件逻辑
 
