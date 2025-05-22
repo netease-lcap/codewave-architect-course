@@ -6,7 +6,7 @@
 
     <groupId>com.netease.cloud.helloconnector</groupId>
     <artifactId>HelloConnector</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>测试连接器基本功能</description>
     <name>Helloworld连接器</name>
 

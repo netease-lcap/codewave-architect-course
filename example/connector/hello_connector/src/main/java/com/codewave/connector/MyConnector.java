@@ -41,11 +41,7 @@ public class MyConnector {
         return false;
     }
 
-    @NaslConnector.Trigger
-    public void subscribe(String topic, Function<String, String> handle) {
 
-        eventBus.subscribe(topic, handle);
-    }
 
     public static class EventBus {
         private final Map<String, Queue<Function<String, String>>> subscribers = new ConcurrentHashMap<>();
@@ -74,6 +70,18 @@ public class MyConnector {
         }
     }
 
+    @NaslConnector.Trigger
+    public void subscribe(String topic, Function<String, String> handle) {
+
+        eventBus.subscribe(topic, handle);
+    }
+
+    @NaslConnector.Logic
+    public Integer publish(String event, String msg) {
+        eventBus.publish(event, msg);
+        return 0;
+    }
+
     public static void main(String[] args) {
         MyConnector myConnector = new MyConnector().initBean("appKey");
         myConnector.test("appKey");
@@ -87,7 +95,7 @@ public class MyConnector {
         });
 
         // 发布事件
-        myConnector.eventBus.publish("news", "Java 21发布了");
+        myConnector.publish("news", "Java 21发布了");
 
     }
 }
