@@ -17,6 +17,12 @@ public class MyConnector {
 
     public EventBus eventBus;
 
+    /**
+     * 加法逻辑
+     * @param a
+     * @param b
+     * @return
+     */
     @NaslConnector.Logic
     public Integer add(Integer a, Integer b) {
         return a + b;
@@ -70,12 +76,23 @@ public class MyConnector {
         }
     }
 
+    /**
+     * 订阅事件
+     * @param topic
+     * @param handle
+     */
     @NaslConnector.Trigger
     public void subscribe(String topic, Function<String, String> handle) {
 
         eventBus.subscribe(topic, handle);
     }
 
+    /**
+     * 发布事件
+     * @param event
+     * @param msg
+     * @return
+     */
     @NaslConnector.Logic
     public Integer publish(String event, String msg) {
         eventBus.publish(event, msg);
