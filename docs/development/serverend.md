@@ -222,15 +222,21 @@ public class RedisConfig {
 
 
 
-### 案例3：Filter组件型 - 安全教研
+### 案例3：Filter组件型 - ip黑白名单过滤器
 
-​	安全校验
+​	https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
+
+
+
+
 
 ### 案例4：Controller组件型 - 大文件上传
 
 ​	大文件文件上传、Restful接口
 
-### 案例5：AOP切面型 - 数据脱敏
+### 案例5：AOP切面型 - ip黑白名单过滤器
+
+https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
 
 ​	数据库脱敏、接口日志
 
@@ -254,9 +260,27 @@ public class RedisConfig {
 
 ## 四、服务端扩展的本质	
 
+### 本地调试代码
 
 
 
+ 在本地如何调试依赖库
+
+1.将依赖库安装至mvn本地仓库
+
+```bash
+mvn clean install
+```
+
+
+
+2. 导出一个调用该依赖库的应用
+
+
+
+### 巧用SPI机制
+
+Spring Boot 通过 `SpringFactoriesLoader` 自动扫描并加载 `spring.factories` 的根本目的是**实现框架与第三方库的解耦**，并遵循 “约定优于配置” 的原则。这一机制让第三方库能够以标准化的方式集成到 Spring Boot 中，使用者只需引入依赖即可获得功能，无需手动配置，大大提升了开发效率。
 
 
 
@@ -305,6 +329,12 @@ Codewave版本： 3.11
 
 其余 artifact、group、version等参数就是Maven中pom文件中的包信息的参数，这里不过多啊赘述。
 
+> ###### Maven项目完整坐标
+>
+> - groupId（如com.example）标识项目归属组织
+> - artifactId（如my-app）是具体项目或模块名称
+> - version（如1.0.0）标记项目迭代状态, 1.0.0-SNAPSHOT 快照不稳定版
+
 
 
 #### 安装依赖库与插件
@@ -314,6 +344,33 @@ Codewave版本： 3.11
 需要运行各种文件夹中的 install.sh 文件安装至本地仓库。
 
 ![image-20250507204625664](assets/image-20250507204625664.png)
+
+也可以在根目录下安装一个install.sh脚本快速执行
+
+```sh
+#!/bin/bash
+
+# 检查jar文件夹是否存在
+if [ -d "jar" ]; then
+    # 获取jar文件夹下的一层子文件夹列表
+    subfolders=$(find jar -mindepth 1 -maxdepth 1 -type d)
+    for folder in $subfolders; do
+        install_script="$folder/install.sh"
+        if [ -f "$install_script" ]; then
+            echo "Adding execute permission to $install_script..."
+            chmod +x $install_script
+            echo "Executing $install_script in $folder..."
+            (cd "$folder" &&./install.sh)
+        else
+            echo "install.sh not found in $folder"
+        fi
+    done
+else
+    echo "The 'jar' folder does not exist."
+fi
+```
+
+
 
 安装后可以运行
 
@@ -329,7 +386,7 @@ mvn clean package
 
 
 
-###  基础知识储备
+###  基础开发
 
 
 

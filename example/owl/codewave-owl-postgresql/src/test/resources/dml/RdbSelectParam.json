@@ -1,0 +1,81 @@
+{
+  "action": "select",
+  "sql": null,
+  "variables": null,
+  "schemaName": "public",
+  "tableName": "user_info_test",
+  "columns": [
+    {
+      "columnName": "id",
+      "columnType": "bigint",
+      "columnValue": "1",
+      "naslType": null
+    },
+    {
+      "columnName": "name",
+      "columnType": "varchar(50)",
+      "columnValue": "Jack",
+      "naslType": null
+    },
+    {
+      "columnName": "age",
+      "columnType": "integer",
+      "columnValue": "17",
+      "naslType": null
+    },
+    {
+      "columnName": "address",
+      "columnType": "varchar(100)",
+      "columnValue": "浙江省杭州市",
+      "naslType": null
+    },
+    {
+      "columnName": "phone",
+      "columnType": "varchar(20)",
+      "columnValue": "123456",
+      "naslType": null
+    },
+    {
+      "columnName": "email",
+      "columnType": "varchar(50)",
+      "columnValue": "1234@163.com",
+      "naslType": null
+    },
+    {
+      "columnName": "salary",
+      "columnType": "numeric(10,2)",
+      "columnValue": "4.35",
+      "naslType": null
+    },
+    {
+      "columnName": "percent",
+      "columnType": "float8",
+      "columnValue": "1.00",
+      "naslType": null
+    }
+  ],
+  "aggregation": null,
+  "wheres": {
+    "operator": "=",
+    "left": {
+      "operator": "column",
+      "columnName": "id",
+      "columnType": "bigint",
+      "naslType": null
+    },
+    "right": {
+      "operator": "value",
+      "value": "1",
+      "columnType": "bigint",
+      "naslType": null
+    }
+  },
+  "orderBys": [
+    {
+      "columnName": "id",
+      "orderType": "desc"
+    }
+  ],
+  "offset": "0",
+  "limit": "10"
+}

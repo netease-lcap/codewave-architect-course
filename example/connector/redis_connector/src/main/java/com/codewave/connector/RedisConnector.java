@@ -200,11 +200,16 @@ public class RedisConnector {
 //                12394,
 //                "1plK8zieFHUyLPRupPk0OQnJE51b7Xrw"
 
+        String host = "redis-13102.c90.us-east-1-3.ec2.redns.redis-cloud.com";
+        int port = 13102;
+        String password = "Mrv5yHF7KhnBIguqddBADZ7yl8khm4p5";
+        int database = 0;
+
         // 初始化 RedisConnector
-        RedisConnector redisTool = new RedisConnector().initRedisTemplate("127.0.0.1", 6379, "abc1234", 0);
+        RedisConnector redisTool = new RedisConnector().initRedisTemplate(host,port,password,database);
 
         // 测试链接是否可用
-        Boolean testConnection = redisTool.testConnection("127.0.0.1", 6379, "abc1234", 0);
+        Boolean testConnection = redisTool.testConnection(host,port,password,database);
         System.out.println("测试Redis连接，结果为： " + testConnection);
 
         // 订阅消息

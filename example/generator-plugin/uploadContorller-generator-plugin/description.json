@@ -1,0 +1,8 @@
+{
+  "symbol": "test-security-plugin",
+  "name": "修改文件上传，增加前缀",
+  "version": "1.0.0",
+  "ideVersion": "3.10",
+  "description": "针对FileUploadController的uploadLocalResponse进行处理，返回参数加上自定义的前缀",
+  "endType": "backend"
+}

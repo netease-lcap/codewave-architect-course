@@ -1,0 +1,81 @@
+{
+  "action": "insert",
+  "sql": null,
+  "variables": null,
+  "schemaName": "public",
+  "tableName": "user_info_test",
+  "columns": [
+    {
+      "columnName": "id",
+      "columnType": "bigint",
+      "columnValue": "1",
+      "naslType": null
+    },
+    {
+      "columnName": "created_time",
+      "columnType": "timestamp",
+      "columnValue": "2024-01-16 10:54:00",
+      "naslType": null
+    },
+    {
+      "columnName": "updated_time",
+      "columnType": "timestamp",
+      "columnValue": "2024-01-16 10:54:00",
+      "naslType": null
+    },
+    {
+      "columnName": "created_by",
+      "columnType": "varchar(256)",
+      "columnValue": "admin",
+      "naslType": null
+    },
+    {
+      "columnName": "updated_by",
+      "columnType": "varchar(256)",
+      "columnValue": "admin",
+      "naslType": null
+    },
+    {
+      "columnName": "name",
+      "columnType": "varchar(50)",
+      "columnValue": "Jack",
+      "naslType": null
+    },
+    {
+      "columnName": "age",
+      "columnType": "integer",
+      "columnValue": "17",
+      "naslType": null
+    },
+    {
+      "columnName": "address",
+      "columnType": "varchar(100)",
+      "columnValue": "浙江省杭州市",
+      "naslType": null
+    },
+    {
+      "columnName": "phone",
+      "columnType": "varchar(20)",
+      "columnValue": "123456",
+      "naslType": null
+    },
+    {
+      "columnName": "email",
+      "columnType": "varchar(50)",
+      "columnValue": "1234@163.com",
+      "naslType": null
+    },
+    {
+      "columnName": "salary",
+      "columnType": "numeric(10,2)",
+      "columnValue": "4.35",
+      "naslType": null
+    },
+    {
+      "columnName": "percent",
+      "columnType": "float8",
+      "columnValue": "1.0",
+      "naslType": null
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "action": "update",
+  "sql": null,
+  "variables": null,
+  "schemaName": "public",
+  "tableName": "user_info_test",
+  "columns": [
+    {
+      "columnName": "percent",
+      "columnType": "float8",
+      "columnValue": "0.98",
+      "naslType": null
+    },
+    {
+      "columnName": "email",
+      "columnType": "varchar(50)",
+      "columnValue": "12345@163.com",
+      "naslType": null
+    }
+  ],
+  "wheres": {
+    "operator": "=",
+    "left": {
+      "operator": "column",
+      "columnName": "id",
+      "columnType": "bigint",
+      "naslType": null
+    },
+    "right": {
+      "operator": "value",
+      "value": "1",
+      "columnType": "bigint",
+      "naslType": null
+    }
+  }
+}

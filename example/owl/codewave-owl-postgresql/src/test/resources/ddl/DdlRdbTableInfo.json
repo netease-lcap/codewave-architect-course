@@ -1,0 +1,276 @@
+{
+  "schemaName": "public",
+  "tableName": "user_info_test",
+  "comment": "user info test table",
+  "columns": [
+    {
+      "columnName": "id",
+      "columnType": null,
+      "comment": "主键id",
+      "defaultValue": null,
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": true,
+      "naslType": {
+        "name": "Long",
+        "storageType": null,
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "name",
+      "columnType": null,
+      "comment": "/姓'名x923l",
+      "defaultValue": "123",
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": {
+          "length": 50
+        }
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "age",
+      "columnType": null,
+      "comment": "年龄",
+      "defaultValue": null,
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "Integer",
+        "storageType": "integer",
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "address",
+      "columnType": null,
+      "comment": "地\"\"址",
+      "defaultValue": "''",
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": {
+          "length": 100
+        }
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "phone",
+      "columnType": null,
+      "comment": "电话",
+      "defaultValue": "",
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": {
+          "length": 20
+        }
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "email",
+      "columnType": null,
+      "comment": "邮\\箱",
+      "defaultValue": null,
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": {
+          "length": 50
+        }
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "salary",
+      "columnType": null,
+      "comment": "薪水",
+      "defaultValue": null,
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "Decimal",
+        "storageType": "numeric",
+        "storageOptions": {
+          "precision": 10,
+          "scale": 2
+        }
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "percent",
+      "columnType": null,
+      "comment": "出勤''率",
+      "defaultValue": null,
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "Double",
+        "storageType": "float",
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "create_time",
+      "columnType": null,
+      "comment": "创建时'间",
+      "defaultValue": "2023-07-03 14:55:00",
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "DateTime",
+        "storageType": "timestamp",
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "update_time",
+      "columnType": null,
+      "comment": "更新时间",
+      "defaultValue": "2023-07-03 14:55:00",
+      "notNull": true,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "DateTime",
+        "storageType": "timestamp",
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "delete_time",
+      "columnType": null,
+      "comment": "删除时间",
+      "defaultValue": null,
+      "notNull": false,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "DateTime",
+        "storageType": "timestamp",
+        "storageOptions": null
+      },
+      "sequenceName": null
+    },
+    {
+      "columnName": "created_time",
+      "columnType": null,
+      "comment": "创建时间",
+      "defaultValue": null,
+      "notNull": false,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "DateTime",
+        "storageType": "timestamp",
+        "storageOptions": null
+      },
+      "sequenceName": null,
+      "constraints": null
+    },
+    {
+      "columnName": "updated_time",
+      "columnType": null,
+      "comment": "更新时间",
+      "defaultValue": null,
+      "notNull": false,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "DateTime",
+        "storageType": "timestamp",
+        "storageOptions": null
+      },
+      "sequenceName": null,
+      "constraints": null
+    },
+    {
+      "columnName": "created_by",
+      "columnType": null,
+      "comment": "创建者",
+      "defaultValue": null,
+      "notNull": false,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": null
+      },
+      "sequenceName": null,
+      "constraints": null
+    },
+    {
+      "columnName": "updated_by",
+      "columnType": null,
+      "comment": "更新者",
+      "defaultValue": null,
+      "notNull": false,
+      "autoIncrement": false,
+      "primaryKey": false,
+      "naslType": {
+        "name": "String",
+        "storageType": "varchar",
+        "storageOptions": null
+      },
+      "sequenceName": null,
+      "constraints": null
+    }
+  ],
+  "indexes": [
+    {
+      "indexName": "idx_id",
+      "columnNames": [
+        "id"
+      ],
+      "unique": false,
+      "comment": "主键索引",
+      "primary": true
+    },
+    {
+      "indexName": "idx_name",
+      "columnNames": [
+        "name"
+      ],
+      "unique": false,
+      "comment": "姓名索引",
+      "primary": false
+    },
+    {
+      "indexName": "idx_age",
+      "columnNames": [
+        "age"
+      ],
+      "unique": false,
+      "comment": "年龄索引",
+      "primary": false
+    }
+  ]
+}
