@@ -7,7 +7,7 @@ module.exports =
         {
             text: '连接器开发', link: '/development/connector',
         },
-        { text: '组件样式定制', link: '/getting - started' },
+        { text: '组件样式定制', link: '/development/componentsStyle' },
         { text: '流程扩展定制', link: '/getting - started' },
         { text: '数据库插件', link: '/getting - started' }
     ]
