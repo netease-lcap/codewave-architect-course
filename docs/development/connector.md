@@ -247,7 +247,7 @@ public class MyConnector {
 #### 连接器发布
 
 ```bash
-maven clean package
+mvn clean package
 ```
 
 
