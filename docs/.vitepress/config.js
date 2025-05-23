@@ -21,11 +21,12 @@ module.exports = {
                 },
                 {
                     text: '部署集成',
-                    link: '/development',
+                    link: '/deployment/',
                     items: [
-                        { text: '源码导出', link: '/development/index' },
-                        { text: '翻译器定制', link: '/development/index' },
-                        { text: '日志监控', link: '/development/index' },
+                        { text: '源码导出', link: '/deployment/index' },
+                        { text: '后端翻译器', link: '/deployment/backend-generator-plugin' },
+                        { text: '前端翻译器', link: '/deployment/index' },
+                        { text: '日志监控', link: '/deployment/index' },
                     ]
                 },
                 {
