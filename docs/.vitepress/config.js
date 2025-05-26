@@ -19,14 +19,25 @@ module.exports = {
                 {
                     text: '应用开发',
                     link: '/development/',
-                    items: require('../development/sidebar.js')
+                    items: [
+                        {
+                            text: '服务端扩展', link: '/development/serverend',
+                        },
+                        { text: '前端扩展', link: '/development/frontend' },
+                        {
+                            text: '连接器开发', link: '/development/connector',
+                        },
+                        { text: '组件样式定制 ⏳', link: '/development/componentsStyle' },
+                        { text: '流程扩展定制 ⏳', link: '/getting - started' },
+                        { text: '数据库插件', link: '/development/owl' }
+                    ]
                 },
                 {
                     text: '部署集成',
                     link: '/deployment/',
                     items: [
                         { text: '源码导出 ⏳', link: '/deployment/index' },
-                        { text: '后端翻译器', link: '/deployment/backend-generator-plugin' },
+                        { text: '后端翻译器 ⏳', link: '/deployment/backend-generator-plugin' },
                         { text: '前端翻译器 ⏳', link: '/deployment/frontend-generator-plugin' },
                         { text: '日志监控 ⏳', link: '/deployment/index' },
                     ]
