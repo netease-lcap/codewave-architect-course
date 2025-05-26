@@ -627,9 +627,9 @@ pnpm start
 ```bash
 NODE_OPTIONS=--openssl-legacy-provider pnpm start
 ```
-接着你可以通过[http://localhost:7700/#/home](http://localhost:7700/#/home)访问主应用。
+接着你可以通过 `http://localhost:7700/#/home` 访问主应用。
 
-2. 配置主应用。
+1. 配置主应用。
     - 在主应用的examples/main-react/src/index.js文件中，注册子应用：
 ```js
 setupApp({
@@ -804,7 +804,7 @@ pnpm dev # 启动调试
 pnpm i
 pnpm dev
 ```
-你应该可以通过如下链接访问到子应用了：[https://localhost:7700/#/lcap](https://localhost:7700/#/lcap)
+你应该可以通过如下链接访问到子应用了： `https://localhost:7700/#/lcap`
 
 ### 常见问题&注意事项
 - 报错: NASL_ZLIB_PATH未设置请检查是否存在.env文件。

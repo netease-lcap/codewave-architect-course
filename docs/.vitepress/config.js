@@ -3,6 +3,8 @@ const { link } = require("fs");
 module.exports = {
     title: 'CodeWave架构师课程',
     description: '',
+    // 关闭死链接检测
+    checkDeadLinks: false,
     themeConfig: {
 
         outline: [2, 4], // 显示 h2 和 h3 标题
