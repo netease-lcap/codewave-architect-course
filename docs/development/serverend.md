@@ -601,6 +601,68 @@ private static final Logger log = LoggerFactory.getLogger("LCAP_EXTENSION_LOGGER
 
  
 
+#### 创建自定义配置
+
+CodeWave平台中的自定义配置是基于Spring配置类实现的。
+
+在@Configuration注解修饰下的配置类中使用 @NaslConfiguration 修饰的属性会作为CodeWave的应用配置。
+
+可以实现自定义参数，在应用加载依赖库后可以在应用配置中进行配置。
+
+
+```java
+package com.codewave.spring;
+
+import com.netease.lowcode.core.annotation.Environment;
+import org.springframework.context.annotation.Configuration;
+
+import com.netease.lowcode.core.annotation.NaslConfiguration;
+import com.netease.lowcode.core.EnvironmentType;
+
+@Configuration
+public class MyConfig {
+
+    /**
+     * 我的主机Host(自定义参数)
+     */
+    @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = "我的主机"))
+    public String myHost;
+}
+
+```
+
+
+![image-20250506194336639](assets/image-20250506194336639.png)
+
+如果想将自定义参数映射为系统参数可以使用 alias 属性 + systemScope属性实现。
+
+```java
+package com.codewave.spring;
+
+import com.netease.lowcode.core.annotation.Environment;
+import org.springframework.context.annotation.Configuration;
+
+import com.netease.lowcode.core.annotation.NaslConfiguration;
+import com.netease.lowcode.core.EnvironmentType;
+
+@Configuration
+public class MyConfig {
+
+    /**
+     * MongoDB地址
+     */
+    @NaslConfiguration(systemScope = true, alias = "spring.mongo.host")
+    public String mongoHost;
+
+}
+
+```
+
+
+![Xnip2025-05-06_19-39-32](assets/WX20250506-194129.png)
+
+
+
 #### 创建Component组件型逻辑
 
 如果需要使用Spring的IOC机制注入bean或者配置，可以创建Component类型的扩展逻辑。
@@ -722,70 +784,6 @@ public class MyComponetTest {
 ```
 
 
-
-
-
-#### 创建自定义配置
-
-CodeWave平台中的自定义配置是基于Spring配置类实现的。
-
-在@Configuration注解修饰下的配置类中使用 @NaslConfiguration 修饰的属性会作为CodeWave的应用配置。
-
-可以实现自定义参数，在应用加载依赖库后可以在应用配置中进行配置。
-
-
-```java
-
-package com.codewave.spring;
-
-import com.netease.lowcode.core.annotation.Environment;
-import org.springframework.context.annotation.Configuration;
-
-import com.netease.lowcode.core.annotation.NaslConfiguration;
-import com.netease.lowcode.core.EnvironmentType;
-
-@Configuration
-public class MyConfig {
-
-    /**
-     * 我的主机Host(自定义参数)
-     */
-    @NaslConfiguration(defaultValue = @Environment(type = EnvironmentType.DEV, value = "我的主机"))
-    public String myHost;
-}
-
-```
-
-
-![image-20250506194336639](assets/image-20250506194336639.png)
-
-如果想将自定义参数映射为系统参数可以使用 alias 属性 + systemScope属性实现。
-
-```java
-
-package com.codewave.spring;
-
-import com.netease.lowcode.core.annotation.Environment;
-import org.springframework.context.annotation.Configuration;
-
-import com.netease.lowcode.core.annotation.NaslConfiguration;
-import com.netease.lowcode.core.EnvironmentType;
-
-@Configuration
-public class MyConfig {
-
-    /**
-     * MongoDB地址
-     */
-    @NaslConfiguration(systemScope = true, alias = "spring.mongo.host")
-    public String mongoHost;
-
-}
-
-```
-
-
-![Xnip2025-05-06_19-39-32](assets/WX20250506-194129.png)
 
 
 
