@@ -16,6 +16,7 @@ public class MyLogic {
      */
     @NaslLogic
     public static Integer add(Integer a, Integer b) {
+        System.out.println("a + b = " + (a + b));
         return a + b;
     }
 
