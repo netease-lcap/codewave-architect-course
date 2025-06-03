@@ -37,6 +37,7 @@ module.exports = {
                     link: '/deployment/',
                     items: [
                         { text: '源码导出 ⏳', link: '/deployment/index' },
+                        { text: '多应用集成独立部署 ⏳', link: '/deployment/multi-application-deploy' },
                         { text: '后端翻译器 ⏳', link: '/deployment/backend-generator-plugin' },
                         { text: '前端翻译器 ⏳', link: '/deployment/frontend-generator-plugin' },
                         { text: '日志监控 ⏳', link: '/deployment/index' },
@@ -47,7 +48,8 @@ module.exports = {
                     link: '/architecture',
                     items: [
                         { text: '微前端 ⏳', link: '/architecture' },
-                        { text: '微服务 ⏳', link: '/architecture' },
+                        { text: '多应用 ⏳', link: '/architecture/multi-application-case' },
+                        { text: '微服务雏形 ⏳', link: '/architecture/micro-application-case' },
                         { text: '认证授权 ⏳', link: '/architecture' },
                         { text: '分布式事务 ⏳', link: '/architecture' }
                     ]
