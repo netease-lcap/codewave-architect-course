@@ -37,6 +37,7 @@ module.exports = {
                     link: '/deployment/',
                     items: [
                         { text: '源码导出 ⏳', link: '/deployment/index' },
+                        { text: '多应用集成独立部署 ⏳', link: '/deployment/multi-application-deploy' },
                         { text: '后端翻译器 ⏳', link: '/deployment/backend-generator-plugin' },
                         { text: '前端翻译器 ⏳', link: '/deployment/frontend-generator-plugin' },
                         { text: '日志监控 ⏳', link: '/deployment/index' },
