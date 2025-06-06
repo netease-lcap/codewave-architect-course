@@ -51,7 +51,8 @@ module.exports = {
                         { text: '多应用', link: '/architecture/multi-application-case' },
                         { text: '微服务', link: '/architecture/micro-application-case' },
                         { text: '认证授权', link: '/architecture/authentication' },
-                        { text: '分布式事务 ', link: '/architecture/multi-application-transaction' }
+                        { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
+                        { text: '微服务架构对接 ', link: '/architecture/microservice' }
                     ]
                 },
                 {
