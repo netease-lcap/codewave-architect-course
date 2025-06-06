@@ -28,7 +28,7 @@ module.exports = {
                             text: '连接器开发', link: '/development/connector',
                         },
                         { text: '组件样式定制 ⏳', link: '/development/componentsStyle' },
-                        { text: '流程扩展定制 ⏳', link: '/getting - started' },
+                        { text: '流程扩展定制 ⏳', link: '/development/pocess' },
                         { text: '数据库插件', link: '/development/owl' }
                     ]
                 },
@@ -36,10 +36,10 @@ module.exports = {
                     text: '部署集成',
                     link: '/deployment/',
                     items: [
-                        { text: '源码导出 ⏳', link: '/deployment/index' },
-                        { text: '多应用集成独立部署 ⏳', link: '/deployment/multi-application-deploy' },
-                        { text: '后端翻译器 ⏳', link: '/deployment/backend-generator-plugin' },
-                        { text: '前端翻译器 ⏳', link: '/deployment/frontend-generator-plugin' },
+                        { text: '源码导出 ', link: '/deployment/export' },
+                        { text: '多应用集成独立部署', link: '/deployment/multi-application-deploy' },
+                        { text: '后端翻译器 ', link: '/deployment/backend-generator-plugin' },
+                        { text: '前端翻译器 ', link: '/deployment/frontend-generator-plugin' },
                         { text: '日志监控 ⏳', link: '/deployment/index' },
                     ]
                 },
@@ -48,10 +48,10 @@ module.exports = {
                     link: '/architecture',
                     items: [
                         { text: '微前端 ⏳', link: '/architecture' },
-                        { text: '多应用 ⏳', link: '/architecture/multi-application-case' },
-                        { text: '微服务雏形 ⏳', link: '/architecture/micro-application-case' },
-                        { text: '认证授权 ⏳', link: '/architecture/authentication' },
-                        { text: '分布式事务 ⏳', link: '/architecture/multi-application-transaction' }
+                        { text: '多应用', link: '/architecture/multi-application-case' },
+                        { text: '微服务', link: '/architecture/micro-application-case' },
+                        { text: '认证授权', link: '/architecture/authentication' },
+                        { text: '分布式事务 ', link: '/architecture/multi-application-transaction' }
                     ]
                 },
                 {
