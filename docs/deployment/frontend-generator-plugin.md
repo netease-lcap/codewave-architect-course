@@ -84,7 +84,7 @@ pnpm i
 插件脚手架目录结构如下。其中：
 1. `playground/container.ts`是插件打包的入口，引用用户自定义的插件，并注入容器。
 2. 而 `playground/customization` 文件夹下存放用户修改、新增的插件，供`container.ts`引用。
-```text
+```bash
 .
 ├── README.md                                    # 脚手架说明文档
 ├── dist                                         # 打包后的插件。未打包前可能为空或不存在
@@ -178,7 +178,7 @@ export async function makeContainer() {
 pnpm dev
 ```
 如果一切顺利，你就会在终端看到形如如下的日志：
-```text
+```bash
 [19:19:25.743] INFO (5585): [翻译] 开始翻译
 [19:19:25.806] INFO (5585): [compileAsProject] 开始翻译代码
 [19:19:25.806] INFO (5585): [compileAsProject] 启用制品日志插件
@@ -285,7 +285,7 @@ pnpm build:plugin
 1. 脚手架通过检查public/description.json是否存在来判断当前是否是在创建一个新插件。
 
 若未创建过插件（），则会询问插件名、插件版本号；否则，脚手架会询问是否要更新插件的版本号。如下：
-```text
+```bash
 ? 是否更新[我的翻译器插件@1.0.1]的版本号 yes
 ? 请输入新的版本号 1.0.2
 // public/description.json
@@ -299,7 +299,7 @@ pnpm build:plugin
 }
 ```
 控制台会输出：
-```text
+```bash
 开始打包插件
 打包完成
 压缩包路径: /Users/xxx/workspace/nasl-frontend-generator-playground/plugin.zip
@@ -366,7 +366,7 @@ export async function makeContainer() {
 ```
 现在，执行pnpm dev开始调试插件。插件的调试方式可以参考“插件调试”一节。
 调试启动后，源码会输出到out目录下。现在out目录下的内容为：
-```text
+```bash
 .
 ├── .eslintrc.js
 ├── package.json
@@ -425,7 +425,7 @@ export async function makeContainer() {
 步骤：
 1. 下载导出的Vue应用源码。解压后，放入脚手架的playground/fixtures/client目录中。此时client目录下应该有pc或是h5目录。形如：
 
-```text
+```bash
 client
 └── pc
     ├── babel.config.js
@@ -487,7 +487,7 @@ client
 
 2. 视情况修改.env环境变量中的源码目录（可选）。
 在.env文件中，LEGACY_CLIENT_PATH变量的默认值为
-```text
+```bash
 LEGACY_CLIENT_PATH=./playground/fixtures/client
 ```
 这个变量用来控制导入的Vue应用源码放在哪里。你可以修改它，指向自己的源码目录。

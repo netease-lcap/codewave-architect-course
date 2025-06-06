@@ -2,37 +2,37 @@
 
 ## 安装
 
-```
+``` bash
 npm install
 ```
 
 ## 开发
 
-```
+``` bash
 npm start
 ```
 
 或
 
-```
+``` bash
 npm run dev
 ```
 
 ## 添加组件
 
-```
+``` bash
 lcap create component
 ```
 
 ## 添加逻辑
 
-```
+``` bash
 lcap create logic
 ```
 
 ## 构建 & 发布
 
-```
+``` bash
 npm run build
 ```
 
