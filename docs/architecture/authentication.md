@@ -38,7 +38,7 @@
 cw平台自带的认证依赖库，用于完成完成token的颁发、会话鉴权、token的清除。
 
 lcap_auth拥有默认逻辑，同时也支持在ide复写该依赖库中的相应方法，复写完成后，底层会生成对应的方法，从而完成自定义的鉴权。详细请参考源码：/web/interceptor/UserContextFilter.java
-![1.jpg](assets%2Fauthentication%2F1.jpg)
+![assets/authentication/1.jpg](assets/authentication/1.jpg)
 
 **lcap_auth依赖库包含以下逻辑：**
 - createToken：创建token，并将token加到cookie中；
@@ -98,12 +98,12 @@ createToken
 参考/interceptor/UserContextFilter.java、iam/auth/AuthManager.java
 
 
-![2.png](assets%2Fauthentication%2F2.png)
-![3.png](assets%2Fauthentication%2F3.png)
+![assets/authentication/2.png](assets/authentication/2.png)
+![assets/authentication/3.png](assets/authentication/3.png)
 **依赖库案例：**
 
 参考微信登录依赖库
-[auth-library-wechat](..%2F..%2Fexample%2Fauth-library-wechat)
+[auth-library-wechat](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/auth-library-wechat)
 1. 引入auth-library-common依赖
   ```xml
   <dependency> 
@@ -112,10 +112,10 @@ createToken
       <version>1.0.0</version>
   </dependency>
   ```
-2. 定义LCAPAuthService的扩展点，并实现LCAPAuthService接口，重写指定方法完成自定义会话鉴权
-![4.png](assets%2Fauthentication%2F4.png)
-3. 注入spi
-![5.png](assets%2Fauthentication%2F5.png)
+1. 定义LCAPAuthService的扩展点，并实现LCAPAuthService接口，重写指定方法完成自定义会话鉴权
+![assets/authentication/4.png](assets/authentication/4.png)
+1. 注入spi
+![assets/authentication/5.png](assets/authentication/5.png)
 ### 权限扩展依赖库：lcap_permission
 
 lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkPermission、getUserResources三个扩展方法用于实现用户自定义权限集成相关逻辑。**需要特殊注意**：如果需要对接远程权限中心，则必须先完成用户中心的对接
@@ -125,7 +125,7 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 概述：在应用发布时将IDE内需要上报到权限系统的资源数据以指定方式上报到指定位置。
 
 方法的作用：应用发布时会将需要上报到权限系统的资源数据写入到本地文件中，在应用启动完成前会调用uploadResource方法将本地的资源数据上报到指定位置。
-![6.png](assets%2Fauthentication%2F6.png)
+![assets/authentication/6.png](assets/authentication/6.png)
 改写后会产生的效果：分两种情况
 
 1、仅改写了uploadResource，无IDE内显式调用
@@ -141,7 +141,7 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 **checkPermission**
 
 概述：输入用户id、资源唯一标识来检测指定用户是否有指定资源的访问权限。用户id可从服务端全局变量currentUser中获取，资源唯一标识为resourceValue。
-![9.png](assets%2Fauthentication%2F9.png)
+![assets/authentication/9.png](assets/authentication/9.png)
 方法的作用：返回输入用户是否有输入资源（此资源目前仅限于ui资源，暂不支持逻辑资源）的访问权限
 
 改写后会产生的效果：分两种场景
@@ -162,7 +162,7 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 **getUserResources**
 
 概述：输入用户标识，返回该用户所能访问的资源列表（目前仅返回UI资源列表），用户标识可从服务端全局变量currentUser中获取，返回的资源列表包含resourceValue、resourceType、clientType、description、createdTime字段
-![7.png](assets%2Fauthentication%2F7.png)
+![assets/authentication/7.png](assets/authentication/7.png)
 方法的作用：应用的页面显示控制框架会调用/rest/getUserResources接口来获取当前登录人可访问哪些资源，如果需要自定义用户可以获取哪些资源的逻辑，可以复写lcap-permission依赖库中的getUserResources方法并在LCAPGetUserResources逻辑中调用getUserResources方法来达到复写用户可访问哪些资源的控制目的。
 
 推荐的使用方式：修改getUserResources逻辑内容后无显式调用
@@ -290,7 +290,7 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 
 1. 行权限控制
 2. 列权限控制
-![8.png](assets%2Fauthentication%2F8.png)
+![assets/authentication/8.png](assets/authentication/8.png)
 ## codewave常见认证&权限集成场景
 
 CodeWave智能开发平台目前支持六种常见的登录和权限场景，涵盖了业内常见的认证场景。开发者可以参考每个场景的介绍，结合自身业务需求选择最适合的场景，并查看详细的接入文档和示例。

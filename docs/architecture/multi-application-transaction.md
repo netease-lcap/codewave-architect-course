@@ -12,7 +12,7 @@ CodeWave事务：使用spring事务的默认模式。基于但数据源，不支
 
 ## 案例展示
 下图中绿色部分表示低代码业务，黄色部分表示高代码业务。本方案支持高低代码混用。
-![img.png](img.png)
+![img.png](assets/transaction/img.png)
 
 ### 技术方案
 
@@ -21,7 +21,7 @@ CodeWave事务：使用spring事务的默认模式。基于但数据源，不支
 3.  制品启动时，AOP机制会将开启了codewave AOP定义IDE的注解SeataLogicAnnotation的逻辑存储在json文件中。
 4.  逻辑被调用时，使用Aspect拦截所有自定义逻辑，依赖库中，判断当前被调用逻辑是否开启SeataLogicAnnotation。若开启，则对逻辑做**手动编程式事务管理**。
 
-![img_1.png](img_1.png)
+![img_1.png](assets/transaction/img_1.png)
 
 ## 实操演示
 
@@ -43,9 +43,9 @@ CodeWave事务：使用spring事务的默认模式。基于但数据源，不支
     ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 ```
 2. 开启逻辑的分布式事务开关
-![img_2.png](img_2.png)
+![img_2.png](assets/transaction/img_2.png)
 3. 开启分布式事务的逻辑在执行时会触发seata全局事务，如下图所示：
-![img_3.png](img_3.png)
+![img_3.png](assets/transaction/img_3.png)
 4. 应用配置中，配置seata和nacos信息。下图为示例，等同效果：
 ```declarative
 seata:
@@ -67,14 +67,14 @@ seata:
       namespace: d50a537a-65ce-4c85-8b6f-e05a2518f1f4
       group: SEATA_GROUP
 ```
-![img_4.png](img_4.png)
+![img_4.png](assets/transaction/img_4.png)
 
 5. seata所需的VgroupMapping可以直接配置在nacos配置中心，如图1。也可以按照图2配置properties文件，再将dataId配置在应用配置中的dataId参数中。
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
+![img_5.png](assets/transaction/img_5.png)
+![img_6.png](assets/transaction/img_6.png)
 6. 在主事务中调用微服务时，使用nacos连接器。nacos连接器是http协议，因此需要在api定义中新增header名称为TX\_XID。在调用这个API时，set header信息。通过本依赖库获取。
-![img_7.png](img_7.png)
-![img_8.png](img_8.png)
+![img_7.png](assets/transaction/img_7.png)
+![img_8.png](assets/transaction/img_8.png)
 前端调用使用custom-filter，后端调用使用custom-backend-remotecall-filter，用于给API请求统一修改header。
 
 7.主事务应用和分支事务应用都需要引入本依赖库，并配置应用配置。仅主事务业务需要开启分布式事务注解。
