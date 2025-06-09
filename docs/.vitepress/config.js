@@ -27,8 +27,8 @@ module.exports = {
                         {
                             text: '连接器开发', link: '/development/connector',
                         },
-                        { text: '组件样式定制 ⏳', link: '/development/componentsStyle' },
-                        { text: '流程扩展定制 ⏳', link: '/development/pocess' },
+                        { text: '组件样式定制', link: '/development/componentsStyle' },
+                        // { text: '流程扩展定制 ⏳', link: '/development/pocess' },
                         { text: '数据库插件', link: '/development/owl' }
                     ]
                 },
@@ -40,7 +40,7 @@ module.exports = {
                         { text: '多应用集成独立部署', link: '/deployment/multi-application-deploy' },
                         { text: '后端翻译器 ', link: '/deployment/backend-generator-plugin' },
                         { text: '前端翻译器 ', link: '/deployment/frontend-generator-plugin' },
-                        { text: '日志监控 ⏳', link: '/deployment/log-monitor' },
+                        { text: '日志监控', link: '/deployment/log-monitor' },
                     ]
                 },
                 {
