@@ -46,11 +46,11 @@ module.exports = [
     {
         text: '架构设计', link: '/practice/index', items: [
             {
-                text: '微服务', link: '/practice/index',
+                text: '微服务', link: '/architecture/micro-application-case',
             },
             { text: '微前端', link: '/practice/index' },
             {
-                text: 'DevOps', link: '/practice/index',
+                text: 'DevOps', link: '/deployment/multi-application-deploy',
             },
         ]
     },
@@ -68,13 +68,13 @@ module.exports = [
                 ]
             },
             {
-                text: '高代码开发', link: '/practice/index', collapsed: true, items: [
+                text: '高代码开发', link: '/practice/index', collapsed: false, items: [
                     {
-                        text: '前端组件库', link: '/practice/index',
+                        text: '前端组件库', link: '/development/frontend',
                     },
-                    { text: 'Java依赖库', link: '/practice/index' },
+                    { text: 'Java依赖库', link: '/development/serverend' },
                     {
-                        text: '连接器', link: '/practice/index',
+                        text: '连接器', link: '/development/connector',
                     }]
             },
         ]
