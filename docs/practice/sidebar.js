@@ -1,6 +1,6 @@
 module.exports = [
     {
-        text: '项目管理', link: '/practice/index', items: [
+        text: '开发模式', link: '/practice/index', items: [
             {
                 text: '敏捷开发', link: '/practice/index', collapsed: true, items: [
                     {
