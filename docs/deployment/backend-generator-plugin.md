@@ -33,8 +33,8 @@ Codewave支持管理平台中的源码翻译器插件，通过翻译器插件可
 翻译器插件的开发步骤如下：
 1. 基于 spring 打开 maven 工程
 2. 编写对应代码，package 打包出对应 jar 包
-3. 编写 description.json 文件，压缩成 zip 包
-4. 上传翻译器插件验证
+3. 编写 description.json 文件，连同上述 jar 包压缩成 zip 包
+4. 在平台上传翻译器插件进行验证
 
 ### 2.2 开发环境准备
 #### 2.2.1 创建 maven 项目
@@ -57,7 +57,7 @@ mvn install:install-file -Dfile=nasl-context-1.3-SNAPSHOT.pom -DgroupId=com.nete
 <parent>
     <groupId>com.netease.cloud</groupId>
     <artifactId>nasl-translator-extension</artifactId>
-    <version>3.10-SNAPSHOT</version>
+    <version>3.10-SNAPSHOT</version>  <!--根据ide版本号修改引用版本-->
 </parent>
 ```
 
@@ -294,19 +294,17 @@ nasl.plugin.version=3.10
 
 ## 3. 开发问题排查
 ### 3.1 翻译插件如何打日志
-引入 slf4j 依赖：
-```xml
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.30</version>
-</dependency>
-```
-
 使用示例：
 ```java
 private static final Logger log = LoggerFactory.getLogger(xxx.class);
-// 使用 log 输出日志
+// 使用 log 输出日志，例如：
+public static void commentClass(SourceFile file, String comment) {
+    logger.info("comment class with comment: {}", comment);
+    if (isBlank(comment) || isNull(file)) return;
+    if (JavaClass.class.isInstance(file)) {
+        JavaClass.class.cast(file).setComment(JavaBuilder.comment(true, comment));
+    }
+}
 ```
 
 ### 3.2 如何获取当前 IDE 项目的 nasl 本地验证
