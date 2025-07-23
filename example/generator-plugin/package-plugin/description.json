@@ -1,0 +1,8 @@
+{
+  "symbol": "boe-generator-plugin-new",
+  "name": "boe翻译器插件",
+  "version": "1.0.0",
+  "ideVersion": "4.0",
+  "description": "boe翻译器插件",
+  "endType": "backend"
+}
