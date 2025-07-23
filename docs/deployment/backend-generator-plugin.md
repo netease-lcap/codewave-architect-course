@@ -253,6 +253,165 @@ public class FreeMarkerExample {
 }
 ```
 
+##### 2.2.4.3 针对java文件的后置处理
+在翻译过程中有时候并不能处理所有的java 文件，比如客户的源码规范定制化高，可以采用后置处理的方式，首先通过SPI机制完成注册，在resources/META-INF/services下新建com.netease.cloud.nasl.extension.ExtensionPoint文件，文件内输入实现类的路径即可。
+
+示例：
+```java
+package com.example.plugin;
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import com.netease.cloud.nasl.extension.java.JavaCodeBatchFormatExtension;
+import com.netease.cloud.nasl.source.SourceFile;
+
+/**
+ * @author codewave
+ */
+public class ExampleJavaCodeBatchFormatExtension extends JavaCodeBatchFormatExtension {
+
+	@Override
+	public void batchFormat(Map<Path, SourceFile> files) {
+		files.forEach((path, sourceFile) -> {
+			try {
+				String code = sourceFile.getSourceCode();
+
+				code = JsonPropertyAnnotationFormatter.addJsonPropertyAnnotations(code);
+				code = CodeStyleFormatter.formatCodeStyle(code);
+				code = JavaFieldNameConverter.changeApiReturn(code);
+				// 处理构造函数里的业务逻辑
+				code = ConstructorLogicExtractor.processConstructor(code);
+
+				// 处理空块
+				code = EmptyBlockFormatter.emptyBlockFormatter(code);
+				code = ModifierOrderFormatter.formatWithCustomModifierOrder(code);
+				// 处理三元表达式
+				code = TernaryToIfElseReplacer.ternaryToIfElseReplacer(code);
+				// 处理if条件里的复杂逻辑
+				code = IfConditionSplitter.ifConditionSplitter(code);
+				// 增加枚举的注释
+				code = AutoGenerateEnumComment.autoGenerateEnumComment(code);
+				// 处理常量
+				code = ConstantUpperCaseConverter.convertConstants(code);
+
+				// 处理魔法值问题，本期针对性处理就行
+				code = MagicValueFormatter.constantExtractor(code);
+				// 给pojo类增加toString方法，这个要放在处理魔法值之前
+				code = AddToStringToPojo.addToStringToPojo(code);
+				// 处理if，else，For，do，while语句必须使用大括号问题
+				code = AddBracesToControlStatements.addBracesToControlStatements(code);
+				code = MagicValueGlobal.processMagicValues(code);
+				code = MethodRenameTool.renameMethodsWithDefaultMapping(code);
+				code = FieldRenameTool.convertFieldsToCamelCase(code);
+
+				code = code.replaceAll("(?m)(\\belse\\s*\\{\\s*\\})", "");
+				code = code.replaceAll("batchList.size() >= 0", "batchList.size() > 0");
+				code = code.replaceAll("x >= 0 && x < index_64.length", "x > 0 && x < index_64.length");
+				code = code.replaceAll("null : total, page, size", "null : total.intValue(), page.intValue(), size.intValue()");
+				code = code.replaceAll("DepartmentRes department = null;", "DepartmentRes department = new DepartmentRes();");
+				code = code.replaceAll("class logReportParamsDTO", "class LogReportParamsDTO");
+				code = code.replaceAll("logReportParamsDTO logReportParamsDTO", "LogReportParamsDTO logReportParamsDTO");
+				code = code.replaceAll("globalCDD638E00095E76C42DB80D69DFDEC30currentUser", "globalBoeCurrentUser");
+
+				// Objects.equals 这个先处理
+				code = AdjustEqualsCalls.equalsMethodFixer(code);
+				code = code.replaceAll("switch\\(", "switch \\(");
+				code = code.replaceAll(Pattern.quote("uiBasePath.equals(\"/\")"), "\"/\".equals(uiBasePath)");
+				code = CodeCommentFormatter.addComments(code);
+				Files.write(path, code.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        });
+	}
+}
+```
+通过这种方式，可以批量处理java文件。
+
+##### 2.2.4.4 针对指定文件的修改
+在实际运用中，我们可能需要修改某个指定的java文件，首先通过SPI机制完成注册，在resources/META-INF/services下新建com.netease.cloud.nasl.extension.ExtensionPoint文件，文件内输入实现类的路径即可。
+
+```java
+package com.example.plugin;
+
+import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.kxindot.goblin.logger.Logger;
+import com.kxindot.goblin.logger.LoggerFactory;
+import com.netease.cloud.nasl.extension.AbstractSourceFileFormatExtension;
+import com.netease.cloud.nasl.source.SourceFile;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Optional;
+
+public class ExampleJavaCodeFormatExtension extends AbstractSourceFileFormatExtension<SourceFile> {
+
+    private static final Logger logger =
+        LoggerFactory.getLogger(ExampleJavaCodeFormatExtension.class);
+    @Override
+    protected Class<SourceFile> type() {
+        return SourceFile.class;
+    }
+
+    @Override
+    protected boolean doAccept(SourceFile file) {
+        // 获取需要更改的文件名
+        // demo修改ExpressionWrapper的类名
+        boolean expressionWrapper = file.getName().equals("DictconnConnector_jxdict_Config");
+        if (expressionWrapper) {
+            logger.info("正在处理文件：" + file.getAbsolutePath());
+        }
+        return expressionWrapper;
+    }
+
+    @Override
+    public String format(String code) {
+        // 直接返回code
+        return code;
+    }
+
+    @Override
+    public void format(Path file) {
+        logger.info("正在处理文件2：" + file.toAbsolutePath());
+        try {
+            // 1. 读取文件内容并解析为CompilationUnit
+            CompilationUnit cu = StaticJavaParser.parse(file.toFile());
+
+            // 2. 查找类声明并修改类名
+            Optional<ClassOrInterfaceDeclaration> classDecl = cu.findFirst(ClassOrInterfaceDeclaration.class);
+            if (classDecl.isPresent()) {
+                ClassOrInterfaceDeclaration cls = classDecl.get();
+                cls.setName("DictconnConnectorjxdictConfig");
+
+                // 3. 删除原文件
+                Files.deleteIfExists(file);
+
+                // 4. 创建新文件并写入修改后的内容
+                Path newFile = file.resolveSibling("DictconnConnectorjxdictConfig.java");
+                Files.write(
+                    newFile,
+                    cu.toString().getBytes(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.WRITE,
+                    StandardOpenOption.TRUNCATE_EXISTING
+                );
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 #### 2.2.5 添加 plugin-metadata.properties
 当前使用版本（SPI 声明为 com.netease.cloud.nasl.translator.Translator 的），ast 版本和 plugin 版本需要相同，最小为 3.10，SPI 为 com.netease.cloud.nasl.extension.ExtensionPoint 不受影响。
 ​            ![img](assets/img-20250520-6.png)
@@ -516,4 +675,4 @@ FTL stack trace ("~" means nesting-related):
 ### 5.4 导出源码提示翻译器安装超时
 错误提示：`生成代码失败，原因：等待翻译器插件安装超时，插件ID：xxxx`
 
-这个错误一般是相同翻译器版本重复上传，导致reload失败，将describe里的version+0.0.1，然后重新上传翻译器导出。如果还不能解决需要手动重启nasl-generator-new服务
+这个错误一般是相同翻译器版本重复上传，导致reload失败，将description里的version+0.0.1，或者修改symbpl，然后重新上传翻译器导出。如果还不能解决需要手动重启nasl-generator-new服务
