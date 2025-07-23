@@ -1,0 +1,8 @@
+{
+  "symbol": "comment-plugin-new",
+  "name": "翻译器-添加注释-new",
+  "version": "1.0.1",
+  "ideVersion": "3.14",
+  "description": "翻译器-添加注释-new",
+  "endType": "backend"
+}
