@@ -10,7 +10,7 @@ Codewave支持管理平台中的源码翻译器插件，通过翻译器插件可
 - **翻译器插件**：翻译器的扩展机制，可以定制某些翻译行为，从而生成符合定制化要求的源码。
 
 ### 适用场景
-- 当平台导出的应用源代码不符合企业内部代码规范的时候，需要按要求调整代码格式及代码内容，以满足企业内部开发规范要求。
+- 当平台导出的应用源代码、项目目录结构不符合企业内部代码规范的时候，需要按要求调整代码格式内容以及框架，以满足企业内部开发规范要求。
 - 为低代码应用导出的源码适配企业技术栈，例如需要引入企业开发的 jar 包，适配企业内部的微前端框架等。
 - 导出的源码需要自定义第三方依赖，例如第三方依赖存在漏洞时需要升级版本，或者添加自定义的三方依赖。
 
@@ -24,7 +24,7 @@ Codewave支持管理平台中的源码翻译器插件，通过翻译器插件可
   - 新增自定义源码文件；
   - 完全覆写翻译内核，生成其他语言的制品，如将制品应用翻译为 Go 语言项目
 
-翻译器插件与工程模板都可以进行源码的定制化修改，工程模板只支持粗粒度的源码定制，翻译器插件可以进行更细粒度的定制，翻译器插件完全涵盖工程模板的能力，工程模板的能力都可以用翻译器插件实现。
+翻译器插件与工程模板（4.0后弃用）都可以进行源码的定制化修改，工程模板只支持粗粒度的源码定制，翻译器插件可以进行更细粒度的定制，翻译器插件完全涵盖工程模板的能力，工程模板的能力都可以用翻译器插件实现。
 
 ## 2. 如何开发翻译器插件
 ### 2.1 开发流程
@@ -52,24 +52,44 @@ mvn install:install-file -Dfile=nasl-context-1.3-SNAPSHOT.pom -DgroupId=com.nete
 ```
 
 #### 2.2.3 新建 maven 工程设置父依赖
-**PS：这里的版本最好以开发时最新版本为准，可以二次确认下，例如 1.5.2**
+创建Maven项目，继承插件脚手架作为parent。
 ```xml
-<parent>
-    <groupId>com.netease.cloud</groupId>
-    <artifactId>nasl-translator-extension</artifactId>
-    <version>3.10-SNAPSHOT</version>  <!--根据ide版本号修改引用版本-->
-</parent>
-```
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-#### 2.2.4 声明 SPI
-有两种实现：
+    <parent>
+        <groupId>com.netease.cloud</groupId>
+        <artifactId>nasl-translator-extension</artifactId>
+        <version>版本号</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.test</groupId>
+    <artifactId>custom-plugin</artifactId>
+    <packaging>jar</packaging>
+
+</project>
+```
+插件脚手架会自动引入翻译器插件扩展。各版本翻译器插件扩展所开放的扩展点不尽相同，由于翻译器架构不断演进，部分旧版本插件扩展可能存在不兼容情况，但大部分会遵循高版本向下兼容原则。
+
+
+### 2.3 翻译器插件实现
+根据实际需求，实现翻译器插件扩展接口。翻译器插件扩展（Extension）分为两大类：
+- NASL语言翻译扩展（Translator）
+- 翻译器高级扩展（ExtensionPoint）
+
+Translator类扩展可以覆写NASL语言的抽象语法树节点的翻译，通过改变NASL语言节点的翻译实现达到定制翻译出的制品项目源码。ExtensionPoint类扩展是翻译器针对特定定制能力开放的扩展点。Translator与ExtensionPoint的关系如下图：
+
+![plugin-extension.png](assets/plugin-extension.png)
 
 ##### 2.2.4.1 针对 pom 文件和 dockerfile 文件的定制
 拓展时需要在插件工程中实现 SpringProjectExtension 接口实现需要拓展方法，更多扩展点详见[扩展接口清单](https://docs.popo.netease.com/lingxi/9a2ec1e246294f51aadfff20008e0751?xyz=1745219265752#2nrx-1745218705712)，并且通过 SPI 机制完成注册，在 resources/META-INF/services 下新建 com.netease.cloud.nasl.extension.ExtensionPoint 文件，文件内输入实现类的路径即可。
 
 示例：
 ```java
-public class CustomDependeniesExtension implements SpringProjectExtension {
+public class CustomProjectExtension implements SpringProjectExtension {
     /**
      * 指定应用启动 JAVA_OPTS.
      *
@@ -132,128 +152,7 @@ public class CustomDependeniesExtension implements SpringProjectExtension {
 }
 ```
 
-##### 2.2.4.2 针对 java，xml 模板文件的定制
-拓展时需要在插件工程中实现任意 visit 方法，并且通过 SPI 机制完成注册，在 resources/META-INF/services 下新建 com.netease.cloud.nasl.translator.Translator 文件，文件内输入实现类的路径即可。
-
-- **制作 ftl 模板**
-注意不同应用 IDE 版本的源码的差异性，对于不兼容的可以开发多个翻译器插件。翻译器内置了 `${packageName}` 和 `${getPackage("com.netease.cloud.archetype")}` 的实现。可将需要修改的 java 类（开发者需自行根据应用 IDE 版本导出源码）重命名为 ftl 文件，并修改 package 和 import，并放置在 template 目录下的对应目录。
-  ​            ![img](assets/img-20250520-7.png)
-- **编写实现代码**
-至少需要 visit 一个方法，实现参考：
-```java
-package com.netease.cloud.translator.impl;
-import com.netease.cloud.nasl.ast.App;
-import com.netease.cloud.nasl.ast.IntegerType;
-import com.netease.cloud.nasl.source.application.project.JavaCatalogs;
-import com.netease.cloud.nasl.source.lang.java.element.JavaType;
-import com.netease.cloud.nasl.source.template.JavaSimpleTemplateFile;
-import com.netease.cloud.nasl.source.template.SourceTemplate;
-import com.netease.cloud.nasl.translator.context.NaslTranslateContext;
-import com.netease.cloud.nasl.translator.context.NodeTranslateHandler;
-import com.netease.cloud.nasl.translator.lang.java.NaslBasicTypeJavaTranslator;
-import java.util.ArrayList;
-import java.util.List;
-
-public class TypeJavaTranslatorPlugin extends NaslBasicTypeJavaTranslator {
-    @Override
-    public JavaType visitIntegerType(IntegerType node) {
-        return JavaType.LONG;
-    }
-
-    @Override
-    public NodeTranslateHandler<?, ?>[] setNodeTranslateHandlers() {
-        return new NodeTranslateHandler<?, ?>[]{new AppHandler()};
-    }
-
-    class AppHandler implements NodeTranslateHandler<App, NaslTranslateContext> {
-        @Override
-        public void preHandle(App node, NaslTranslateContext context) {
-        }
-
-        @Override
-        public void postHandle(App node, NaslTranslateContext context) {
-            // 修改模板文件，类名需要选取对应的文件夹
-            List<SourceTemplate> sourceTemplates = new ArrayList<>();
-            sourceTemplates.add(new JavaSimpleTemplateFile("HealthMetricController", JavaCatalogs.CONTROLLER, context));
-            sourceTemplates.add(new JavaSimpleTemplateFile("FunctionContainer", JavaCatalogs.FUNCTIONAL, context));
-            sourceTemplates.add(new JavaSimpleTemplateFile("FileUploadUtils", JavaCatalogs.UTIL, context));
-            sourceTemplates.add(new JavaSimpleTemplateFile("CommonFunctionUtil", JavaCatalogs.UTIL, context));
-            for (SourceTemplate sourceTemplate : sourceTemplates) {
-                JavaSimpleTemplateFile simpleTemplateFile = new JavaSimpleTemplateFile(sourceTemplate, context);
-                context.getApplication().addSourceFile(simpleTemplateFile);
-            }
-        }
-    }
-}
-```
-
-- **本地自测**
-添加测试依赖，作用域为 test：
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <version>2.2.9.RELEASE</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.freemarker</groupId>
-    <artifactId>freemarker</artifactId>
-    <version>2.3.31</version>
-    <scope>test</scope>
-</dependency>
-```
-
-本地测试类自测 freemark 模板生成 java 类：
-```java
-package com.netease;
-import freemarker.template.*;
-import org.junit.Test;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.net.URLDecoder;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public class FreeMarkerExample {
-    @Test
-    public void test1() throws TemplateException, IOException {
-        String className = "FunctionContainer";
-        Configuration configuration = new Configuration(Configuration.VERSION_2_3_30);
-        //获取模板文件路径
-        String srcFilePath =  FreeMarkerExample.class.getClassLoader().getResource("templates/v3_11/src/main/java/com/netease/cloud/archetype/functional").getFile();
-        String decodedUrl = URLDecoder.decode(srcFilePath, "UTF-8");
-        File srcFile = new File(decodedUrl);
-        configuration.setDirectoryForTemplateLoading(srcFile);
-        configuration.setDefaultEncoding("utf-8");
-        //获取模板文件
-        Template template = configuration.getTemplate(className + ".ftl");
-        // 创建数据模型
-        Map<String, Object> map = new HashMap<>();
-        map.put("packageName", "com.abc");
-        map.put("getPackage", new TemplateMethodModelEx() {
-            @Override
-            public Object exec(List list) throws TemplateModelException {
-                // 在这里编写获取包名的逻辑，例如：
-                // String packageName = list.get(0).toString();
-                // 执行相应的逻辑...
-                return "com.abc"; // 返回实际的包名
-            }
-        });
-        // 创建 Writer 对象，输出到 target/classes/templates 目录下
-        Writer out = new FileWriter(new File(decodedUrl + "/" + className + ".java"));
-        // 输出
-        template.process(map, out);
-        //关闭 Writer 对象
-        out.close();
-    }
-}
-```
-
-##### 2.2.4.3 针对java文件的后置处理
+##### 2.2.4.2 针对java文件的后置处理
 在翻译过程中有时候并不能处理所有的java 文件，比如客户的源码规范定制化高，可以采用后置处理的方式，首先通过SPI机制完成注册，在resources/META-INF/services下新建com.netease.cloud.nasl.extension.ExtensionPoint文件，文件内输入实现类的路径即可。
 
 示例：
@@ -421,6 +320,7 @@ nasl.plugin.version=3.10
 ```
 
 ### 2.3 编写 description.json
+根据低代码平台规范，需要编写编译器插件描述文件：description.json。文件内容规范如下：
 ```json
 {
     "symbol": "upgrade-security-version",
