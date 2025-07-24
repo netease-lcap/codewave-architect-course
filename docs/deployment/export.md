@@ -2,15 +2,17 @@
 
 ## 功能介绍
 
-导出源码功能可以将Codewave平台的项目翻译成源码并导出到S3或Gitlab等代码管理平台，以供二次开发或自行部署。
+导出源码功能可以将Codewave平台的应用翻译成前后端源码并导出到S3或Gitlab等代码管理平台，以供二次开发或自行部署。
 
 ### 源码导出类型
 
-- 后端源码+前端静态文件：后端为Java源码，前端为编译后的静态文件
+- 后端源码+前端静态文件：后端为Java源码，前端为平台翻译后的静态文件
 - 后端源码+前端源码：后端为Java源码，前端为JavaScript/TypeScript+HTML+CSS源码
 - 镜像：编译打包后的docker镜像
-- JAR包+前端静态文件：后端为编译后的Jar包，前端为编译后的静态文件
-- 远程部署：直接将镜像部署至输入的服务器
+- JAR包+前端静态文件：后端为编译后的Jar包，前端为基于生成的vue文件编译后的dist目录压缩包
+- 远程部署：直接将镜像部署至指定服务器
+
+平台也支持单独导出后端源码或前端源码；支持单独导出Jar包和静态文件
 
 ## 原理介绍
 
@@ -329,7 +331,7 @@ fileStorage:
 
     - install-dependency.bat 该脚本供Windows10及以上版本的Windows使用。
     - install-dependency.sh 该脚本供MacOS和Linux使用。
-    -
+
     如果使用Windows10以下版本的系统，可使用 [install.cmd](https://gitee.com/KEHFAN_admin/cw-deploy-doc/blob/master/maven/install.cmd)
     ，将该脚本放置到dependency目录下执行。该脚本依赖7Zip，需要安装7Zip到C:\Program Files\7-Zip\目录下。
 
