@@ -1111,6 +1111,11 @@ public class RedisServiceTest {
 
 
 #### 案例3： 利用SPI机制扩展Controller
+
+在 Spring 框架中，`spring.factories` 文件用于实现 SPI（Service Provider Interface）机制，允许第三方库向 Spring 容器中注册组件，而无需用户显式配置。这在自动配置、扩展 Spring 功能时非常有用。
+
+可以把服务端依赖库看做一个第三方库，利用`spring.factories`实现组件注册，实现复杂的高级扩展功能。
+
 > /src/main/java/com/codewave/controller/HelloController.java
 ```java
 package com.codewave.controller;
@@ -1156,27 +1161,13 @@ public class HelloLibBasicSpringEnvironmentConfiguration {
 
 
 
-## 四、复杂服务端扩展的思路点拨	
-
-通过源码导出方法实现本地调试，ben观察低代码运行时代码与组件库的运行
-
-### 本地调试代码
-
- 在本地如何调试依赖库
-
-1.将依赖库安装至mvn本地仓库
-
-```bash
-mvn clean install
-```
+## 四、完全本地调试依赖库	
 
 
 
-2. 导出一个调用该依赖库的应用
+在复杂的依赖库开发场景中，反复上传依赖库到平台比较繁琐。可以采用将平台应用导出的方式。在开发机本地搭建一套完整的应用+依赖库的开发环境用于调试。这种方法也可以用于理清依赖库与应用深层关系，实现复杂功能。
 
 
 
-### 利用SPI机制高可定制扩展
 
-Spring Boot 通过 `SpringFactoriesLoader` 自动扫描并加载 `spring.factories` 的根本目的是**实现框架与第三方库的解耦**，并遵循 “约定优于配置” 的原则。这一机制让第三方库能够以标准化的方式集成到 Spring Boot 中，使用者只需引入依赖即可获得功能，无需手动配置，大大提升了开发效率。
 
