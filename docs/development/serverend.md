@@ -224,33 +224,31 @@ public class RedisConfig {
 
 ### 案例3：Filter组件型 - ip黑白名单过滤器
 
-​	https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
+核心原理：利用Spring SPI机制实现
 
-
+[代码示例](https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop)
 
 
 
 ### 案例4：Controller组件型 - 大文件上传
 
-​	大文件文件上传、Restful接口
+核心原理：利用Spring SPI机制实现
+
+应用场景：大文件文件上传、Restful接口
+
+
 
 ### 案例5：AOP切面型 - ip黑白名单过滤器
 
-https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop
+核心原理：利用Spring SPI机制实现
 
-​	数据库脱敏、接口日志
+[详细演示步骤](https://community.codewave.163.com/CommunityParent/fileIndex?filePath=40.%E6%89%A9%E5%B1%95%E4%B8%8E%E9%9B%86%E6%88%90%2F10.%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%2F30.%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%2F10.%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91%2F35.%E5%9F%BA%E4%BA%8EAOP%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%AF%E6%8B%93%E5%B1%95%E5%8A%9F%E8%83%BD%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.md&version=3.10&selectType=codewave)
 
-### 案例6：上下文调整
+[示例代码](https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filter-aop)
 
-​	自定义应用配置
+应用场景：数据库脱敏、接口日志
 
-### 案例7：高阶函数 - 并行处理
-
-​	并行处理、运行时定时任务、调用低代码逻辑
-
-
-
-### 案例8： 逻辑复写型
+### 
 
 
 
@@ -258,37 +256,9 @@ https://github.com/netease-lcap/CodeWaveSummerCompetition2024/tree/main/ip-filte
 
 
 
-## 四、服务端扩展的本质	
-
-### 本地调试代码
 
 
-
- 在本地如何调试依赖库
-
-1.将依赖库安装至mvn本地仓库
-
-```bash
-mvn clean install
-```
-
-
-
-2. 导出一个调用该依赖库的应用
-
-
-
-### 巧用SPI机制
-
-Spring Boot 通过 `SpringFactoriesLoader` 自动扫描并加载 `spring.factories` 的根本目的是**实现框架与第三方库的解耦**，并遵循 “约定优于配置” 的原则。这一机制让第三方库能够以标准化的方式集成到 Spring Boot 中，使用者只需引入依赖即可获得功能，无需手动配置，大大提升了开发效率。
-
-
-
-
-
-
-
-## 五、实操演示
+## 三、实操演示
 
 ### 开发环境准备
 
@@ -1140,12 +1110,73 @@ public class RedisServiceTest {
 
 
 
+#### 案例3： 利用SPI机制扩展Controller
+> /src/main/java/com/codewave/controller/HelloController.java
+```java
+package com.codewave.controller;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class HelloController {
+    @GetMapping("/hello")
+    public String sayHello(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return String.format("Hello, %s!", name);
+    }
+
+}
+
+```
+
+> /src/main/resources/META-INF/spring.factories
+
+```
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.codewave.HelloLibBasicSpringEnvironmentConfiguration
+```
+
+> /src/main/java/com/codewave/HelloLibBasicSpringEnvironmentConfiguration.java
+
+```java
+package com.codewave;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * 加入spring环境配置（在spring.factories中指定）
+ */
+@Configuration
+//@ComponentScan(basePackageClasses = LibraryAutoScan.class)
+@ComponentScan(basePackages = "com.codewave")
+public class HelloLibBasicSpringEnvironmentConfiguration {
+}
+
+```
 
 
- 
 
- 
+## 四、复杂服务端扩展的思路点拨	
 
- 
+通过源码导出方法实现本地调试，ben观察低代码运行时代码与组件库的运行
 
- 
+### 本地调试代码
+
+ 在本地如何调试依赖库
+
+1.将依赖库安装至mvn本地仓库
+
+```bash
+mvn clean install
+```
+
+
+
+2. 导出一个调用该依赖库的应用
+
+
+
+### 利用SPI机制高可定制扩展
+
+Spring Boot 通过 `SpringFactoriesLoader` 自动扫描并加载 `spring.factories` 的根本目的是**实现框架与第三方库的解耦**，并遵循 “约定优于配置” 的原则。这一机制让第三方库能够以标准化的方式集成到 Spring Boot 中，使用者只需引入依赖即可获得功能，无需手动配置，大大提升了开发效率。
+
