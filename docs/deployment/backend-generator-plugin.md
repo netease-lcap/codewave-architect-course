@@ -70,6 +70,15 @@ mvn install:install-file -Dfile=nasl-context-1.3-SNAPSHOT.pom -DgroupId=com.nete
     <artifactId>custom-plugin</artifactId>
     <packaging>jar</packaging>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
 ```
 插件脚手架会自动引入翻译器插件扩展。各版本翻译器插件扩展所开放的扩展点不尽相同，由于翻译器架构不断演进，部分旧版本插件扩展可能存在不兼容情况，但大部分会遵循高版本向下兼容原则。
@@ -180,46 +189,6 @@ public class ExampleJavaCodeBatchFormatExtension extends JavaCodeBatchFormatExte
 
 				code = JsonPropertyAnnotationFormatter.addJsonPropertyAnnotations(code);
 				code = CodeStyleFormatter.formatCodeStyle(code);
-				code = JavaFieldNameConverter.changeApiReturn(code);
-				// 处理构造函数里的业务逻辑
-				code = ConstructorLogicExtractor.processConstructor(code);
-
-				// 处理空块
-				code = EmptyBlockFormatter.emptyBlockFormatter(code);
-				code = ModifierOrderFormatter.formatWithCustomModifierOrder(code);
-				// 处理三元表达式
-				code = TernaryToIfElseReplacer.ternaryToIfElseReplacer(code);
-				// 处理if条件里的复杂逻辑
-				code = IfConditionSplitter.ifConditionSplitter(code);
-				// 增加枚举的注释
-				code = AutoGenerateEnumComment.autoGenerateEnumComment(code);
-				// 处理常量
-				code = ConstantUpperCaseConverter.convertConstants(code);
-
-				// 处理魔法值问题，本期针对性处理就行
-				code = MagicValueFormatter.constantExtractor(code);
-				// 给pojo类增加toString方法，这个要放在处理魔法值之前
-				code = AddToStringToPojo.addToStringToPojo(code);
-				// 处理if，else，For，do，while语句必须使用大括号问题
-				code = AddBracesToControlStatements.addBracesToControlStatements(code);
-				code = MagicValueGlobal.processMagicValues(code);
-				code = MethodRenameTool.renameMethodsWithDefaultMapping(code);
-				code = FieldRenameTool.convertFieldsToCamelCase(code);
-
-				code = code.replaceAll("(?m)(\\belse\\s*\\{\\s*\\})", "");
-				code = code.replaceAll("batchList.size() >= 0", "batchList.size() > 0");
-				code = code.replaceAll("x >= 0 && x < index_64.length", "x > 0 && x < index_64.length");
-				code = code.replaceAll("null : total, page, size", "null : total.intValue(), page.intValue(), size.intValue()");
-				code = code.replaceAll("DepartmentRes department = null;", "DepartmentRes department = new DepartmentRes();");
-				code = code.replaceAll("class logReportParamsDTO", "class LogReportParamsDTO");
-				code = code.replaceAll("logReportParamsDTO logReportParamsDTO", "LogReportParamsDTO logReportParamsDTO");
-				code = code.replaceAll("globalCDD638E00095E76C42DB80D69DFDEC30currentUser", "globalBoeCurrentUser");
-
-				// Objects.equals 这个先处理
-				code = AdjustEqualsCalls.equalsMethodFixer(code);
-				code = code.replaceAll("switch\\(", "switch \\(");
-				code = code.replaceAll(Pattern.quote("uiBasePath.equals(\"/\")"), "\"/\".equals(uiBasePath)");
-				code = CodeCommentFormatter.addComments(code);
 				Files.write(path, code.getBytes());
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -311,6 +280,9 @@ public class ExampleJavaCodeFormatExtension extends AbstractSourceFileFormatExte
 }
 ```
 
+##### 2.2.4.5 修改目录结构
+实见demo
+
 #### 2.2.5 添加 plugin-metadata.properties
 当前使用版本（SPI 声明为 com.netease.cloud.nasl.translator.Translator 的），ast 版本和 plugin 版本需要相同，最小为 3.10，SPI 为 com.netease.cloud.nasl.extension.ExtensionPoint 不受影响。
 ​            ![img](assets/img-20250520-6.png)
@@ -344,6 +316,7 @@ nasl.plugin.version=3.10
 ​            ![img](assets/img-20250520-2.png)
 **关联应用**
 
+打开低代码应用，即可关联插件。操作路径为：编辑应用信息 -> 源码配置 -> 自定义服务端源码翻译器。
 可指定生效范围为导出生效或者发布生效，默认为全部生效。
 ​            ![img](assets/img-20250520-3.png)
 
