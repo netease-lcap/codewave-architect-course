@@ -155,12 +155,6 @@ public class CustomProjectExtension implements SpringProjectExtension {
         return asList(commonLang3, jasyptSpringBootStarter);
     }
 
-    @Override
-    public List<Dependency> removeDependencies() {
-        Dependency removed = new Dependency("org.apache.commons", "commons-lang3");
-        return asList(removed);
-    }
-
 }
 ```
 getSpringBootVersion方法返回的SpringBoot版本号若不在SpringBootVersion枚举范围内，则平台不保证其Spring版本的兼容性。 getDependencies方法若返回null或长度为0的空列表，则项目依赖不做任何改变。若其返回的依赖项目中不存在，则新增，若已存在则更新此依赖的版本号。 编译器会根据removeDependencies方法返回的依赖列表，移除项目对应依赖。注意，移除依赖是危险操作，可能会导致制品应用编译、启动报错，请谨慎使用。
