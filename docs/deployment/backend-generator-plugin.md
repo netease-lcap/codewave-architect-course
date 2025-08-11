@@ -58,9 +58,7 @@ https://github.com/netease-lcap/codewave-architect-course/tree/master/example/ge
 mvn install:install-file -Dfile=nasl-translator-extension-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.10-SNAPSHOT -Dpackaging=pom
 mvn install:install-file -Dfile=nasl-ast-3.10-SNAPSHOT.jar -DpomFile=nasl-ast-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-ast -Dversion=3.10-SNAPSHOT
 mvn install:install-file -Dfile=nasl-translator-plugin-3.10-SNAPSHOT.jar -DpomFile=nasl-translator-plugin-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=3.10-SNAPSHOT
-mvn install:install-file -Dfile=nasl-generator-bom-1.3-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-generator-bom -Dversion=1.3-SNAPSHOT -Dpackaging=pom
 mvn install:install-file -Dfile=nasl-context-1.3.jar -DpomFile=nasl-context-1.3.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.3
-mvn install:install-file -Dfile=nasl-context-1.3-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.3-SNAPSHOT -Dpackaging=pom
 ```
 
 #### 2.2.3 新建 maven 工程设置父依赖
@@ -320,7 +318,7 @@ ls -l
 ### 5.1 对应插件脚手架版本
 ```agsl
 ide版本 --- > 脚手架版本
-3.13 --- > 3.13-rc.38
+3.13 --- > 3.13-rc.40
 3.14 --- > 3.14-rc.11
 4.0 --- > 4.0-rc.10
 ```
