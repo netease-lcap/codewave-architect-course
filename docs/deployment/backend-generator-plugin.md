@@ -53,10 +53,11 @@ Translator类扩展可以覆写NASL语言的抽象语法树节点的翻译，通
 #### 2.2.2 本地安装依赖（已安装可忽略）
 https://github.com/netease-lcap/codewave-architect-course/tree/master/example/generator-plugin/security-generator-plugin/jar
 ```bash
-mvn install:install-file -Dfile=nasl-translator-extension-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.10-SNAPSHOT -Dpackaging=pom
-mvn install:install-file -Dfile=nasl-ast-3.10-SNAPSHOT.jar -DpomFile=nasl-ast-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-ast -Dversion=3.10-SNAPSHOT
-mvn install:install-file -Dfile=nasl-translator-plugin-3.10-SNAPSHOT.jar -DpomFile=nasl-translator-plugin-3.10-SNAPSHOT.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=3.10-SNAPSHOT
-mvn install:install-file -Dfile=nasl-context-1.3.jar -DpomFile=nasl-context-1.3.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.3
+mvn install:install-file -Dfile=nasl-translator-extension-3.13-rc.38.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.13-rc.38 -Dpackaging=pom
+mvn install:install-file -Dfile=nasl-ast-3.13.jar -DpomFile=nasl-ast-3.13.pom -DgroupId=com.netease.cloud -DartifactId=nasl-ast -Dversion=3.13
+mvn install:install-file -Dfile=nasl-translator-plugin-4.1-rc.2.jar -DpomFile=nasl-translator-plugin-4.1-rc.2.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=4.1-rc.2
+mvn install:install-file -Dfile=nasl-context-1.9-rc.2.jar -DpomFile=nasl-context-1.9-rc.2.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.9-rc.2
+mvn install:install-file -Dfile=nasl-generator-bom-1.8-rc.16.pom -DgroupId=com.netease.cloud -DartifactId=nasl-generator-bom -Dversion=1.8-rc.16 -Dpackaging=pom
 ```
 
 #### 2.2.3 新建 maven 工程设置父依赖
