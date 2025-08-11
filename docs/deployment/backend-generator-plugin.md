@@ -311,3 +311,13 @@ ls -l
 错误提示：`生成代码失败，原因：等待翻译器插件安装超时，插件ID：xxxx`
 
 这个错误一般是相同翻译器版本重复上传，导致reload失败，将description里的version+0.0.1，或者修改symbpl，然后重新上传翻译器导出。如果还不能解决需要手动重启nasl-generator-new服务
+
+## 5. 插件脚手架GA
+```xml
+<groupId>com.netease.cloud</groupId>
+<artifactId>nasl-translator-extension</artifactId>
+```
+### 5.1 对应插件脚手架版本
+3.13 --- > 3.13-rc.38
+3.14 --- > 3.14-rc.11 
+4.0 --- > 4.0-rc.10
