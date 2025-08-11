@@ -277,6 +277,14 @@ nasl.plugin.version=3.13
 注册遵循JDK自带的SPI机制，在src/main/resources目录下的META-INF/services目录中创建扩展接口注册文件，使用所有扩展接口的基类的全类名作为文件名：com.netease.cloud.nasl.
 extension.ExtensionPoint（若实现的扩展为Translator则其注册文件名为：com.netease.cloud.nasl.translator.Translator），文件内输入实现类的路径即可。。
 
+```agsl
+src/main/resources/META-INF/services/com.netease.cloud.nasl.extension.ExtensionPoint
+```
+注册文件内填写扩展实现类全类名：
+```agsl
+com.test.custom.plugin.CustomProjectExtension
+```
+
 ### 2.7 编写 description.json
 根据低代码平台规范，需要编写编译器插件描述文件：description.json。文件内容规范如下：
 ```json
