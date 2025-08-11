@@ -136,7 +136,7 @@ public class CustomProjectExtension implements SpringProjectExtension {
 }
 ```
 
-### 2.4.3 定制项目依赖
+#### 2.4.3 定制项目依赖
 
 ```java
 public class CustomProjectExtension implements SpringProjectExtension {
@@ -166,7 +166,7 @@ public class CustomProjectExtension implements SpringProjectExtension {
 ```
 getSpringBootVersion方法返回的SpringBoot版本号若不在SpringBootVersion枚举范围内，则平台不保证其Spring版本的兼容性。 getDependencies方法若返回null或长度为0的空列表，则项目依赖不做任何改变。若其返回的依赖项目中不存在，则新增，若已存在则更新此依赖的版本号。 编译器会根据removeDependencies方法返回的依赖列表，移除项目对应依赖。注意，移除依赖是危险操作，可能会导致制品应用编译、启动报错，请谨慎使用。
 
-### 2.4.4 定制项目Properties
+#### 2.4.4 定制项目Properties
 ```java
 public class CustomProjectExtension implements SpringProjectExtension {
     
@@ -187,7 +187,29 @@ public class CustomProjectExtension implements SpringProjectExtension {
 ```
 getSpringProperties方法可以新增、修改项目Properties，即可以定制制品应用中application-{profile}.yaml文件中的配置。SpringPropertySearcher对象可以查询应用的默认配置值。 removeSpringProperties方法可以删除项目Properties。删除的property的key为前缀匹配模式，如给出待删除key为management，则management.server.port、management.tags.application等配置都将被删除。
 
-#### 2.3 添加 plugin-metadata.properties
+#### 2.4.5 后置处理java代码，主要是处理规范类问题
+除了通过翻译器提供拓展能力处理pom，配置文件等问题，对于企业针对制品源码的规范问题，常用的方式就是通过后置处理java代码，工具使用javaParser，版本3.26.4
+```java
+public class ExampleJavaCodeBatchFormatExtension extends JavaCodeBatchFormatExtension {
+
+	@Override
+	public void batchFormat(Map<Path, SourceFile> files) {
+		files.forEach((path, sourceFile) -> {
+			try {
+				String code = sourceFile.getSourceCode();
+				code = ConnTranslatorProcessor.process(code, null);
+				code = JsonPropertyAnnotationFormatter.addJsonPropertyAnnotations(code);
+				code = CodeStyleFormatter.formatCodeStyle(code);
+				Files.write(path, code.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        });
+	}
+}
+```
+
+### 2.5 添加 plugin-metadata.properties
 当前使用版本（SPI 声明为 com.netease.cloud.nasl.translator.Translator 的），ast 版本和 plugin 版本需要相同，最小为 3.10，SPI 为 com.netease.cloud.nasl.extension.ExtensionPoint 不受影响。
 ​            ![img](assets/img-20250520-6.png)
 ```properties
@@ -195,11 +217,11 @@ nasl.ast.version=3.13
 nasl.plugin.version=3.13
 ```
 
-### 2.4 接口注册
+### 2.6 接口注册
 注册遵循JDK自带的SPI机制，在src/main/resources目录下的META-INF/services目录中创建扩展接口注册文件，使用所有扩展接口的基类的全类名作为文件名：com.netease.cloud.nasl.
 extension.ExtensionPoint（若实现的扩展为Translator则其注册文件名为：com.netease.cloud.nasl.translator.Translator），文件内输入实现类的路径即可。。
 
-### 2.5 编写 description.json
+### 2.7 编写 description.json
 根据低代码平台规范，需要编写编译器插件描述文件：description.json。文件内容规范如下：
 ```json
 {
@@ -212,10 +234,10 @@ extension.ExtensionPoint（若实现的扩展为Translator则其注册文件名�
 }
 ```
 
-### 2.6 使用 maven 进行 clean package 打包
+### 2.8 使用 maven 进行 clean package 打包
 ​            ![img](assets/img-20250520-5.png)
 
-### 2.7 压缩为 zip 包并上传 IDE 测试
+### 2.9 压缩为 zip 包并上传 IDE 测试
 压缩后的 zip 包包含 jar 文件和 description.json，zip 包名称随便取名（支持中文字母数字小数点）。
 **压缩**
 ​            ![img](assets/img-20250520-4.png)
@@ -229,7 +251,7 @@ extension.ExtensionPoint（若实现的扩展为Translator则其注册文件名�
 ​            ![img](assets/img-20250520-3.png)
 
 
-### 2.8 后续迭代
+### 2.10 后续迭代
 打包 jar，并将 description.json 中的 version + 0.0.1，重新上传翻译器插件验证，IDE 内不需要做任何改动。每次翻译代码的时候会重新拉取对应 symbol 的最新版本。
 
 
@@ -266,8 +288,8 @@ ls -l
 ```
 
 
-## 3. 常见问题
-### 3.1 maven 报错
+## 4. 常见问题
+### 4.1 maven 报错
 #### 使用 maven clean 命令，报错
 错误提示：`Failed to execute goal org.codehaus.mojo:flatten-maven-plugin:1.6.0:clean (flatten.clean) on project xxxx: The plugin org.codehaus.mojo:flatten-maven-plugin:1.6.0 requires Maven version 3.6.3 -> [Help 1]`
 
@@ -277,12 +299,12 @@ ls -l
 
 解决方案：查看 maven 仓库里 com/neteas/cloud 目录下是否已安装二方包，如已安装，检查当前 jdk 版本是否为 jdk8，并连接阿里云仓库下载依赖（https://maven.aliyun.com/repository/public）。
 
-### 3.2 IDE 提示后端翻译器错误
+### 4.2 IDE 提示后端翻译器错误
 ![img-20250520-15.png](assets/img-20250520-17.png)
 ![img-20250520-15.png](assets/img-20250520-18.png)
 这个错误是指实现 SpringProjectExtension 接口，但是没有声明对应的 SPI（在 resources/META-INF/services 下新建 com.netease.cloud.nasl.extension.ExtensionPoint 文件）。
 
-### 3.3 导出源码提示翻译器安装超时
+### 4.3 导出源码提示翻译器安装超时
 错误提示：`生成代码失败，原因：等待翻译器插件安装超时，插件ID：xxxx`
 
 这个错误一般是相同翻译器版本重复上传，导致reload失败，将description里的version+0.0.1，或者修改symbpl，然后重新上传翻译器导出。如果还不能解决需要手动重启nasl-generator-new服务
