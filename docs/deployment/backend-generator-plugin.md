@@ -202,6 +202,69 @@ public class ExampleJavaCodeBatchFormatExtension extends JavaCodeBatchFormatExte
 }
 ```
 
+#### 2.4.6 后置处理指定java文件
+如果不需要批量处理java文件，而是对指定文件进行处理，可以使用下述方法
+```java
+public class ExampleJavaCodeFormatExtension extends AbstractSourceFileFormatExtension<SourceFile> {
+
+    private static final Logger logger =
+        LoggerFactory.getLogger(ExampleJavaCodeFormatExtension.class);
+    @Override
+    protected Class<SourceFile> type() {
+        return SourceFile.class;
+    }
+
+    @Override
+    protected boolean doAccept(SourceFile file) {
+        // 获取需要更改的文件名
+        // demo修改ExpressionWrapper的类名
+        boolean expressionWrapper = file.getName().equals("DictconnConnector_jxdict_Config");
+        if (expressionWrapper) {
+            logger.info("正在处理文件：" + file.getAbsolutePath());
+        }
+        return expressionWrapper;
+    }
+
+    @Override
+    public String format(String code) {
+        // 直接返回code
+        return code;
+    }
+
+    @Override
+    public void format(Path file) {
+        logger.info("正在处理文件2：" + file.toAbsolutePath());
+        try {
+            // 1. 读取文件内容并解析为CompilationUnit
+            CompilationUnit cu = StaticJavaParser.parse(file.toFile());
+
+            // 2. 查找类声明并修改类名
+            Optional<ClassOrInterfaceDeclaration> classDecl = cu.findFirst(ClassOrInterfaceDeclaration.class);
+            if (classDecl.isPresent()) {
+                ClassOrInterfaceDeclaration cls = classDecl.get();
+                cls.setName("DictconnConnectorjxdictConfig");
+
+                // 3. 删除原文件
+                Files.deleteIfExists(file);
+
+                // 4. 创建新文件并写入修改后的内容
+                Path newFile = file.resolveSibling("DictconnConnectorjxdictConfig.java");
+                Files.write(
+                    newFile,
+                    cu.toString().getBytes(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.WRITE,
+                    StandardOpenOption.TRUNCATE_EXISTING
+                );
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 ### 2.5 添加 plugin-metadata.properties
 当前使用版本（SPI 声明为 com.netease.cloud.nasl.translator.Translator 的），ast 版本和 plugin 版本需要相同，最小为 3.10，SPI 为 com.netease.cloud.nasl.extension.ExtensionPoint 不受影响。
 ​            ![img](assets/img-20250520-6.png)
