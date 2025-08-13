@@ -51,7 +51,7 @@ Translator类扩展可以覆写NASL语言的抽象语法树节点的翻译，通
 创建 maven 项目，确保 maven 使用 3.6.3 以上版本，JDK 仅支持 1.8。
 
 #### 2.2.2 本地安装依赖（已安装可忽略）
-https://github.com/netease-lcap/codewave-architect-course/tree/master/example/generator-plugin/security-generator-plugin/jar
+https://github.com/netease-lcap/codewave-architect-course/blob/main/example/generator-plugin/%E4%BE%9D%E8%B5%96%E9%9B%86.zip
 ```bash
 mvn install:install-file -Dfile=nasl-translator-extension-3.13-rc.38.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.13-rc.38 -Dpackaging=pom
 
