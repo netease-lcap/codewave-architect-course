@@ -161,7 +161,7 @@ public class CustomProjectExtension implements SpringProjectExtension {
 
 }
 ```
-getSpringBootVersion方法返回的SpringBoot版本号若不在SpringBootVersion枚举范围内，则平台不保证其Spring版本的兼容性。 getDependencies方法若返回null或长度为0的空列表，则项目依赖不做任何改变。若其返回的依赖项目中不存在，则新增，若已存在则更新此依赖的版本号。 编译器会根据removeDependencies方法返回的依赖列表，移除项目对应依赖。注意，移除依赖是危险操作，可能会导致制品应用编译、启动报错，请谨慎使用。
+getSpringBootVersion方法返回的SpringBoot版本号若不在SpringBootVersion枚举范围内，则平台不保证其Spring版本的兼容性。 getDependencies方法若返回null或长度为0的空列表，则项目依赖不做任何改变。若其返回的依赖项目中不存在，则新增，若已存在则更新此依赖的版本号。 
 
 #### 2.4.4 定制项目Properties
 示例
@@ -176,14 +176,9 @@ public class CustomProjectExtension implements SpringProjectExtension {
         properties.put("test.key", "test.value");
         return properties;
     }
-    
-    @Override
-    public List<String> removeSpringProperties() {
-        return asList("management");
-    }
 }
 ```
-getSpringProperties方法可以新增、修改项目Properties，即可以定制制品应用中application-{profile}.yaml文件中的配置。SpringPropertySearcher对象可以查询应用的默认配置值。 removeSpringProperties方法可以删除项目Properties。删除的property的key为前缀匹配模式，如给出待删除key为management，则management.server.port、management.tags.application等配置都将被删除。
+getSpringProperties方法可以新增、修改项目Properties，即可以定制制品应用中application-{profile}.yaml文件中的配置。SpringPropertySearcher对象可以查询应用的默认配置值。 
 
 #### 2.4.5 后置处理java代码，主要是处理规范类问题
 除了通过翻译器提供拓展能力处理pom，配置文件等问题，对于企业针对制品源码的规范问题，常用的方式就是通过后置处理java代码，工具使用javaParser，版本3.26.4
