@@ -54,9 +54,13 @@ Translator类扩展可以覆写NASL语言的抽象语法树节点的翻译，通
 https://github.com/netease-lcap/codewave-architect-course/tree/master/example/generator-plugin/security-generator-plugin/jar
 ```bash
 mvn install:install-file -Dfile=nasl-translator-extension-3.13-rc.38.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-extension -Dversion=3.13-rc.38 -Dpackaging=pom
+
 mvn install:install-file -Dfile=nasl-ast-3.13.jar -DpomFile=nasl-ast-3.13.pom -DgroupId=com.netease.cloud -DartifactId=nasl-ast -Dversion=3.13
-mvn install:install-file -Dfile=nasl-translator-plugin-4.1-rc.2.jar -DpomFile=nasl-translator-plugin-4.1-rc.2.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=4.1-rc.2
-mvn install:install-file -Dfile=nasl-context-1.9-rc.2.jar -DpomFile=nasl-context-1.9-rc.2.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.9-rc.2
+
+mvn install:install-file -Dfile=nasl-translator-plugin-3.13-rc.38.jar -DpomFile=nasl-translator-plugin-3.13-rc.38.pom -DgroupId=com.netease.cloud -DartifactId=nasl-translator-plugin -Dversion=3.13-rc.38
+
+mvn install:install-file -Dfile=nasl-context-1.5-rc.19.jar -DpomFile=nasl-context-1.5-rc.19.pom -DgroupId=com.netease.cloud -DartifactId=nasl-context -Dversion=1.5-rc.19
+
 mvn install:install-file -Dfile=nasl-generator-bom-1.8-rc.16.pom -DgroupId=com.netease.cloud -DartifactId=nasl-generator-bom -Dversion=1.8-rc.16 -Dpackaging=pom
 ```
 
@@ -206,63 +210,45 @@ public class ExampleJavaCodeBatchFormatExtension extends JavaCodeBatchFormatExte
 #### 2.4.6 后置处理指定java文件
 如果不需要批量处理java文件，而是对指定文件进行处理，可以使用下述方法
 ```java
-public class ExampleJavaCodeFormatExtension extends AbstractSourceFileFormatExtension<SourceFile> {
+public class SpringCloudAnnotationExtension extends AbstractSourceFileFormatExtension<SourceFile> {
 
-    private static final Logger logger =
-        LoggerFactory.getLogger(ExampleJavaCodeFormatExtension.class);
-    @Override
-    protected Class<SourceFile> type() {
-        return SourceFile.class;
-    }
+  private static final String ANNOTATION_NAME = "EnableDiscoveryClient";
+  private static final String ANNOTATION_FULL_NAME = "org.springframework.cloud.client.discovery.EnableDiscoveryClient";
+  private static final String APPLICATION = "Application";
 
-    @Override
-    protected boolean doAccept(SourceFile file) {
-        // 获取需要更改的文件名
-        // demo修改ExpressionWrapper的类名
-        boolean expressionWrapper = file.getName().equals("DictconnConnector_jxdict_Config");
-        if (expressionWrapper) {
-            logger.info("正在处理文件：" + file.getAbsolutePath());
-        }
-        return expressionWrapper;
-    }
+  /**
+   * 使用JavaParser解析Java源码并添加类注解。
+   */
+  @Override
+  public String format(String code) {
+      logger.info("翻译器插件: Application启动类添加注解开始...");
+      CompilationUnit unit = StaticJavaParser.parse(code);
+      unit.addImport(ANNOTATION_FULL_NAME);
+      ClassOrInterfaceDeclaration applicationClass = unit.getClassByName(APPLICATION).get();
+      applicationClass.addAnnotation(ANNOTATION_NAME);
+      code = unit.toString();
+      logger.info("翻译器插件: Application启动类添加注解结束");
+      return code;
+  }
 
-    @Override
-    public String format(String code) {
-        // 直接返回code
-        return code;
-    }
+  @Override
+  protected Class<SourceFile> type() {
+      return SourceFile.class;
+  }
 
-    @Override
-    public void format(Path file) {
-        logger.info("正在处理文件2：" + file.toAbsolutePath());
-        try {
-            // 1. 读取文件内容并解析为CompilationUnit
-            CompilationUnit cu = StaticJavaParser.parse(file.toFile());
+  @Override
+  protected boolean doAccept(SourceFile file) {
+      return APPLICATION.equals(file.getName());
+  }
 
-            // 2. 查找类声明并修改类名
-            Optional<ClassOrInterfaceDeclaration> classDecl = cu.findFirst(ClassOrInterfaceDeclaration.class);
-            if (classDecl.isPresent()) {
-                ClassOrInterfaceDeclaration cls = classDecl.get();
-                cls.setName("DictconnConnectorjxdictConfig");
+  /**
+   * 不做操作。
+   */
+  @Override
+  public void format(Path file) {
 
-                // 3. 删除原文件
-                Files.deleteIfExists(file);
+  }
 
-                // 4. 创建新文件并写入修改后的内容
-                Path newFile = file.resolveSibling("DictconnConnectorjxdictConfig.java");
-                Files.write(
-                    newFile,
-                    cu.toString().getBytes(),
-                    StandardOpenOption.CREATE,
-                    StandardOpenOption.WRITE,
-                    StandardOpenOption.TRUNCATE_EXISTING
-                );
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
 ```
 
