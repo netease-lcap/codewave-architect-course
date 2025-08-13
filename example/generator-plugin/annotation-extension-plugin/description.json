@@ -1,0 +1,8 @@
+{
+  "symbol": "customer-application-version",
+  "name": "自定义启动文件翻译器",
+  "version": "1.0.26",
+  "ideVersion": "3.13",
+  "description": "修改启动类依赖",
+  "endType": "backend"
+}
