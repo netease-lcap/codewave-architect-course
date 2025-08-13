@@ -98,7 +98,6 @@ mvn install:install-file -Dfile=nasl-generator-bom-1.8-rc.16.pom -DgroupId=com.n
 
 ### 2.4 制品应用定制案例
 #### 2.4.1 定制JVM启动参数
-拓展时需要在插件工程中实现 SpringProjectExtension 接口实现需要拓展方法，更多扩展点详见[扩展接口清单](https://docs.popo.netease.com/lingxi/9a2ec1e246294f51aadfff20008e0751?xyz=1745219265752#2nrx-1745218705712)，并且通过 SPI 机制完成注册，在 resources/META-INF/services 下新建 com.netease.cloud.nasl.extension.ExtensionPoint 文件，文件内输入实现类的路径即可。
 
 示例：
 ```java
@@ -141,7 +140,7 @@ public class CustomProjectExtension implements SpringProjectExtension {
 ```
 
 #### 2.4.3 定制项目依赖
-
+示例
 ```java
 public class CustomProjectExtension implements SpringProjectExtension {
 
@@ -165,6 +164,7 @@ public class CustomProjectExtension implements SpringProjectExtension {
 getSpringBootVersion方法返回的SpringBoot版本号若不在SpringBootVersion枚举范围内，则平台不保证其Spring版本的兼容性。 getDependencies方法若返回null或长度为0的空列表，则项目依赖不做任何改变。若其返回的依赖项目中不存在，则新增，若已存在则更新此依赖的版本号。 编译器会根据removeDependencies方法返回的依赖列表，移除项目对应依赖。注意，移除依赖是危险操作，可能会导致制品应用编译、启动报错，请谨慎使用。
 
 #### 2.4.4 定制项目Properties
+示例
 ```java
 public class CustomProjectExtension implements SpringProjectExtension {
     
