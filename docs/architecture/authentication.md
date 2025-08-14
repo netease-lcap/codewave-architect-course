@@ -181,7 +181,7 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 2. 当前接口只被一个前端页面所调用  ==> 跟随当前页面的权限，如果当前页面未开启权限，即该接口也无需鉴权
 3. 当前接口被多个页面所调用  ==> 跟随最小权限的页面
 
-核心逻辑：/web/interceptor/AuthFilter.java
+核心逻辑：/web/interceptor/LogicAuthFilter.java
 
 **注意事项：**
 实际开发中需要这里，如果一个接口被多个页面所引用，如果这些页面的权限级别不一样，可能会导致垂直越权的安全问题。
