@@ -458,3 +458,9 @@ thead.style.backgroundColor = '#7497f2';
 至此我们的整个业务需求就已经完成了。
 ![最终效果](assets/calendar_demo3.png)
 
+## 三、牛刀小试
+
+实现一个button 组件，
+- 默认背景色为`#7497f2`，字体颜色为`#fff`。
+- 可以支持通过`--my-button-color`和`--my-button-background-color`来进行样式的定制。
+- 在ide中通过主题样式配置将背景色修改为`#f2f274`，字体颜色修改为`#000`。
