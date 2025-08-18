@@ -261,11 +261,11 @@ nasl.plugin.version=3.13
 注册遵循JDK自带的SPI机制，在src/main/resources目录下的META-INF/services目录中创建扩展接口注册文件，使用所有扩展接口的基类的全类名作为文件名：com.netease.cloud.nasl.
 extension.ExtensionPoint（若实现的扩展为Translator则其注册文件名为：com.netease.cloud.nasl.translator.Translator），文件内输入实现类的路径即可。。
 
-```agsl
+```
 src/main/resources/META-INF/services/com.netease.cloud.nasl.extension.ExtensionPoint
 ```
 注册文件内填写扩展实现类全类名：
-```agsl
+```
 com.test.custom.plugin.CustomProjectExtension
 ```
 
@@ -373,7 +373,7 @@ ls -l
 <artifactId>nasl-translator-extension</artifactId>
 ```
 ### 5.1 对应插件脚手架版本
-```agsl
+```
 ide版本 --- > 脚手架版本
 3.13 --- > 3.13-rc.38
 3.14 --- > 3.14-rc.20

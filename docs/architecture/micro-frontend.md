@@ -213,7 +213,7 @@ import java.io.IOException; public class CustomCorsFilter implements Filter {
 
 ![](./assets/micro/175550629705441.png)
 
-```代码块Plain Text
+``` java
 package com.csforkf.subapplication.config; import com.csforkf.subapplication.web.interceptor.CustomCorsFilter; 
 import org.springframework.boot.web.servlet.FilterRegistrationBean; 
 import org.springframework.context.annotation.Bean; 
@@ -333,14 +333,14 @@ window.$eventBus.$emit("home-load",'我来到了about页面')
 
 #### 主应用任意按钮增加
 
-```代码块JavaScript
+```JavaScript
 this.$eventBus.$emit("home-title-edit","你好呀！")
 ```
 #### 子应用about页面页面进入时修改代码块，同时增加一个绑定title变量的文本
 
 ![](./assets/micro/175550629705477.png)
 
-```代码块JavaScript
+```JavaScript
 window.$eventBus.$emit("home-load",'我来到了about页面') window.$eventBus.$on("home-title-edit",(data)=>{ 
     this.title = data 
 })
