@@ -74,7 +74,7 @@ CodeWave平台搭建的应用可以做为子应用，集成到其它主应用。
 
 应用进入时代码如下：
 
-```代码块Plain Text
+``` js
 // 注册加载script标签函数 
 function loadScript(src) { 
     const script = document.createElement('script'); 
@@ -177,7 +177,7 @@ PlantUML
 
 ![](./assets/micro/1755506297054153.png)
 
-```代码块Plain Text
+``` js
 //  
 package com.csforkf.subapplication.web.interceptor; import javax.servlet.*; 
 import javax.servlet.http.HttpServletResponse; 
@@ -269,7 +269,7 @@ public class CustomFilterConfig {
 
 #### 主应用修改应用进入时代码块
 
-```代码块JavaScript
+``` JavaScript
 // 注册加载script标签函数 
 function loadScript(src) { 
     const script = document.createElement('script'); 
@@ -314,7 +314,7 @@ registerMicroApps(
 ```
 #### 子应用应用进入时增加代码块
 
-```代码块JavaScript
+```JavaScript
 window.$eventBus = window?.LcapMicro?.props?.$eventBus 
 if(window.$eventBus){ 
     window.$eventBus.$emit("home-load",'我来了') 
@@ -322,7 +322,7 @@ if(window.$eventBus){
 ```
 #### 子应用的页面进入时增加
 
-```代码块Plain Text
+``` js
 window.$eventBus.$emit("home-load",'我来到了about页面')
 ```
 #### 展示效果
