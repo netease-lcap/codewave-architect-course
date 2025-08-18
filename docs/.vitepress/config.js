@@ -50,7 +50,7 @@ module.exports = {
                         text: '应用架构',
                         link: '/architecture',
                         items: [
-                            { text: '微前端 ⏳', link: '/architecture' },
+                            { text: '微前端', link: '/architecture/micro-frontend' },
                             { text: '认证授权', link: '/architecture/authentication' },
                             { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
                             { text: '微服务架构对接 ', link: '/architecture/microservice' },
