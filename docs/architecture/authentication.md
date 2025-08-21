@@ -315,6 +315,48 @@ lcap_permission为权限扩展依赖库，主要定义了uploadResource、checkP
 2. 列权限控制
 ![assets/authentication/8.png](assets/authentication/8.png)
 
+## 数据权限详情：
+目前CodeWave内置的数据权限也是基于RBAC去实现，且能控制到实体的行、列级别，数据权限的最小权限点（资源）也就是实体，支持对实体字段的权限管控。
+
+### 数据权限解释：
+1. 行权限：控制某人看到的数据行数，配置权限规则不同，看到的数据行不同。底层相当于在sql上添加where条件
+2. 列权限：控制某人看到的数据列，配置权限规则不同，看到的数据列不同。底层相当于sql的 select xxx from
+
+### 数据权限四大基础行权限：
+1. 可读本人：只能查看本人数据
+2. 本人及下属：可查看本人及下属的数据
+3. 部门及部门以下：可查看当前部门和下级部门人员的所有数据
+4. 可读全部：能看所有，相当于未控制数据权限的行权限
+
+目前这部分行权限默认是根据业务表的createBy来定位到用户的，且这部分逻辑都在ide的逻辑控制的，开发者可自行修改这块代码，从而完成各自的定制需求。
+### 自定义行权限：
+开发者可自定义配置属性及属性规则，比如user表配置name = 张三，那么这个用户就只能看到姓名为张三的数据
+### 数据权限缓存：
+目前实体的数据权限是基于mybatis的动态表达式去实现的，即在业务的执行过程中可能需要频繁去查询数据权限，所以这里默认设计了jvm缓存，开发者可自行开启，也可以根据需求自定义数据权限依赖库，引入redis缓存。
+### 数据权限扩展依赖库：
+lcap_annotation_data_permission
+
+同功能权限的lcap_permission设计一致，主应用通过spi的形式加载该依赖库，只需要在依赖库中自定义资源上报、行列权限开发。
+
+例如：默认支持如下操作符，但是如果有特殊需求，比如需要添加数据条件json匹配，则可在数据权限依赖库中进行扩展jsonContains
+
+| 数据条件名称 | 条件说明 | 对应DB语法 |
+| --- | --- | --- |
+| equal | 等于  | =   |
+| notEqual | 不登录 | =   |
+| greater | 大于  | >   |
+| less | 小于  | <   |
+| greaterEquals | 大于等于 | >=  |
+| lessEquals | 小于等于 | <=  |
+| like | 模糊匹配 | like %xxx% |
+| notLike | 不匹配 | not like %xxx% |
+| leftLike | 左模糊 | like %xxx |
+| notLeftLike | 非左模糊 | not like %xxx |
+| rightLike | 右模糊 | like xxx% |
+| notRightLike | 非右模糊 | not like xxx% |
+| in  | 包含  | in  |
+| notIn | 不包含 | not in |
+
 
 ## codewave认证权限自助排查指南
 ### 方案：
