@@ -514,9 +514,9 @@ http {
 
 1. 将以下依赖安装至本地Maven仓库（）：
    
-   - [code-repository-connector-api](assets/code-repository-connector-api.zip)
-   - [code-repository-connector-maven-plugin](assets/code-repository-connector-maven-plugin.zip)
-   - [code-repository-connector-archetype](assets/code-repository-connector-archetype.zip)
+   - [code-repository-connector-api](https://github.com/netease-lcap/codewave-architect-course/blob/main/docs/deployment/assets/code-repository-connector-api.zip)
+   - [code-repository-connector-maven-plugin](https://github.com/netease-lcap/codewave-architect-course/blob/main/docs/deployment/assets/code-repository-connector-maven-plugin.zip)
+   - [code-repository-connector-archetype](https://github.com/netease-lcap/codewave-architect-course/blob/main/docs/deployment/assets/code-repository-connector-archetype.zip)
 
 2. 执行以下命令生成一个代码仓库连接器骨架（注意将{your_title}换为实际的连接器名称）：
 
@@ -546,7 +546,7 @@ Quick Start仅依赖Maven Central Repository，不依赖杭研Nexus，且杭研G
 
 插件开发者需要做的是实现每一个拓展点方法，实现内容为拓展点签名上所描述的功能。
 
-实现示例：[gitlab-code-repository-connector](assets/gitlab-code-repository-connector.zip)
+实现示例：[gitlab-code-repository-connector](https://github.com/netease-lcap/codewave-architect-course/blob/main/docs/deployment/assets/gitlab-code-repository-connector.zip)
 
 该示例实现了gitlab的导出操作以及group/project创建等必要操作。
 

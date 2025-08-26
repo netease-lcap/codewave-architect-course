@@ -23,7 +23,7 @@ docker run --name nacos-standalone-derby \
 ```
 ### 部署高码微服务应用
 
-如需测试CodeWave应用与其他微服务之间的调用，还需要编写并部署一个web服务并注册到Nacos。这里提供一个简单的[Spring Boot应用](assets/nacos-test.zip)用于演示。由于CodeWave应用Nacos连接器时上报的地址为Pod的IP，因此想要部署的微服务应用调用CodeWave应用，需要将其部署在同一集群内。如只需CodeWave应用调用其他微服务应用，则无同一集群要求，网络能访问即可（如暴露在公网）。
+如需测试CodeWave应用与其他微服务之间的调用，还需要编写并部署一个web服务并注册到Nacos。这里提供一个简单的[Spring Boot应用](https://github.com/netease-lcap/codewave-architect-course/blob/main/docs/architecture/assets/nacos-test.zip)用于演示。由于CodeWave应用Nacos连接器时上报的地址为Pod的IP，因此想要部署的微服务应用调用CodeWave应用，需要将其部署在同一集群内。如只需CodeWave应用调用其他微服务应用，则无同一集群要求，网络能访问即可（如暴露在公网）。
 
 如使用示例代码，需要修改配置文件`application.properties`
 
