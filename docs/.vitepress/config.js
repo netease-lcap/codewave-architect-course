@@ -33,7 +33,8 @@ module.exports = {
                             { text: '组件样式定制', link: '/development/componentsStyle' },
                             // { text: '流程扩展定制 ⏳', link: '/development/pocess' },
                             { text: '数据库插件', link: '/development/owl' },
-                            { text: '版本控制与多人协作', link: '/development/version_team' }
+                            { text: '版本控制与多人协作', link: '/development/version_team' },
+                            { text: '开发规范', link: '/development/rule' }
                         ]
                     },
                     {
@@ -63,22 +64,22 @@ module.exports = {
                             { text: '案例：交通行业熊', link: '/architecture/case03' },
                         ]
                     },
-                    {
-                        text: '平台定制',
-                        link: '/platform',
-                        items: [
-                            { text: '管控面定制 ⏳', link: '/platform' },
-                            { text: 'IDE定制 ⏳', link: '/platform' }
-                        ]
-                    },
-                    {
-                        text: '安全强化 ⏳',
-                        link: '/security',
-                    },
-                    {
-                        text: '性能优化 ⏳',
-                        link: '/performance',
-                    },
+                    // {
+                    //     text: '平台定制',
+                    //     link: '/platform',
+                    //     items: [
+                    //         { text: '管控面定制 ⏳', link: '/platform' },
+                    //         { text: 'IDE定制 ⏳', link: '/platform' }
+                    //     ]
+                    // },
+                    // {
+                    //     text: '安全强化 ⏳',
+                    //     link: '/security',
+                    // },
+                    // {
+                    //     text: '性能优化 ⏳',
+                    //     link: '/performance',
+                    // },
                 ]
         },
 
