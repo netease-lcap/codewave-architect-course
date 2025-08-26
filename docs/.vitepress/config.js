@@ -56,7 +56,10 @@ module.exports = {
                             { text: '微服务架构对接 ', link: '/architecture/microservice' },
                             { text: '案例：多应用', link: '/architecture/multi-application-case' },
                             { text: '案例：轻量级微服务', link: '/architecture/micro-application-case' },
-                            { text: '案例：典型微服务', link: '/architecture/micro-application-case' },
+
+                            { text: '案例：能源行业系统', link: '/architecture/case02' },
+
+                            { text: '案例：交通行业熊', link: '/architecture/case03' },
                         ]
                     },
                     {
