@@ -34,7 +34,8 @@ module.exports = {
                             // { text: '流程扩展定制 ⏳', link: '/development/pocess' },
                             { text: '数据库插件', link: '/development/owl' },
                             { text: '版本控制与多人协作', link: '/development/version_team' },
-                            { text: '开发规范', link: '/development/rule' }
+                            { text: '开发规范', link: '/development/rule' },
+                            { text: '开发排障', link: '/development/debug' }
                         ]
                     },
                     {
