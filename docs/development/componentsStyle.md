@@ -119,7 +119,7 @@
 - step3: 将设置好的主题样式文件导入到ide中
 - step4: 保存并应用主题样式，预览发布
 
-<video src="./assets/custom_theme.mov" controls="controls" width="100%"></video>
+<!-- <video src="./assets/custom_theme.mov" controls="controls" width="100%"></video> -->
 
 ##### 案例二、实现一个卡片组件，并支持简单的主题样式适配
 > 环境准备
