@@ -56,13 +56,13 @@ module.exports = {
                             { text: '微前端', link: '/architecture/micro-frontend' },
                             { text: '认证授权', link: '/architecture/authentication' },
                             { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
-                            { text: '微服务架构对接 ', link: '/architecture/microservice' },
-                            { text: '案例：多应用', link: '/architecture/multi-application-case' },
-                            { text: '案例：轻量级微服务', link: '/architecture/micro-application-case' },
+                            { text: '微服务 ', link: '/architecture/microservice' },
+                            // { text: '案例：多应用', link: '/architecture/multi-application-case' },
+                            { text: '案例：大型MES系统', link: '/architecture/micro-application-case' },
 
                             { text: '案例：能源行业系统', link: '/architecture/case02' },
 
-                            { text: '案例：交通行业熊', link: '/architecture/case03' },
+                            { text: '案例：交通行业系统', link: '/architecture/case03' },
                         ]
                     },
                     // {
