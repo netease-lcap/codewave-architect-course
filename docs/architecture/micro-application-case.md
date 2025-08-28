@@ -1,4 +1,8 @@
-# 案例二：轻量级微服务
+# 案例：大型MES系统
+作者：鲍家珍
+
+> [代码范例](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/big-app) 
+> 
 ## 一、系统总体设计
 ### 低代码平台技术架构
 ![img.png](assets/img.png)
