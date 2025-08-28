@@ -1,6 +1,7 @@
 # 微前端
 作者： 许冠杰
 
+> [示例模版](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/qiankun)
 
 ## 1\. 概念介绍
 
