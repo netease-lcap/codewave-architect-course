@@ -1,8 +1,17 @@
 # 案例：大型MES系统
 作者：鲍家珍
+<<<<<<< HEAD
 
 > [代码范例](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/big-app) 
 > 
+=======
+<<<<<<< HEAD
+=======
+
+> [代码范例](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/big-app) 
+> 
+>>>>>>> 066d9f5 (update)
+>>>>>>> 7a40b86
 ## 一、系统总体设计
 ### 低代码平台技术架构
 ![img.png](assets/img.png)
