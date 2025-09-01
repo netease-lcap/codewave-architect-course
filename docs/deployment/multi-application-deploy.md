@@ -1,6 +1,9 @@
 # 多应用集成独立部署
 作者：李英俊
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/76256f6d1dbd4975bd93c53bfcbc6fc3.mp4?wsSecret=7bffd27942626927900c76d5aed96d76&wsTime=1756696524" controls="controls" style="max-width: 100%;">
+</video>
+
 大应用拆分为一主多子应用的场景下，最终部署时需要将各应用集成至同一应用中部署。最终效果用户感知为同一系统。
 主子应用的前后端分离部署，使用微前端做前端集成，使用ng做请求转发。
 
