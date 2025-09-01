@@ -1,6 +1,9 @@
 # 后端翻译器插件开发指导
 作者：张鹏澜
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5bb0fa69b8ed4a79a83d91585fdb6271.mp4?wsSecret=0bd95afc6da946b3ef0dc9b238b3b3d1&wsTime=1756716105" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 1. 概念介绍
 ### 1.1 功能概述
 Codewave支持管理平台中的源码翻译器插件，通过翻译器插件可以实现个性化定制生成源码规则。

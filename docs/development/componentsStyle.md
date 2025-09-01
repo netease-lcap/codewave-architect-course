@@ -1,6 +1,9 @@
 # 组件样式定制
 作者：陶壹丰
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/0d22a5ff7d14439c8384fe36b4314675.mp4?wsSecret=cd268fb8f783baee19935a0378e3b2ba&wsTime=1756716125" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 一、前置准备
 
 ### 目的

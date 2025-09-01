@@ -1,5 +1,9 @@
 # 前端翻译器插件
 作者：陶壹丰
+
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=29bb1cacea1c2c17770351a1df67f553&wsTime=1756716074" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 翻译器插件开发流程
 ### 背景&目的
 在CodeWave平台中，前端源码支持灵活定制以满足客户的不同需求。定制机制主要由如下两个特性组成，分别对应不同复杂度的定制：
