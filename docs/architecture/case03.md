@@ -1,6 +1,9 @@
 # 案例：交通行业系统
 作者：许冠杰
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/a19c52f3f01541ea80f3ef7241161377.mp4?wsSecret=945e384dea2bb68fc8bb6fb43ca2ebf1&wsTime=1756786595" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 一、项目背景
 XX公司在24年底的时候，通过POC项目选拔确认用网易CodeWave平台进行数字化转型的驱动力量。那作为公司的新势力，自然要在项目中表现出实力去印证平台是满足交付项目的能力。所以客户挑选了XX运维这个项目作为试点应用。
 

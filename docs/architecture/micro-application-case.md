@@ -1,6 +1,9 @@
 # 案例：大型MES系统
 作者：鲍家珍
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/269f517661a84e7d8dc0e2a7a350de77.mp4?wsSecret=117d78124926cf7712587e3ef1bc5349&wsTime=1756786543" controls="controls" style="max-width: 100%;">
+</video>
+
 > [代码范例](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/big-app) 
 
 ## 一、系统总体设计

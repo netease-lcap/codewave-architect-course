@@ -1,5 +1,9 @@
 # 案例：能源行业系统
 作者：许建平
+
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/527104e8ae8c4481b024c6586c8418f3.mp4?wsSecret=659a21c4d5aa7197fd3f55d87e4edb5a&wsTime=1756786626" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 背景：
 
 系统复杂、功能多、数据量大，如果由单一应用独立完成，开发效率低，页面卡顿。遂将系统拆分，分为4个子应用和一个门户，且门户具有基础的5a能力，还能支持高代码应用集成。
