@@ -1,6 +1,9 @@
 # 开发排障
 作者：李英俊
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/6dcf8aa758c44a13a4581a088870ce3f.mp4?wsSecret=645b0dac854561271f597da3d1ca083a&wsTime=1756783201" controls="controls" style="max-width: 100%;">
+</video>
+
 ## 一、调试
 
 调试（debug）是传统开发过程中常见的排障手段，通过设置断点，可以观测每一步程序的运行结果。在CodeWave 3.0以上版本中增加了全栈逻辑调试能力，为开发者排查逻辑故障提供简单、高效的工具

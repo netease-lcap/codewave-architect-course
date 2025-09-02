@@ -1,6 +1,9 @@
 # 认证&鉴权
 作者：许冠杰
 
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/f2ed43a7ce044521ac2916541bd75456.mp4?wsSecret=72bed5c7624e3212bdef934f9dd6e414&wsTime=1756783180" controls="controls" style="max-width: 100%;">
+</video>
+
 > [父应用模版](https://static-vusion.nos-eastchina1.126.net/tutorial/%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BF%83%E9%99%84%E4%BB%B6/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%9D%83%E9%99%90%E9%9B%86%E6%88%90/%E7%88%B6%E5%AD%90%E5%BA%94%E7%94%A8%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF_%E7%88%B6%E5%AD%90%E5%BA%94%E7%94%A8-%E7%88%B6%E5%BA%94%E7%94%A8_1.0.0%EF%BC%883.13%EF%BC%89.zip) [子应用模版](https://static-vusion.nos-eastchina1.126.net/tutorial/%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BF%83%E9%99%84%E4%BB%B6/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%9D%83%E9%99%90%E9%9B%86%E6%88%90/%E7%88%B6%E5%AD%90%E5%BA%94%E7%94%A8%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF_%E7%88%B6%E5%AD%90%E5%BA%94%E7%94%A8-%E5%AD%90%E5%BA%94%E7%94%A8_1.0.0%EF%BC%883.13%EF%BC%89.zip)
 
 
