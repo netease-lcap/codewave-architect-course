@@ -1,7 +1,7 @@
 # 案例：能源行业系统
 作者：许建平
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/527104e8ae8c4481b024c6586c8418f3.mp4?wsSecret=659a21c4d5aa7197fd3f55d87e4edb5a&wsTime=1756786626" controls="controls" style="max-width: 100%;">
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/527104e8ae8c4481b024c6586c8418f3.mp4?wsSecret=82d78c2731f8cce56b62dc37aca71bda&wsTime=1756869010" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 背景：

@@ -1,8 +1,11 @@
 # 前端翻译器插件
 作者：陶壹丰
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=29bb1cacea1c2c17770351a1df67f553&wsTime=1756716074" controls="controls" style="max-width: 100%;">
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=7e8eef5eae4decdf3e854f6a3371bdc5&wsTime=1756868694" controls="controls" style="max-width: 100%;">
 </video>
+
+
+
 
 ## 翻译器插件开发流程
 ### 背景&目的
