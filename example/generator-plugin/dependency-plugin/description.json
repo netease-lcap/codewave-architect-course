@@ -1,0 +1,8 @@
+{
+  "symbol": "customer-dependency-version",
+  "name": "自定义依赖翻译器",
+  "version": "1.0.26",
+  "ideVersion": "3.13",
+  "description": "修改pom依赖",
+  "endType": "backend"
+}

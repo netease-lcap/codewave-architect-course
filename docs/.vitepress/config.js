@@ -32,7 +32,10 @@ module.exports = {
                             },
                             { text: '组件样式定制', link: '/development/componentsStyle' },
                             // { text: '流程扩展定制 ⏳', link: '/development/pocess' },
-                            { text: '数据库插件', link: '/development/owl' }
+                            { text: '数据库插件', link: '/development/owl' },
+                            { text: '版本控制与多人协作', link: '/development/version_team' },
+                            { text: '开发规范', link: '/development/rule' },
+                            { text: '开发排障', link: '/development/debug' }
                         ]
                     },
                     {
@@ -50,31 +53,34 @@ module.exports = {
                         text: '应用架构',
                         link: '/architecture',
                         items: [
-                            { text: '微前端 ⏳', link: '/architecture' },
+                            { text: '微前端', link: '/architecture/micro-frontend' },
                             { text: '认证授权', link: '/architecture/authentication' },
                             { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
-                            { text: '微服务架构对接 ', link: '/architecture/microservice' },
-                            { text: '案例：多应用', link: '/architecture/multi-application-case' },
-                            { text: '案例：轻量级微服务', link: '/architecture/micro-application-case' },
-                            { text: '案例：典型微服务', link: '/architecture/micro-application-case' },
+                            { text: '微服务 ', link: '/architecture/microservice' },
+                            // { text: '案例：多应用', link: '/architecture/multi-application-case' },
+                            { text: '案例：大型MES系统', link: '/architecture/micro-application-case' },
+
+                            { text: '案例：能源行业系统', link: '/architecture/case02' },
+
+                            { text: '案例：交通行业系统', link: '/architecture/case03' },
                         ]
                     },
-                    {
-                        text: '平台定制',
-                        link: '/platform',
-                        items: [
-                            { text: '管控面定制 ⏳', link: '/platform' },
-                            { text: 'IDE定制 ⏳', link: '/platform' }
-                        ]
-                    },
-                    {
-                        text: '安全强化 ⏳',
-                        link: '/security',
-                    },
-                    {
-                        text: '性能优化 ⏳',
-                        link: '/performance',
-                    },
+                    // {
+                    //     text: '平台定制',
+                    //     link: '/platform',
+                    //     items: [
+                    //         { text: '管控面定制 ⏳', link: '/platform' },
+                    //         { text: 'IDE定制 ⏳', link: '/platform' }
+                    //     ]
+                    // },
+                    // {
+                    //     text: '安全强化 ⏳',
+                    //     link: '/security',
+                    // },
+                    // {
+                    //     text: '性能优化 ⏳',
+                    //     link: '/performance',
+                    // },
                 ]
         },
 

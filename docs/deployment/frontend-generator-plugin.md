@@ -1,4 +1,12 @@
 # 前端翻译器插件
+作者：陶壹丰
+
+<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=7e8eef5eae4decdf3e854f6a3371bdc5&wsTime=1756868694" controls="controls" style="max-width: 100%;">
+</video>
+
+
+
+
 ## 翻译器插件开发流程
 ### 背景&目的
 在CodeWave平台中，前端源码支持灵活定制以满足客户的不同需求。定制机制主要由如下两个特性组成，分别对应不同复杂度的定制：
@@ -275,6 +283,59 @@ pnpm dev
 你可以在output目录看到这些翻译出的文件。
 
 在修改插件之后，翻译会自动重新执行，你可以观察这些文件来调试你的插件。
+
+> tips:
+脚手架默认在debug 模式下会吞掉所有的错误。如果你想看到错误信息，可以修改playground/debug.ts 在Promise的finally前加上.catch语句，打印错误信息。如下：  
+```ts
+Promise.resolve()
+  .then(() => {
+    // 传入此路径，并且所指的文件夹存在, 则认为是调试Vue应用的源码插件
+    const logger = Logger("Vue应用源码插件");
+    if (envs.legacyClientPath) {
+      logger.info(`检测到legacyClientPath: ${envs.legacyClientPath}`);
+      if (existsSync(envs.legacyClientPath)) {
+        logger.info(`开始应用插件`);
+        return debugLegacy({
+          clientPath: envs.legacyClientPath,
+          outputPath: envs.outputFolder,
+        })
+          .then(() => {
+            logger.info(`处理完成，已输出到: ${envs.outputFolder}`);
+          })
+          .then(() => {
+            return true;
+          });
+      } else {
+        logger.info(`legacyClientPath不存在`);
+      }
+    }
+  })
+  .then((skip) => {
+    if (skip) {
+      return;
+    }
+    const logger = Logger("翻译");
+    logger.info("开始翻译");
+
+    return translate(envs.generatorConfig)
+      .then(async (files) => {
+        logger.info(
+          files.map((x) => x.path),
+          "写入文件"
+        );
+        await writeCode(files);
+      })
+      .then(() => {
+        logger.info("翻译结束");
+      });
+  })
+  .catch((err) => {
+    console.error(err); // 打印错误信息
+  })
+  .finally(() => {
+    process.exit(0);
+  });
+```
 
 ### 插件构建
 开发完成插件之后，可以执行如下命令打包插件，产出插件的压缩包以供后续上传使用。
@@ -856,3 +917,6 @@ pnpm dev
 ![关联应用1](./assets/app_link_detail.png)
 
 至此我们已经完成了前端翻译器插件，从开发、测试到正式在平台上的使用整个流程。
+
+## 牛刀小试
+实现一个翻译器插件，增加使应用可以支持 [vconsole](https://www.npmjs.com/package/vconsole) 能力
