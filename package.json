@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "export-pdf": "press-export-pdf export docs/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.3",
+    "vitepress-export-pdf": "^1.0.0"
   }
 }
