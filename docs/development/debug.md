@@ -1,7 +1,7 @@
 # 开发排障
 作者：李英俊
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/6dcf8aa758c44a13a4581a088870ce3f.mp4?wsSecret=645b0dac854561271f597da3d1ca083a&wsTime=1756783201" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/6dcf8aa758c44a13a4581a088870ce3f.mp4?wsSecret=cd18f38cd02c9cf49613659173988d78&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 一、调试

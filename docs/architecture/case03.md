@@ -1,7 +1,7 @@
 # 案例：交通行业系统
 作者：许冠杰
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/a19c52f3f01541ea80f3ef7241161377.mp4?wsSecret=82df998a03446de00bbc90fc9444602e&wsTime=1756868977" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/a19c52f3f01541ea80f3ef7241161377.mp4?wsSecret=43dbdbb9e7cfc7a20db33f2c4b181572&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 一、项目背景

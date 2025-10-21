@@ -1,7 +1,7 @@
 # 微前端
 作者： 许冠杰
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/757f33e27261401592b01d5076d2cc45.mp4?wsSecret=294d211fd341a5e97bd4285bed434ce6&wsTime=1756783117" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/757f33e27261401592b01d5076d2cc45.mp4?wsSecret=a60a4cbc857e949ac5a3fc6e0be8a793&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 > [示例模版](https://github.com/netease-lcap/codewave-architect-course/tree/main/example/qiankun)

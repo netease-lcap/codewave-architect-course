@@ -1,7 +1,7 @@
 # 前端翻译器插件
 作者：陶壹丰
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=7e8eef5eae4decdf3e854f6a3371bdc5&wsTime=1756868694" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5db2282a6eb541c48a7b1fb4a1ad53f3.mp4?wsSecret=88948d9b7c895e846334850e36577630&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 

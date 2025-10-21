@@ -1,7 +1,7 @@
 # 服务端扩展
 作者：全栈然叔
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/d5c099d82264414bbf092855c2aabc08.mp4?wsSecret=5a4a3456a8c334a4ac0f59632a328c42&wsTime=1756696420" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/d5c099d82264414bbf092855c2aabc08.mp4?wsSecret=6db36bc02f9684c4b7600d1797c27b63&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 一、概念原理

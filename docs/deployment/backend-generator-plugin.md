@@ -1,7 +1,7 @@
 # 后端翻译器插件开发指导
 作者：张鹏澜
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5bb0fa69b8ed4a79a83d91585fdb6271.mp4?wsSecret=4f852be77648f118a16bd6224d88b76a&wsTime=1756868817" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/5bb0fa69b8ed4a79a83d91585fdb6271.mp4?wsSecret=544ecf848101602ae43ea5b36ecc300b&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 1. 概念介绍
