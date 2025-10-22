@@ -7,12 +7,12 @@
 
 
 ## 一、架构选择
-选择架构风格（单体应用、多应用、微服务）需结合业务规模、团队能力、技术成熟度等多维度综合判断。 [【应用架构选择】](architecture/index.md)
+选择架构风格（单体应用、多应用、微服务）需结合业务规模、团队能力、技术成熟度等多维度综合判断。 [【应用架构选择】](./architecture/index.md)
 
 以下是常见的三种常见的架构模式搭建中常见技术点的实现方法：
 ### 1. 单体应用
    - API集成： 解决单体应用与其他系统的通信问题。
-   - 单点登录： 解决单体应用利用在企业技术架构中的单点登录问题，主要是依赖IAM模版实现。
+   - 单点登录： 解决单体应用利用在企业技术架构中的单点登录问题。
 ### 2. 多应用架构
    
    - [微前端](./architecture/micro-frontend.md)： 解决多应用架构中前端代码的解耦问题。
@@ -37,7 +37,7 @@
    复杂项目规模庞大、往往会涉及多人开发的情况。低代码开发需要考虑到代码的可维护性、可扩展性和团队协作效率等问题。其中开发规范与版本控制是非常重要的。
 
    - [开发规范](./development/rule.md)： 提供低代码开发的规范和最佳实践。
-   - [版本控制 & 多人协作](./development/version-control.md)： 提供版本控制和多人协作的工具和流程。
+   - [版本控制 & 多人协作](./development/version_team.md)： 提供版本控制和多人协作的工具和流程。
 ### 2. 前端高代码开发
    前端高代码开发主要负责定制前端组件库、开发前端定制组件等。复杂的样式定制也可以通过高代码实现。
 
@@ -56,12 +56,12 @@
 在应用部署方面，虽然CodeWave平台本身支持一键部署，但在企业中更为青睐导出源码后按照高代码开发的规范进行定制部署。另外也会对导出代码的编写风格与工程目录结构提出自己的更个性化要求。
 
 ### 1. 应用部署：
-   - [源码导出](./development/export.md)： 用于导出CodeWave平台上的项目源码。
-   - [集成部署](./development/multi-application.md)： 用于将导出的源码按照高代码开发的规范进行定制部署。
-   - [日志监控](./development/log-monitor.md)： 用于监控应用运行状态和性能。
+   - [源码导出](./deployment/export.md)： 用于导出CodeWave平台上的项目源码。
+   - [集成部署](./deployment/multi-application-deploy.md)： 用于将导出的源码按照高代码开发的规范进行定制部署。
+   - [日志监控](./deployment/log-monitor.md)： 用于监控应用运行状态和性能。
   
 ### 2. 源码风格结构定制：
    源码的定制主要依赖开发编写代码翻译器插件来实现。翻译器分为前端和服务端两个部分：
-   - [前端翻译器插件](./development/frontend-generator-plugin.md)
-   - [服务端翻译器插件](./development/backend-generator-plugin.md)
+   - [前端翻译器插件](./deployment/frontend-generator-plugin.md)
+   - [服务端翻译器插件](./deployment/backend-generator-plugin.md)
 
