@@ -1,7 +1,9 @@
 # 学习指南
 
+![](./a2.svg)
 
-<object data="a2.svg" type="image/svg+xml" style="max-width: 100%;"></object>
+<!-- <object data="a2.svg" type="image/svg+xml" style="max-width: 100%;"></object> -->
+
 
 我们将系统搭建的过程分为三个阶段：架构选择、应用搭建、部署集成。
 
