@@ -9,16 +9,49 @@ module.exports = {
 
         outline: [2, 4], // 显示 h2 和 h3 标题
         nav: [
-            { text: '应用开发', link: '/development' },
-            { text: '部署集成', link: '/deployment' },
-            { text: '应用架构', link: '/architecture' },
-            { text: '平台定制', link: '/platform' },
-            { text: '最佳实践', link: '/practice/index' }
+            { text: '学习指南', link: '/howtouse/' },
+            { text: 'GitHub', link: 'https://github.com/netease-lcap/codewave-architect-course' },
+            // { text: '应用开发', link: '/development' },
+            // { text: '部署集成', link: '/deployment' },
+
+            // { text: '最佳实践', link: '/practice/index' }
         ],
         sidebar: {
             '/practice/': require('../practice/sidebar.js'),
             '/':
                 [
+                    // {
+                    //     link: '/howtouse/',
+                    //     text: '学习指南',
+                    // },
+                    {
+                        text: '应用架构',
+                        link: '/architecture',
+                        items: [
+                            { text: '微前端', link: '/architecture/micro-frontend' },
+                            { text: '认证授权', link: '/architecture/authentication' },
+                            { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
+                            { text: '微服务 ', link: '/architecture/microservice' },
+                            // { text: '案例：多应用', link: '/architecture/multi-application-case' },
+                            { text: '案例：大型MES系统', link: '/architecture/micro-application-case' },
+
+                            { text: '案例：能源行业系统', link: '/architecture/case02' },
+
+                            { text: '案例：交通行业系统', link: '/architecture/case03' },
+                        ]
+                    },
+                    {
+                        text: '部署集成',
+                        link: '/deployment/',
+                        items: [
+                            { text: '源码导出 ', link: '/deployment/export' },
+                            { text: '多应用集成独立部署', link: '/deployment/multi-application-deploy' },
+                            { text: '服务端翻译器插件 ', link: '/deployment/backend-generator-plugin' },
+                            { text: '前端翻译器插件 ', link: '/deployment/frontend-generator-plugin' },
+                            { text: '日志监控', link: '/deployment/log-monitor' },
+                        ]
+                    },
+
                     {
                         text: '应用开发',
                         link: '/development/',
@@ -36,33 +69,6 @@ module.exports = {
                             { text: '版本控制与多人协作', link: '/development/version_team' },
                             { text: '开发规范', link: '/development/rule' },
                             { text: '开发排障', link: '/development/debug' }
-                        ]
-                    },
-                    {
-                        text: '部署集成',
-                        link: '/deployment/',
-                        items: [
-                            { text: '源码导出 ', link: '/deployment/export' },
-                            { text: '多应用集成独立部署', link: '/deployment/multi-application-deploy' },
-                            { text: '后端翻译器 ', link: '/deployment/backend-generator-plugin' },
-                            { text: '前端翻译器 ', link: '/deployment/frontend-generator-plugin' },
-                            { text: '日志监控', link: '/deployment/log-monitor' },
-                        ]
-                    },
-                    {
-                        text: '应用架构',
-                        link: '/architecture',
-                        items: [
-                            { text: '微前端', link: '/architecture/micro-frontend' },
-                            { text: '认证授权', link: '/architecture/authentication' },
-                            { text: '分布式事务 ', link: '/architecture/multi-application-transaction' },
-                            { text: '微服务 ', link: '/architecture/microservice' },
-                            // { text: '案例：多应用', link: '/architecture/multi-application-case' },
-                            { text: '案例：大型MES系统', link: '/architecture/micro-application-case' },
-
-                            { text: '案例：能源行业系统', link: '/architecture/case02' },
-
-                            { text: '案例：交通行业系统', link: '/architecture/case03' },
                         ]
                     },
                     // {
