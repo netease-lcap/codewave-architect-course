@@ -38,6 +38,8 @@ module.exports = {
                             { text: '案例：能源行业系统', link: '/architecture/case02' },
 
                             { text: '案例：交通行业系统', link: '/architecture/case03' },
+
+                            { text: '案例：无界微前端搭建', link: '/architecture/case04' },
                         ]
                     },
                     {
