@@ -179,6 +179,12 @@ export async function makeContainer() {
     - 我们在插件的脚手架项目中，预置了几个简单应用的NASL AST，其命名为annotation-{timestamp}。这些文件是NASL AST的JSON表示，并经zlib压缩的结果，是二进制的，需要解压后打开。解压相关代码可以参考：playground/utils.ts内的readNASLZLibObject函数。
     - 你可以修改NASL_ZLIB_PATH的值，换成你的playground/fixtures目录下的annotation文件。
       - React应用时，可以使用默认值。默认值为"./playground/fixtures/b0fb29f7-9cf3-4f47-b49d-4935183aaa66/annotation-1718699989055"
+> tips: 如果在插件调试时，遇到 codewave-test.163yun.com 无法访问。需要将.env 文件中的相关 test 配置进行替换。具体替换步骤为：
+> 1. 打开某一具体的应用编辑页面，在控制台检索到 `/v1/env/config` 的接口，查看其返回的配置。
+> 2. 将.env 文件中的相关 test 配置按照属性名进行具体的替换即可。
+> 3. 替换完成后，重启翻译器插件的调试进程。
+![](./assets/env_setting_base.png)
+
 #### 启动调试
 执行如下命令启动翻译过程，进行翻译调试。
 这个命令会执行playground/debug.重新ts文件，并监控playground目录下所有*.ts文件的改动，有改动的时候执行翻译过程。
