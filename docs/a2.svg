@@ -1,0 +1,807 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 1112.827315777071 500.93712613569016" width="1112.827315777071"
+      height="500.93712613569016"><!-- svg-source:excalidraw -->
+      <metadata></metadata>
+      <defs>
+            <style class="style-fonts">
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,d09GMgABAAAAAAS8ABEAAAAADUwAAARkAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbHhxGBmAANAgKCY4uERAKgySCcwsMAAE2AiQDDgQgBYJeByAMFBviC8gGHng8q/eTtB46HXrlTodqRu6anT1nDkbPOZqx+v30y78JywgHbFxe5l9IRtgYkxd+AYC6OiJhUJhWyVoC26pKQFVhTL+VXebGoK2I3+P1RxCAGwCQEICCQABOUklFeH1NXdhRAEwToCd2OsUakf3LKK8PQWAoAPbnWc3/EUjIKMjyi+JkLCAhAWJzbDWoFvYVkrAiC8cPcyRf1OSv7WWlaTcd8mZzM8ibOXlEERd98AZIFul/QMUCSIAMxCIjwKKgQpHF3HSYJoe9+E/fKrAQi/srDShuNHC3+W8W4kTNEOZRBt60u3AjDw+VGIhiVa0JeENipMRAKjYQhZ4SA7lY9YXkHF+HP0tTdVWvn9BVnzozOhFScghvfNKkrpWpITr9ATVEl98TWqml2DsmNW1xiYGyhlap6Rq01bWztWs5fcv/SgwsxY1qSM5t87f7Q0FvSmilV0vxeNSa0INt/tCD3hSPppUYWE/J4/GBQOJ5YatbC2nJvoLo5JyONF0v1bI8sEHXU/QszTzREDD9yqbB5NVyTo0hgm3NC8EsTwquZXnkdVqKR/OWGDiKGzv9NV5k9mjC+brRsevtjAturSv0YRI5nB6hIBJRmkhjtLySIVDwb/HcbAwhlolDvDYu9AkSOZGepCAZKZpktaYiNo2QzmRA1WaE3iORM+lZCrKRo8lWay5i8wj5TAEKtQWhL5LIxfQSBaUo05SqtRz5V7woIGNHIhFhmsgAWABwAgpwFGAAlEFJuO+S5cnI3OPMvf/511/33eHUX32163Snnntm8nlFb7zRu2Dutde6z4HE09fl6j1nCpFylsuVc1e995prrqveel1BnKHxCdsf3XNm/Os9r4tZlm3KX85qBMcls6Wnd98hRNEr7bPLxOzrTqlwGctczjU9gq/CP7H09IUjPdb++Wc2507mdmwpD+/krNr2OiPSuvCiqOqo5mW3drWK0Pxd9ivqdvX/mGQ59Rw+WxO8+/HzL4iynvZWlHVRy9Dy1bENiSsKj4o8sfjrhanKovOjra/3rryyst3xJ/PLl3x019S6gkDu6JRd2jbwYH1jV7ql4Nxo66mB9qlVZ3V0LDht++x5+nXfsbfam21NPWJBe5T31aW1FcPV5zW07Wl+3DVRjvrremeSu7J3jKY5Wgtn24ZnnnnI1wY5teDEu9dcNxyx9De7S/4S4M3Lvs8G+KQo51TzU7NA+VfeAtiRZqQ/UDXltx7T/98eR+BwnGS7v2Qpq6WTaVM2i/QNeWVGypU6CTxkow8ZoTiAQt7OXYJYHndJhGO4ZErR9yr9Lgu7iRZW4+vAT4BRNrGeUQJ0soYeJtnKNgJsYiMqVZRSQQVL8DLJOJNsYAzOUqmmGJVKyv2EUfSNX9zOGraCGE2xaahSsUK53B9WMr8m1Ph01ZQwRoDtpyiq4miLheiA4TQ7Rh66dR4Xtk1sZo9vgGlm2L73mpOeqdKEn1p6kXHimZspZ2aQX6SQjlg4GxQB);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,d09GMgABAAAAAATYABEAAAAADWwAAAR/AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbHhweBmAANAgKCY4uERAKg3iDLwsGAAE2AiQDCAQgBYJeByAMFBvwC8gehXGzc2R2FEcTTZSZx462LCKo3+v23vsJdNWqTqOMR7XqWh8fHBI0FocEj41RaHwXBp2f3jnfkRbV4BdENQ1mtcO8TMzTiUvmYWryBVuGbSOt6jEdT+bw/79XP+b+l4mx4NhieTn/ZolGZMyXMVfnAJogLWG1uhbgxCpXvN+lg+4mBevvVyLQCwgkIQS6TXCDlrhCJRgroC3BwM0530CzgZIkRDPRtuAJ400pDCGHC+DW6Zu2DnI0kHET2hxK9ZWaIDdh9oUMrXp+HyCVDP4DM+RIyBhACaiWmYFCEqObuiSx4vOdoWVKBrwf2QJQ2xRB2dPuRmgmEZE0SYR3shMU+bw2VARYw1ihYwVUHyoCqokAK0yoCLiGOYHy5cq13gTzmM9r5jGH2xuaBZkvDrS+qYUn4ViA70CHBWAHjJBBXJ1DLYQkhYpAtiCyHTzBHO5YTDoChP0b8V60VoAFyq9UW6YVxrKuQgZLXBkGK4QTpVrhBOvKEBIqAnfJQNIepaOvC3yeq5CUsAGrYAHSIjxfyXkzcBfPu/LexLpQREBlGUURZtcoX4VTHFvaPhjrzbji+3gz3gxxZQgbKoJYK6jQKlihYgiTPtc7CDKBkkEhsutVDq3hdQEGmLyhsCQZFDga+7fgvWkb4VAueMR1vc+hA3woIIKYj8SaADpFZFQOBcldX3LoCl8LaKDlG7F2gO4RAzXCREbXzxx6wa8CNtj5TawHsD/fEUDWKRmB2pIMEihQxhvgHTTBfcuLljIrl7gGPukacl1kpnfQ7LsQ47ew2HzwfryGt+cJ29T2KJV6lZnvEgCrj74LIHgyVSoPxqv7vp7xIcs1B9aqHcfF3zXTA7s3VWvUqnkaR/UB1PDXx45Yr9noeK/4hHLOwm8h2qXZ6pqjd1UL4B+Z37rQcSdSHlD0dWE5Z7/SGOe6SOT+gTip38O/qLjcbW7NU6la8C+0rnWIj/CZJ9rIX6ObCXdR4krHeYX5doXyPxUvPGYso+cVuJquqUCoJxuUKDhU19MpK5zmb7bhEPXk89SAFfTcPlO3oIy+P9y1pdQVQ1fNQ6rezkf+2NvXP08+/a6BfMa+LuFhCsV6G41PXD1qOT3XbJIZlmYvsFRMnt3plLjCSXH8qrml1U6xorKhTm8jn/hQSf3cwiJyqMTp9Pj/PbgsByXucTKfh2hjB+ECHSA4GdNzTOhknh4/0j2Cu93plHfMaeFEZJY59yIABPJE4LRI9eM6q5S/Qg/1AYCPl28+AHxWfedKX9JYdFO3ADolEP595Yr/AeX/L+cguGG0JP9BBltK6TP4YxKpBRlxb+pwhBKFCVDxqDCFAedMSb+WKWvgjxbDppI7tqxsvg8c0GnQR08NdCpkU2vR3wA6ffSGRQsTKVIyVosmLXpphHMsRghrRIkIAjDJTZ8PlK0/ZA0Z9GlikRukI4JmlLgGw8nlYoRqpDPwEknMz5bEWTlsthk08dT+ywJc10dfw2x12rQbeHTLRa/ECmnl0KC4vtp9Rei1DFUJGTggFUAVAA==);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,d09GMgABAAAAAAXAABEAAAAADqgAAAVoAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbHhweBmAAPAgKCY4uERAKhiiFJQsIAAE2AiQDCgQgBYJeByAMFBvwDMiO0xU3GUiK5JcPsan/joMYrUdoqUCdiE2Npp14jIlr1u9k4pI5/eoWAtv9CKIwwrhuhIGnASYQQVa/n36ZDdsISaAiXF7mX8jYGJMXfmEogSMQCoVplaxi36jWA8oqXen7tSk8phPURRaL/OcGAiAHGDEgakL9emwoU4aokQFRWMACQDYLACMXUPoi2QwOYPx5gMzDyw20DQvAEBMo8YAwCz5oQDYl0HORFT/Qedl5QOdh8ziWHPrgDYDhmP8BEg4AA4ACsKMgYGLRAFOfgCEnrpHCjXe6rRgE3pCDXX7KB3i7gZwhycuEbNQMkr3tQS2tyAEdO8ZngHglqXG6miHjfAYYrwHiln0GqFeKZGhtZFiyWpN0Se87SZci0rTxkzJsLfLOO03WtYCUwfCcLmUQTTnTUxPdPZM1rbPPALuFhs3pchSRZpA1M7gQ/03oct7++AK0bkhyaDKTUsVMT1UTZVlqzDw4JJl5UBVlTfMZMF2Sp6PV04XrwlwzuUXRsoEYrnAx1HS9Vq2WYYuui3q1Zp9qEEhdz4aBxetpbaNBUkO6Z1LVsojxJK6Oo4mypvoMWL39hycbVVGWtZqwfW50WHQWhkeOhg99rkTOo+fLKEChusBQpOrJIFDqe+G92WKCnXHAqXGE3iWRBXqJjFKI6lKlljG2nFDBVELSVIZelshV9GoZNahV1yi1jrH1hAZGgVujhN4jkb10nww/Amq/UoPMPzQNgDo3MxCQbBYUAGKYlq0AKVIGowClwqb34UJeNlctKahyLHfGdxJxF6+8kZigk3VvVOsrancgFY3VjeNuTIn1E68rM/ZXo6/15IT0nO1zdCLGe2631S3JvaGJaPLA4j08n263A8Kx6c549A0+fb0kFd1tc76aSCSisyfcIESsH1+7A8Jdrnc/aGW6NmGLpuyTV9btJbsStpQoCOXMvkRcU1bsdI7YV893lm+QLjz2eHR8eg9S0qsrOvrPvNF0yUJa1m/yo93/apwwc/H1qkO17pHXyp3VU/WTB8m6Und5D2Ijnq488BoSU9wFuQtjlzpS18ZNuEHEUzwfnz90gN/lX9JOSmwe6t/n2nZa+LD9dnrmTk7OK6p/+O2nBOVAkbXq9CckJ1LxZpBTa7hbO81npRLb6JrvCgYOJxNetvPB3H/7n1pzcUdxNbW2Ms+VKvtc7v6DDwpDR5k7HRC29vLd499wwLX9b6d13XQa3jyFq7cVOhPcP35p81G2atg4lnw+lwjvldvUanNLp67WjvtdW73oZGgdv8+1rbWQazK9Mox+bb/U6ur0ksPKvRe4TOR7WwXlKdlErvQnnG3b266O6UrqGbw97h21QXVvUx7kFNoYT/70DG07Nod4KkaNbmOe0zH4af8tpFm5Parufd8o5JoP2qXyC1/Uwg8ktIwsvFeiAz9qrWCmhVWl072O7rR/Y8tbs6Ri43SHkE11K6cr0LSJZbuq9P2daoEVlF+07YygFJGhY/IrX55Jf7Kq7m2iYyUZrXo6pStG3dEpLbS89RMAAAFAy5Tw0SP82Pyuv1l4+iUAvHns+xoA+MRTuzX7aVZh/6XzAVjAEFJ/zyr724jx/29PIOCl0Bv0S4SIZsp8g/oSZqnCWgbwNWMECsJaR25vl3YCu8ftDPJg2Cn89P3suJ3DMkXCZH0ckDTdeHPNMt50w/URN9kCC0031xySNvxCQrpQTTbRZLNNgGVJW16lHxYMORQi85cX6WMBiPE55g4koQ1KwXAQ1r4lpPRsbflMMN2iSxQk9XidVTEMBlMtnnnkAhpXzXPNs9x9uqmmWbT/zEWvlAyQ1CSBwouVnSdoykBD01EBO2x1eAA=);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,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);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,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);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,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);
+                  }
+                  @font-face { font-family: Xiaolai; src:
+                  url(data:font/woff2;base64,d09GMgABAAAAAA88ABEAAAAAHUQAAA7gAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbHhweBmAAgRwICgmOLhEQCqI0mn0LIAABNgIkAyIEIAWCXgcgDBQbQBizERFsHCCCzRcl+x8Jtq3idaEwjJZRGAwWIYQAWhIoB9d4zBOKOwfFvQyLYQPd/OOc/d/fJFXaFElKobR4igyKBtgGI8WsbFDE5GwGDE7KtD2lMLEHU+btxJSdOzsTftSZL3WU283nOPEBl4ikp8YF4s3uKK8+J+xSkhL6Ch8AZOnD1P954P/e3cakeFFWT6C58Ec/wM+WdjLpZBuj+X9TV9nfsLca2zjS13vFeIy5S1iX64CUkesMY003llAoiRtjCzeEQ3mcp1pSnudnv5lPwd7GJWt0SJlx/X9lAASABADjHTxOIOUiHk9L4SAlqxAI8P8dUIqXwxmLMndT62G6gNcEE9p7EJkSpPSlcIBSBEAFgZOzotQikLj6bGwGdc0lAArOXr/jw02nJxAvx/sfoDEpI4ps6uIxSJP5XuVqcuZtTqvPco0F0QXZBVuM90zupWMVf8dqKv2B6y9jM9VbBu+7eK5+tt97a++xvXV7oprP7R1bZFvKE2/xeadffTSAiBfjgt/nAATP7UCyKT4A4dqtHc6N2AHXcJBAcUWIHQwajaGZm4ZVIXa8YAdb2tMJKGhSppFfSkGxj0ljhvppXTBvlaapum6a70dJ4rPqzaZ5mmnGqFkzrTDSTndMqsOcepMpLsSOb0Lg15u30KRpURZaCKL/ZdCwkGnfNOOfV5xfPD3AqaY7nEml1WoM02fzil96OZXWZBJw4pUk1Le8ma4uEA14C9kEBqjRJchrMptv6n20MMVsVolmfretPQVweKLLTlpDfoaDa2CT3DbQ7FE5+B17J5lUWhMXYicMmcZiA3eDMQFFJOpc84JwgUgMEkFsfakB2QldZoEcSJM8UmHsiJA572eh9hY7I7iIXMFNcLU+ZUCm0ZUWuIPK5B6sHpbYE0Et8gKN4GV9rQHZG93HAl/wM/kGq78lDkAIFOExoBMY6wcZkIPRQywIhXmm0GANs8qHy5/luQI8dN9/DiEkRiZK7YBwADsCxAKQOD6O8ALApZOHh7+jGPMSvBok88hodZGrXRV8vndkiIDIVeh0CZrUdl+P5rfLbJ2PBfvi95GH8L2c+FL+Q2HvJ4NKuXJBSAYjrDUvGAND6BndbYenxTj1D8gZCfadb3lddTrp/DnjvHn2XULTlDkZ58ox4R4yDiIM+5Y+77DD/ZF1W7lUnyODW81HcoK3y34yWMbQL2ZFGCeOC9pmgpTZ6nKuShMNOsexIdySRYVQRjG3U4x7AAV7RD8rYH4Z+5mdFHm2qsb90f4FDNMEY6dlME6lnX/qHd3X43VziI8dJYQMvQNikBrB7uwIUDrQQJ5Ji0WSLIpwyaIGuGS4/ayl5jH625l7Y7V9asjbVXWTTtevL5FQ8rVq+WFepLBCL69jN56dvnaDecWDYl5z8BFOkSW0fNXle277vRpgiNgjoZf2AAciV7/tW17vFBt4nuV6ctxOeTCzI/pOJ+Pedeqanx37VHfRR3JC89tiPZn2Vsewns2Fje1Sky6Qckl4IcGO1vydWjQsWKptcevbgzD4TEo77eIeSymQZObRxXr6Pvvj9Cztm7zv/sc7DPIfNU+vklzyL6fRA+zzKql9ld6Uhqyt2v7/6EALzX3n/Q++Rp4pJW38/HM61zRGxk3jTxJhQTPXFSob6l7b/pLZYEo0tLGzixZHZN/yihE0nDkelfTRBnmkFfs03xbhTMoAZhL8vPIQJi6RSx5JyZLk8mnFm/aBuSPDNfpg2Tz9wKqNT5NNwlIjWD0izlL/wSMa7iGDCvvGQejtST2jXiPv5lTSY3yKOT3XLXWA3lKBJ2Ye/skfjPul6aM/nqsnk8hKOeNTPV2siB7gjKONgHXBwDM5hTXo2ekHNoRM+y5EVl110sGoxzqMYDbuO9WYyRK5vpaenaOG2nin6NeJ0/nsYKYrN/vOpSzLBMjrZg0UmrQ765khEat6Ro9oamKvsFD91FdkOs7d6ZAscAdOz0DFnXVwbzR2Wlr3QdA2mu2k77azXdNM8ktEa0L+dsB16Q42S/e7g/1e/1s9qq5y49+Xdrwe2E5I2dOR2idpunDygSB1THHx+qxfoL1O950/vxyvYB/iDYSkpMUHbcmkB9hQ79hYd1G2I7xKYL6wjQPUe5EDhReMD6KIYfDoeWF9w9U3AhmBpAYNVjgNzfG5r8auP3zWCJC3u1pfPbMnHg1K0P2faT+ib9NsCXlyQpGI5I/BvB2eSRT4LSNY2UC0SKwDnI88G2N/3rwI+0/1ZMi//vmAdUB0FhbwDABdzJ7RBixeR9tqVbOiTAwPcE6vi8rlzN15Kn9XpcCffTYoIa8qpV2EA5EF8egPQ3VXr7iNA3ObuTL2Rx9sIFYlBw7ifb3SNqx5bw7tfse9YE1AVxI35PMwELHSNGxcEpNQI/pAyY5S8+sHriQ0vEcz47Q9poheap0MADKU91K8ynv1TuIPzhcbDt0tXOrGFVqmaOYnsuaKkLVR1jLV68ijL+TL+NaHDoqdoELzk/oDNuFfRCSa6aH3aPbfZ5tVDkBmfuL4B7bJykp3X3NjbaQwvHdkJrL3XYodI0WcOjuGbh962ofhzH0arZf7q0dJbPhvF8GgFl6JXGRcx6Q4aGaCjO9c//lRPD/Y+o/rfWzS4Iuzq/Y+wGJttKVcvQ1tnE4M3ksPOUjFtzWvroMX2ghmjLbsT/4Fm7RMgbTy2anD7iJ3DNTBi/R5U6GBHD0LqLkXuRjM3ww5H2Jor3oEIkshJDIO36CZ3aTwbUn/bw6K3edCDGVBuIjTMXZnfQUzQVnFUS6D6O0u9/gx2pKgPFsPo9Zi93sCxR74M/Jt1eZvbJR1ksRdsAM9GP9qVNjkNVwyUO9/+xRldVAv3kSnOR3zYVQUMRj+34oIvZDz/cBBM8e9JCphgnUGqKVwa7ONsjwlsW/higMQO2P5hmI/DyZupPf8Dl9Wvs2rV3WEk26orMRGC/B3sD3Rh9zULuNlf/oJgbOPXwxRX3RQ7BlXAYVmLI7jMs9DkBWMHEXQeBi1DXO+xFB59TH0+3B9QoG6mQHku6T5O4qxkVhg2VoYsX+Cen2GBBuqWEdo8dAk6XxuD+FVUD6XWhhhCp2ilDbSrksn+vmR3tiql0zwnqp4imJOughOLAXDdYc9FJLCkGXF14I8IxlLiWqiszL3zpKcy7pEhxs7Sv8QU966ekMkXLpbLtBGlxlqL5foz1XUUmZ68LpifRN9qbo8MiO+19TPBS+qWFBZoMX/vsYLQeK9ptCiBKkwbvVgB+eDDe8siElKq85PyzecLxqfGrG/M5s+4L3DaDaKdEq/NEnR+xVE6LAZ9i731u9yUKw1p2O5g9DHTbhZrt57IEpa1imMcBO1+aWGVs/PXwOuLNTJZnroKZXmtjJvprEyj+3fh6RHOpLWlBeekhFoMOsDGR5+AnDZnM5SjnbktuSVx64hseGnis3187PygwcuyPNX/Kxix+jEspBvSV7yLTJVfMvFKbzTf3HTC+didqzsUzFjtPXlmJeeu2ujrNcVXUxipLFMZ5zBsiejmXFanxhQ/iZD8TZ/67RIekzqsi7O1HNhy+rBYjBiwGJH6cIevwvXlIyNeuntjJVxiyn++ruwEP/R03+FmWO05Rq8DOG2c+lmEh/+evYImq7yfDVgEWOjjgS7B58WYQkvxhP6vA9BHxGo5Mr8QwohZuB07E09F+6F74CGf2/YzCmXY8FvYJLaVXYQMW24+7N+3paRrZMyQcZqmUDmnJTXPzDsIdg2Q8X5/hZVmt70bM+rMkFlaHv989xslJzYlig1GJJhgKuo9WddW20l/IwSxMXE1x1Ztci1Z53HmJzYplzd/WzqAC/H9zJix+UC6/UwY29UA4rWCC3tscBjJc/9HZLY+r0BhCk/QVdec1v2HQHarsxOraG3enUFDpZKBFsc8gHdeeEIyqO8Je9wgPJsu5QG0qHn7ICrBxmuYf4bkxNbd3vJnkXsjhuVC7axga2AGDl4Nerr4BgRXsjBkAwALLmbzNu5i1CY6m9uec1bGztKD62sWutW2fUV5HQW9keIiWzo9HVfkzI2ynqDfA24frjUTA9l0by72yFWYplKvARJO8SkoK4cZyfkSRaXuYiUULcAXQVURotz4oeeUuyH4jr9uRJYbaMt1xWDIkVT2P6t3pm+7ylZGxXZubAmpqiieJeciNtNerg/PLRWgXenlfVXtjtIgWn7+x+bbPLUbw680gBX/o0eeAtlmTKbe7pRJjq653O9l9VBsX6nieoVl5C4kvk5uMixYRZPDrVR1nedFe4nFYLXHUBfPwth/08QZP6MiKXfw7Sl6MXTqO/itWUXQRdWym7B87PzFozRFgf1K/zhmdMqB8X+4AfgtYcwdH7Aluj+j1TsKNX2+wlMoTsYicnC6Zf53UngnflE4Ge0yHW3bPh+8LFkCSeTbH67YnkmlZThFy2FJc7v0cTtzXME3zqJ09E4J33g9e+wHZHe+J8LdWd5hp8JuBMsVRi92laMvyEVJSRlvLAR4VUJ1+mKj8vgwqcTlPW4RnxQYklEjI22fhuxEdZufY9izV5lJyAzTlu/9xuQvp6o2W2jrH8HZ3ZD+evrEYj4uEJtjLNR1qvKq4TnYrHzgsMOqkRRjg6iWnXrVrFylzMmhz8TxqVLLvT5o0vlzmMu9+fhPg/k4rUV6bDiHyipaMqpLnihXetzAm7V8vq9VSsis7H0fPRZSVKw9VoleoDKj07RDB0WflYZPEpiw/+4luqv3bNQnemG351jWcJvAgN9bbXNbPvRF5/7WdCA5f/5HMP/N3MeACBwZYWqv2zr+S9O1P/fbyOFyCKnoovFYtWoU6BDCeUpMtj+BgxOPF+W/s7oamWml6shlHB6EZgVXtJ13i2CXFwu4nFiL0JCmdfy+UWYFygoHn8eAMWaVevUplozo2RL1OvRq1mnDhoRQoULF49Tr1a9djXQqxEp2PXohb1gYCnivX2S9QCtPrFOERZuwB724tGLZqiG7ixSiBrN+irBNN7W4jxaAJ5G/YKb9qgRL69TlxdpsxBv0gdrpipKTjRLZVyqIgipbC4RRrcLbAegBhcQqSAIAAAA);
+                  }
+                  @font-face { font-family: Excalifont; src:
+                  url(data:font/woff2;base64,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);
+                  }
+                  @font-face { font-family: Comic Shanns; src:
+                  url(data:font/woff2;base64,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);
+                  }</style>
+      </defs>
+      <g stroke-linecap="round"
+            transform="translate(10 15.43321988569005) rotate(0 99.70703125 237.75195312500006)">
+            <path
+                  d="M32 0 C83.47 -0.98, 142.34 1.71, 167.41 0 C185.65 -1.64, 202.74 9.58, 199.41 32 C202.62 142.61, 201.96 249.58, 199.41 443.5 C200.81 463.42, 192.14 477.36, 167.41 475.5 C121.9 475.8, 77.52 479.74, 32 475.5 C12.58 474.08, 1.35 467.49, 0 443.5 C0.84 355.43, 0.32 264.56, 0 32 C-3.02 12.26, 13.74 1.89, 32 0"
+                  stroke="none" stroke-width="0" fill="#a5d8ff"></path>
+            <path
+                  d="M32 0 C64.09 -3.11, 95.94 -1.49, 167.41 0 M32 0 C73.9 0.62, 116.75 -0.35, 167.41 0 M167.41 0 C189.91 -0.3, 200.81 8.87, 199.41 32 M167.41 0 C189.28 -1.37, 197.82 12.47, 199.41 32 M199.41 32 C197.77 146.56, 197.9 260.65, 199.41 443.5 M199.41 32 C197.91 178.23, 198.52 325.88, 199.41 443.5 M199.41 443.5 C201.16 465.92, 188.35 474.22, 167.41 475.5 M199.41 443.5 C197.47 466.25, 190.12 477.2, 167.41 475.5 M167.41 475.5 C119.49 476.32, 76.1 474.06, 32 475.5 M167.41 475.5 C129.2 473.71, 90.78 475.26, 32 475.5 M32 475.5 C10.58 473.73, 1.48 463.12, 0 443.5 M32 475.5 C12.24 475.34, -0.11 466.72, 0 443.5 M0 443.5 C1.6 351.83, 2.04 259.09, 0 32 M0 443.5 C-0.37 339.85, 0.22 236.35, 0 32 M0 32 C-0.4 10.69, 12.05 -1.5, 32 0 M0 32 C1.95 9.13, 12.76 0.09, 32 0"
+                  stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+      </g>
+      <g transform="translate(69.70703125 20.43321988569005) rotate(0 40 12.5)">
+            <text x="40" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">架构选择</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(23.71681788868841 54.917667402632105) rotate(0 79.60895627355933 65.86054920802292)">
+            <path
+                  d="M0 0 C62.83 -1.52, 124.59 -1.36, 159.22 0 M159.22 0 C161.26 51.99, 158.08 102.79, 159.22 131.72 M159.22 131.72 C96.7 132.2, 35.41 129.64, 0 131.72 M0 131.72 C1.54 78.21, -0.31 28.21, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(28.71681788868841 59.917667402632105) rotate(0 40 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">单体应用</text>
+      </g>
+
+      <g stroke-linecap="round"
+            transform="translate(41.46875 91.34728238569005) rotate(0 63 15)">
+            <path d="M0 0 L126 0 L126 30 L0 30" stroke="none" stroke-width="0" fill="#228be6"></path>
+            <path
+                  d="M0 0 C26.76 0, 53.51 0, 126 0 M0 0 C44.31 0, 88.61 0, 126 0 M126 0 C126 11.4, 126 22.8, 126 30 M126 0 C126 8.8, 126 17.59, 126 30 M126 30 C82.86 30, 39.72 30, 0 30 M126 30 C100.35 30, 74.71 30, 0 30 M0 30 C0 18.12, 0 6.23, 0 0 M0 30 C0 23.13, 0 16.27, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+
+      <g
+            transform="translate(75.26876831054688 96.34728238569005) rotate(0 29.199981689453125 10)">
+            <text x="29.199981689453125" y="14"
+                  font-family="Comic Shanns, monospace, Segoe UI Emoji" font-size="16px"
+                  fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr"
+                  dominant-baseline="alphabetic">API集成</text>
+      </g>
+
+      <g stroke-linecap="round" style="cursor: pointer;"
+            onclick="window.open('https://architect.app.codewave.163.com/development/serverend.html', '_blank')"
+            transform="translate(39.15234375 137.25743863569005) rotate(0 64.61328125 15)">
+            <path d="M0 0 L129.23 0 L129.23 30 L0 30" stroke="none" stroke-width="0"
+                  fill="#228be6"></path>
+            <path
+                  d="M0 0 C30.85 0, 61.7 0, 129.23 0 M0 0 C43.05 0, 86.11 0, 129.23 0 M129.23 0 C129.23 9.19, 129.23 18.39, 129.23 30 M129.23 0 C129.23 9.56, 129.23 19.12, 129.23 30 M129.23 30 C89.05 30, 48.88 30, 0 30 M129.23 30 C85 30, 40.77 30, 0 30 M0 30 C0 20.66, 0 11.32, 0 0 M0 30 C0 23.46, 0 16.92, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+
+      <g transform="translate(71.765625 142.25743863569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">单点登录</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(29.10784060144067 205.89688942766713) rotate(0 75.95270627355933 62.51679920802286)"
+            onclick="window.open('https://architect.app.codewave.163.com/development/serverend.html', '_blank')"
+      >
+            <path
+                  d="M0 0 C46.9 1.69, 94.7 0.6, 151.91 0 M151.91 0 C152.46 35.91, 151.6 69.12, 151.91 125.03 M151.91 125.03 C100.81 123.82, 46.56 122.34, 0 125.03 M0 125.03 C-0.96 82.29, -2.6 34.48, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(34.10784060144067 210.89688942766713) rotate(0 50 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">多应用架构</text>
+      </g>
+
+      <g stroke-linecap="round"
+            transform="translate(41.49609375 242.58556363569005) rotate(0 63.71875 15)">
+            <path d="M0 0 L127.44 0 L127.44 30 L0 30" stroke="none" stroke-width="0"
+                  fill="#228be6"></path>
+            <path
+                  d="M0 0 C36.7 0, 73.39 0, 127.44 0 M0 0 C44.12 0, 88.23 0, 127.44 0 M127.44 0 C127.44 9.16, 127.44 18.32, 127.44 30 M127.44 0 C127.44 10.89, 127.44 21.78, 127.44 30 M127.44 30 C99.09 30, 70.74 30, 0 30 M127.44 30 C82.53 30, 37.63 30, 0 30 M0 30 C0 18.56, 0 7.13, 0 0 M0 30 C0 21.3, 0 12.6, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+
+      <g transform="translate(81.21484375 247.58556363569005) rotate(0 24 10)">
+            <text x="24" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">微前端</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(41.33984375 287.05821988569005) rotate(0 64.158203125 15)">
+            <path d="M0 0 L128.32 0 L128.32 30 L0 30" stroke="none" stroke-width="0" fill="#228be6"></path>
+            <path
+                  d="M0 0 C37.38 0, 74.76 0, 128.32 0 M0 0 C47.44 0, 94.88 0, 128.32 0 M128.32 0 C128.32 9.91, 128.32 19.82, 128.32 30 M128.32 0 C128.32 12, 128.32 23.99, 128.32 30 M128.32 30 C80.57 30, 32.82 30, 0 30 M128.32 30 C100.15 30, 71.99 30, 0 30 M0 30 C0 23.1, 0 16.21, 0 0 M0 30 C0 20.32, 0 10.64, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(57.498046875 292.05821988569005) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">统一认证授权</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(29.95744997644067 343.28165505266713) rotate(0 75.27106564855933 58.86836170802286)">
+            <path
+                  d="M0 0 C37.41 1.49, 79.87 -0.27, 150.54 0 M150.54 0 C152.22 23.13, 153.21 47.94, 150.54 117.74 M150.54 117.74 C109.23 119.14, 67.26 117.13, 0 117.74 M0 117.74 C-1.57 77.08, 0.28 38.62, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(34.95744997644067 348.28165505266713) rotate(0 50 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">微服务架构</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(41.69140625 376.95665738569005) rotate(0 65.4921875 15)">
+            <path d="M0 0 L130.98 0 L130.98 30 L0 30" stroke="none" stroke-width="0" fill="#228be6"></path>
+            <path
+                  d="M0 0 C27.37 0, 54.75 0, 130.98 0 M0 0 C41.43 0, 82.85 0, 130.98 0 M130.98 0 C130.98 11.28, 130.98 22.56, 130.98 30 M130.98 0 C130.98 7.07, 130.98 14.14, 130.98 30 M130.98 30 C81.82 30, 32.65 30, 0 30 M130.98 30 C79.87 30, 28.76 30, 0 30 M0 30 C0 20.79, 0 11.59, 0 0 M0 30 C0 20.21, 0 10.43, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(51.18359375 381.95665738569005) rotate(0 56 10)">
+            <text x="56" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">注册与配置中心</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(41.46484375 413.72228238569005) rotate(0 63.658203125 15)">
+            <path d="M0 0 L127.32 0 L127.32 30 L0 30" stroke="none" stroke-width="0" fill="#228be6"></path>
+            <path
+                  d="M0 0 C43.61 0, 87.21 0, 127.32 0 M0 0 C40.57 0, 81.14 0, 127.32 0 M127.32 0 C127.32 6.92, 127.32 13.84, 127.32 30 M127.32 0 C127.32 11.59, 127.32 23.17, 127.32 30 M127.32 30 C85.19 30, 43.06 30, 0 30 M127.32 30 C84.04 30, 40.76 30, 0 30 M0 30 C0 22.69, 0 15.37, 0 0 M0 30 C0 22.1, 0 14.19, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(65.123046875 418.72228238569005) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">分布式事务</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(229.4453125 11.066032385689994) rotate(0 337.85546875 238.42773437500003)">
+            <path
+                  d="M32 0 C174.6 -2.11, 319.79 -2.31, 643.71 0 C662.24 1.56, 675.8 13.89, 675.71 32 C674.84 116.18, 674.34 200.62, 675.71 444.86 C678.5 467.22, 664.87 479.03, 643.71 476.86 C512.08 481.47, 379.36 481.38, 32 476.86 C9.67 474.39, -1.62 468.64, 0 444.86 C0.63 328.13, 1.52 207.04, 0 32 C-3.57 8.72, 7.88 -1.51, 32 0"
+                  stroke="none" stroke-width="0" fill="#ffd8a8"></path>
+            <path
+                  d="M32 0 C275.19 -1.03, 519.16 -1.73, 643.71 0 M32 0 C233.44 -2.28, 435.25 -1.8, 643.71 0 M643.71 0 C664.62 -1.16, 676.74 9.73, 675.71 32 M643.71 0 C666.25 0.35, 674.89 11.85, 675.71 32 M675.71 32 C673.04 125.38, 674.04 217.88, 675.71 444.86 M675.71 32 C676.76 117.76, 676.85 202.98, 675.71 444.86 M675.71 444.86 C674.11 465.02, 664.97 477.22, 643.71 476.86 M675.71 444.86 C675.77 466.44, 666.82 477.88, 643.71 476.86 M643.71 476.86 C505.86 475.8, 368.44 475.47, 32 476.86 M643.71 476.86 C446.73 475.73, 248.82 476.25, 32 476.86 M32 476.86 C10.96 476.19, 0.73 464.85, 0 444.86 M32 476.86 C8.84 475.36, -0.79 464.99, 0 444.86 M0 444.86 C-0.78 344.72, -1.95 244, 0 32 M0 444.86 C-0.07 311.1, 0.42 176.21, 0 32 M0 32 C-0.97 11.3, 10.17 -0.14, 32 0 M0 32 C1.37 10.21, 9.85 -0.83, 32 0"
+                  stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+      </g>
+      <g transform="translate(527.30078125 16.066032385689994) rotate(0 40 12.5)">
+            <text x="40" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">应用搭建</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(242.82854372644067 45.35001442766713) rotate(0 80.45856564855939 208.73164295802297)">
+            <path
+                  d="M0 0 C43.55 0.56, 88.62 3.06, 160.92 0 M160.92 0 C163.11 138.91, 162.83 277.76, 160.92 417.46 M160.92 417.46 C117.66 417.21, 69.82 417.63, 0 417.46 M0 417.46 C2.56 323.9, 2.31 230.17, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(247.82854372644067 50.35001442766713) rotate(0 50 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">低代码开发</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(260.4375 84.24571988569005) rotate(0 61.2890625 15)">
+            <path d="M0 0 L122.58 0 L122.58 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C31.38 0, 62.76 0, 122.58 0 M0 0 C48.33 0, 96.66 0, 122.58 0 M122.58 0 C122.58 8.86, 122.58 17.71, 122.58 30 M122.58 0 C122.58 7.25, 122.58 14.51, 122.58 30 M122.58 30 C79.95 30, 37.31 30, 0 30 M122.58 30 C85.73 30, 48.89 30, 0 30 M0 30 C0 23, 0 15.99, 0 0 M0 30 C0 18.65, 0 7.3, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(296.92657470703125 89.24571988569005) rotate(0 24.79998779296875 10)">
+            <text x="24.79998779296875" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">UI定制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(262.525390625 126.62853238569005) rotate(0 61.82421875 15)">
+            <path d="M0 0 L123.65 0 L123.65 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C25.6 0, 51.2 0, 123.65 0 M0 0 C43.5 0, 87 0, 123.65 0 M123.65 0 C123.65 10.72, 123.65 21.45, 123.65 30 M123.65 0 C123.65 10.1, 123.65 20.21, 123.65 30 M123.65 30 C90.22 30, 56.79 30, 0 30 M123.65 30 C80.99 30, 38.33 30, 0 30 M0 30 C0 22.66, 0 15.32, 0 0 M0 30 C0 22.8, 0 15.6, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(292.349609375 131.62853238569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">业务逻辑</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(263.755859375 168.00743863569005) rotate(0 62.396484375 15)">
+            <path d="M0 0 L124.79 0 L124.79 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C47.86 0, 95.72 0, 124.79 0 M0 0 C35.63 0, 71.26 0, 124.79 0 M124.79 0 C124.79 9.33, 124.79 18.65, 124.79 30 M124.79 0 C124.79 8.75, 124.79 17.5, 124.79 30 M124.79 30 C84.36 30, 43.93 30, 0 30 M124.79 30 C83.88 30, 42.97 30, 0 30 M0 30 C0 20.48, 0 10.97, 0 0 M0 30 C0 22.08, 0 14.17, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(294.15234375 173.00743863569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">数据模型</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(265.556640625 208.13243863569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C30.68 0, 61.35 0, 126.03 0 M0 0 C31.74 0, 63.47 0, 126.03 0 M126.03 0 C126.03 7.08, 126.03 14.16, 126.03 30 M126.03 0 C126.03 9.9, 126.03 19.8, 126.03 30 M126.03 30 C76.68 30, 27.34 30, 0 30 M126.03 30 C78.13 30, 30.23 30, 0 30 M0 30 C0 21.2, 0 12.4, 0 0 M0 30 C0 20.17, 0 10.34, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(271.77032470703125 213.13243863569005) rotate(0 56.79998779296875 10)">
+            <text x="56.79998779296875" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">用户/权限/角色</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(263.404296875 247.53478238569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.06 0, 52.12 0, 126.03 0 M0 0 C25.39 0, 50.77 0, 126.03 0 M126.03 0 C126.03 10.32, 126.03 20.63, 126.03 30 M126.03 0 C126.03 10.48, 126.03 20.97, 126.03 30 M126.03 30 C93.78 30, 61.54 30, 0 30 M126.03 30 C89.63 30, 53.23 30, 0 30 M0 30 C0 20.9, 0 11.8, 0 0 M0 30 C0 23.58, 0 17.17, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(294.41796875 252.53478238569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">流程引擎</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(260.841796875 287.62853238569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C30.17 0, 60.34 0, 126.03 0 M0 0 C39.41 0, 78.82 0, 126.03 0 M126.03 0 C126.03 11.75, 126.03 23.5, 126.03 30 M126.03 0 C126.03 6.47, 126.03 12.94, 126.03 30 M126.03 30 C81.93 30, 37.84 30, 0 30 M126.03 30 C79.83 30, 33.63 30, 0 30 M0 30 C0 21.41, 0 12.82, 0 0 M0 30 C0 23.3, 0 16.61, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(291.85546875 292.62853238569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">报表引擎</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(261.169921875 327.34337613569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C50.29 0, 100.59 0, 126.03 0 M0 0 C36.36 0, 72.72 0, 126.03 0 M126.03 0 C126.03 9.69, 126.03 19.38, 126.03 30 M126.03 0 C126.03 11.87, 126.03 23.74, 126.03 30 M126.03 30 C75.81 30, 25.58 30, 0 30 M126.03 30 C99.96 30, 73.9 30, 0 30 M0 30 C0 20.12, 0 10.24, 0 0 M0 30 C0 18.63, 0 7.25, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(292.18359375 332.34337613569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">代码规范</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(263.490234375 368.90587613569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.8 0, 53.6 0, 126.03 0 M0 0 C48.69 0, 97.38 0, 126.03 0 M126.03 0 C126.03 10.33, 126.03 20.67, 126.03 30 M126.03 0 C126.03 11.37, 126.03 22.75, 126.03 30 M126.03 30 C95.1 30, 64.18 30, 0 30 M126.03 30 C94.75 30, 63.47 30, 0 30 M0 30 C0 18.33, 0 6.66, 0 0 M0 30 C0 23.06, 0 16.11, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(294.50390625 373.90587613569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">版本控制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(265.169921875 409.43321988569005) rotate(0 63.013671875 15)">
+            <path d="M0 0 L126.03 0 L126.03 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.08 0, 52.16 0, 126.03 0 M0 0 C26.6 0, 53.19 0, 126.03 0 M126.03 0 C126.03 8.95, 126.03 17.9, 126.03 30 M126.03 0 C126.03 6.16, 126.03 12.31, 126.03 30 M126.03 30 C76.62 30, 27.21 30, 0 30 M126.03 30 C92.09 30, 58.16 30, 0 30 M0 30 C0 19.8, 0 9.6, 0 0 M0 30 C0 21.41, 0 12.81, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(296.18359375 414.43321988569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">多人协作</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(420.22112185144044 45.69962380266708) rotate(0 227.5249718985594 72.639846083023)">
+            <path
+                  d="M0 0 C160.99 -1.2, 322.19 -1.05, 455.05 0 M455.05 0 C453.21 57.08, 456.2 116.17, 455.05 145.28 M455.05 145.28 C295.78 143.72, 135.95 144.39, 0 145.28 M0 145.28 C-0.88 111.47, -2.39 78.62, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g
+            transform="translate(425.22112185144044 50.69962380266708) rotate(0 106.26998901367188 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">前端高代码开发（Vue）</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(420.41057497644067 206.6214988026669) rotate(0 229.90973752355927 127.25117420802303)">
+            <path
+                  d="M0 0 C173.25 0.32, 347.52 -0.19, 459.82 0 M459.82 0 C456.7 77.38, 457.61 153.77, 459.82 254.5 M459.82 254.5 C276.94 255.3, 95.12 255.62, 0 254.5 M0 254.5 C1.34 161.47, -1.38 66.25, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g
+            transform="translate(425.41057497644067 211.6214988026669) rotate(0 110.58997344970703 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">服务端高代码开发(Java)</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(432.0625 153.01525113569005) rotate(0 146.861328125 15)">
+            <path d="M0 0 L293.72 0 L293.72 30 L0 30" stroke="none" stroke-width="0" fill="#fd7e14"></path>
+            <path
+                  d="M0 0 C82.35 0, 164.71 0, 293.72 0 M0 0 C65.75 0, 131.49 0, 293.72 0 M293.72 0 C293.72 11.25, 293.72 22.51, 293.72 30 M293.72 0 C293.72 6.91, 293.72 13.83, 293.72 30 M293.72 30 C232.49 30, 171.26 30, 0 30 M293.72 30 C197.78 30, 101.84 30, 0 30 M0 30 C0 19.81, 0 9.61, 0 0 M0 30 C0 21, 0 12, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(546.923828125 158.01525113569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">前端扩展</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(430.02734375 79.22228238569005) rotate(0 56.296875 15.341796875)">
+            <path d="M0 0 L112.59 0 L112.59 30.68 L0 30.68" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C38.61 0, 77.21 0, 112.59 0 M0 0 C27.95 0, 55.9 0, 112.59 0 M112.59 0 C112.59 9.77, 112.59 19.54, 112.59 30.68 M112.59 0 C112.59 9.84, 112.59 19.68, 112.59 30.68 M112.59 30.68 C80.26 30.68, 47.92 30.68, 0 30.68 M112.59 30.68 C82.96 30.68, 53.33 30.68, 0 30.68 M0 30.68 C0 19.14, 0 7.6, 0 0 M0 30.68 C0 23.91, 0 17.13, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(438.32421875 84.56407926069005) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">第三方组件库</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(549.2890625 116.92931363569005) rotate(0 38.9921875 15)">
+            <path d="M0 0 L77.98 0 L77.98 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C29.76 0, 59.52 0, 77.98 0 M0 0 C17.42 0, 34.84 0, 77.98 0 M77.98 0 C77.98 6.73, 77.98 13.45, 77.98 30 M77.98 0 C77.98 10, 77.98 20, 77.98 30 M77.98 30 C52.61 30, 27.24 30, 0 30 M77.98 30 C61.32 30, 44.65 30, 0 30 M0 30 C0 20.39, 0 10.77, 0 0 M0 30 C0 18.49, 0 6.98, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(564.28125 121.92931363569005) rotate(0 24 10)">
+            <text x="24" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">图表库</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(549.841796875 80.49376676069005) rotate(0 39.216796875 15)">
+            <path d="M0 0 L78.43 0 L78.43 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C29.26 0, 58.52 0, 78.43 0 M0 0 C22.71 0, 45.43 0, 78.43 0 M78.43 0 C78.43 11.87, 78.43 23.75, 78.43 30 M78.43 0 C78.43 9.63, 78.43 19.26, 78.43 30 M78.43 30 C53.19 30, 27.94 30, 0 30 M78.43 30 C50.93 30, 23.43 30, 0 30 M0 30 C0 19.82, 0 9.64, 0 0 M0 30 C0 23.28, 0 16.57, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(559.8586120605469 85.49376676069005) rotate(0 29.199981689453125 10)">
+            <text x="29.199981689453125" y="14"
+                  font-family="Comic Shanns, monospace, Segoe UI Emoji" font-size="16px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">PDF预览</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(430.337890625 114.93126676069005) rotate(0 55.9609375 15)">
+            <path d="M0 0 L111.92 0 L111.92 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.51 0, 53.01 0, 111.92 0 M0 0 C40.56 0, 81.11 0, 111.92 0 M111.92 0 C111.92 6.67, 111.92 13.34, 111.92 30 M111.92 0 C111.92 6.7, 111.92 13.4, 111.92 30 M111.92 30 C87.94 30, 63.95 30, 0 30 M111.92 30 C81.8 30, 51.68 30, 0 30 M0 30 C0 19.59, 0 9.19, 0 0 M0 30 C0 19.95, 0 9.9, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(438.298828125 119.93126676069005) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">富文本编辑器</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(633.865234375 82.02696988569005) rotate(0 45.296875 15)">
+            <path d="M0 0 L90.59 0 L90.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C34.26 0, 68.53 0, 90.59 0 M0 0 C26.89 0, 53.78 0, 90.59 0 M90.59 0 C90.59 8.56, 90.59 17.11, 90.59 30 M90.59 0 C90.59 6.49, 90.59 12.99, 90.59 30 M90.59 30 C65.13 30, 39.66 30, 0 30 M90.59 30 C56.97 30, 23.34 30, 0 30 M0 30 C0 18.72, 0 7.44, 0 0 M0 30 C0 19.84, 0 9.69, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(639.162109375 87.02696988569005) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">视频编辑器</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(633.87109375 115.05821988569005) rotate(0 45.296875 15)">
+            <path d="M0 0 L90.59 0 L90.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.71 0, 53.43 0, 90.59 0 M0 0 C26.39 0, 52.79 0, 90.59 0 M90.59 0 C90.59 10.52, 90.59 21.05, 90.59 30 M90.59 0 C90.59 7.95, 90.59 15.89, 90.59 30 M90.59 30 C58.72 30, 26.84 30, 0 30 M90.59 30 C63.62 30, 36.64 30, 0 30 M0 30 C0 18.91, 0 7.83, 0 0 M0 30 C0 21.05, 0 12.09, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(639.16796875 120.05821988569005) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">二维码生成</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(737.6796875 152.07775113569005) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#fd7e14"></path>
+            <path
+                  d="M0 0 C37.32 0, 74.63 0, 120.41 0 M0 0 C30.36 0, 60.71 0, 120.41 0 M120.41 0 C120.41 6.28, 120.41 12.57, 120.41 30 M120.41 0 C120.41 7.6, 120.41 15.2, 120.41 30 M120.41 30 C91.86 30, 63.31 30, 0 30 M120.41 30 C73.01 30, 25.6 30, 0 30 M0 30 C0 21.42, 0 12.84, 0 0 M0 30 C0 20.51, 0 11.02, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(765.88671875 157.07775113569005) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">样式定制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(738.6484375 82.90587613569005) rotate(0 60.41796875 15)">
+            <path d="M0 0 L120.84 0 L120.84 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C26.26 0, 52.53 0, 120.84 0 M0 0 C39.87 0, 79.74 0, 120.84 0 M120.84 0 C120.84 11.61, 120.84 23.23, 120.84 30 M120.84 0 C120.84 6.43, 120.84 12.85, 120.84 30 M120.84 30 C96.55 30, 72.27 30, 0 30 M120.84 30 C81.78 30, 42.72 30, 0 30 M0 30 C0 19.58, 0 9.17, 0 0 M0 30 C0 18.92, 0 7.84, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(751.06640625 87.90587613569005) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">主题样式定制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(738.68359375 118.74962613569005) rotate(0 60.41796875 15)">
+            <path d="M0 0 L120.84 0 L120.84 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C45.64 0, 91.28 0, 120.84 0 M0 0 C43.74 0, 87.49 0, 120.84 0 M120.84 0 C120.84 11.98, 120.84 23.96, 120.84 30 M120.84 0 C120.84 8.7, 120.84 17.41, 120.84 30 M120.84 30 C92.17 30, 63.5 30, 0 30 M120.84 30 C73.02 30, 25.2 30, 0 30 M0 30 C0 19.21, 0 8.42, 0 0 M0 30 C0 22.79, 0 15.58, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(751.1015625 123.74962613569005) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">组件样式定制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(436.525390625 405.96446988569005) rotate(0 111.5295079459105 15)">
+            <path d="M0 0 L223.06 0 L223.06 30 L0 30" stroke="none" stroke-width="0" fill="#fd7e14"></path>
+            <path
+                  d="M0 0 C49.82 0, 99.63 0, 223.06 0 M0 0 C53.36 0, 106.71 0, 223.06 0 M223.06 0 C223.06 8.06, 223.06 16.13, 223.06 30 M223.06 0 C223.06 6.38, 223.06 12.77, 223.06 30 M223.06 30 C137.16 30, 51.26 30, 0 30 M223.06 30 C155.99 30, 88.93 30, 0 30 M0 30 C0 19.25, 0 8.49, 0 0 M0 30 C0 20.04, 0 10.08, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(508.0548985709105 410.96446988569005) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">服务端扩展</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(440.06640625 362.05626676069005) rotate(0 49.22964796908627 15.064783195968005)">
+            <path d="M0 0 L98.46 0 L98.46 30.13 L0 30.13" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C31.08 0, 62.16 0, 98.46 0 M0 0 C37.73 0, 75.47 0, 98.46 0 M98.46 0 C98.46 6.82, 98.46 13.64, 98.46 30.13 M98.46 0 C98.46 7.91, 98.46 15.81, 98.46 30.13 M98.46 30.13 C64.06 30.13, 29.67 30.13, 0 30.13 M98.46 30.13 C62.01 30.13, 25.55 30.13, 0 30.13 M0 30.13 C0 19.12, 0 8.11, 0 0 M0 30.13 C0 20.22, 0 10.3, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(457.2960542190863 367.1210499566581) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">邮箱扫描</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(439.7734375 324.90392301069005) rotate(0 48.843566186463306 15.610009216544313)">
+            <path d="M0 0 L97.69 0 L97.69 31.22 L0 31.22" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C36.37 0, 72.75 0, 97.69 0 M0 0 C32.52 0, 65.04 0, 97.69 0 M97.69 0 C97.69 11.4, 97.69 22.79, 97.69 31.22 M97.69 0 C97.69 11.02, 97.69 22.04, 97.69 31.22 M97.69 31.22 C65.43 31.22, 33.17 31.22, 0 31.22 M97.69 31.22 C74.26 31.22, 50.83 31.22, 0 31.22 M0 31.22 C0 22.15, 0 13.07, 0 0 M0 31.22 C0 24.31, 0 17.4, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(448.61700368646325 330.51393222723436) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">图形验证码</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(437.12890625 244.42931363569005) rotate(0 50.32612023173556 15)">
+            <path d="M0 0 L100.65 0 L100.65 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C29.3 0, 58.61 0, 100.65 0 M0 0 C24.14 0, 48.28 0, 100.65 0 M100.65 0 C100.65 6.06, 100.65 12.12, 100.65 30 M100.65 0 C100.65 10.78, 100.65 21.57, 100.65 30 M100.65 30 C72.51 30, 44.37 30, 0 30 M100.65 30 C64.45 30, 28.24 30, 0 30 M0 30 C0 18.43, 0 6.87, 0 0 M0 30 C0 18.15, 0 6.3, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(443.4550875168918 249.42931363569005) rotate(0 43.99993896484375 10)">
+            <text x="43.99993896484375" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">FreeMarker</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(437.89453125 285.67540738569005) rotate(0 49.521139714966694 15.471984979256604)">
+            <path d="M0 0 L99.04 0 L99.04 30.94 L0 30.94" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C20.3 0, 40.59 0, 99.04 0 M0 0 C28.37 0, 56.74 0, 99.04 0 M99.04 0 C99.04 9.33, 99.04 18.67, 99.04 30.94 M99.04 0 C99.04 9.34, 99.04 18.67, 99.04 30.94 M99.04 30.94 C70.95 30.94, 42.86 30.94, 0 30.94 M99.04 30.94 C75.63 30.94, 52.23 30.94, 0 30.94 M0 30.94 C0 20.66, 0 10.38, 0 0 M0 30.94 C0 21.47, 0 12, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(449.4157014825448 291.14739236494665) rotate(0 37.999969482421875 10)">
+            <text x="37.999969482421875" y="14"
+                  font-family="Comic Shanns, monospace, Segoe UI Emoji" font-size="16px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">Nacos接入</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(546.7696225293854 245.09296541223767) rotate(0 56.29687500000006 15)">
+            <path d="M0 0 L112.59 0 L112.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C39.24 0, 78.49 0, 112.59 0 M0 0 C44.99 0, 89.97 0, 112.59 0 M112.59 0 C112.59 9.04, 112.59 18.07, 112.59 30 M112.59 0 C112.59 9.69, 112.59 19.37, 112.59 30 M112.59 30 C72.15 30, 31.71 30, 0 30 M112.59 30 C87.17 30, 61.74 30, 0 30 M0 30 C0 21.83, 0 13.67, 0 0 M0 30 C0 22.94, 0 15.88, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(571.0664975293854 250.09296541223767) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">数据脱敏</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(545.4219467726034 285.8549039875526) rotate(0 56.296875 15)">
+            <path d="M0 0 L112.59 0 L112.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C27.45 0, 54.9 0, 112.59 0 M0 0 C23.37 0, 46.74 0, 112.59 0 M112.59 0 C112.59 8.34, 112.59 16.68, 112.59 30 M112.59 0 C112.59 6.11, 112.59 12.23, 112.59 30 M112.59 30 C72.33 30, 32.06 30, 0 30 M112.59 30 C76.8 30, 41 30, 0 30 M0 30 C0 23.02, 0 16.04, 0 0 M0 30 C0 21.4, 0 12.81, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(569.7188217726034 290.8549039875526) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">分布式锁</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(545.9433880077902 324.3791202531164) rotate(0 56.296875 15)">
+            <path d="M0 0 L112.59 0 L112.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C44.67 0, 89.34 0, 112.59 0 M0 0 C26.15 0, 52.3 0, 112.59 0 M112.59 0 C112.59 10.59, 112.59 21.18, 112.59 30 M112.59 0 C112.59 6.27, 112.59 12.55, 112.59 30 M112.59 30 C69.62 30, 26.66 30, 0 30 M112.59 30 C89.03 30, 65.47 30, 0 30 M0 30 C0 21.33, 0 12.66, 0 0 M0 30 C0 21.1, 0 12.2, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(577.4402752148214 329.3791202531164) rotate(0 24.79998779296875 10)">
+            <text x="24.79998779296875" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">ES查询</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(546.7754396815166 362.1361659078277) rotate(0 56.29687500000006 15)">
+            <path d="M0 0 L112.59 0 L112.59 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C31.91 0, 63.83 0, 112.59 0 M0 0 C30.38 0, 60.76 0, 112.59 0 M112.59 0 C112.59 6.99, 112.59 13.99, 112.59 30 M112.59 0 C112.59 11.82, 112.59 23.64, 112.59 30 M112.59 30 C74.75 30, 36.9 30, 0 30 M112.59 30 C71.62 30, 30.64 30, 0 30 M0 30 C0 18.62, 0 7.25, 0 0 M0 30 C0 20.94, 0 11.88, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(563.0723146815166 367.1361659078277) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">多线程异步</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(668.9627125206476 405.6159708481148) rotate(0 42.42120872901563 15)">
+            <path d="M0 0 L84.84 0 L84.84 30 L0 30" stroke="none" stroke-width="0" fill="#fd7e14"></path>
+            <path
+                  d="M0 0 C21.68 0, 43.36 0, 84.84 0 M0 0 C32.56 0, 65.12 0, 84.84 0 M84.84 0 C84.84 11.1, 84.84 22.2, 84.84 30 M84.84 0 C84.84 8.82, 84.84 17.65, 84.84 30 M84.84 30 C66.52 30, 48.2 30, 0 30 M84.84 30 C62.96 30, 41.07 30, 0 30 M0 30 C0 20.6, 0 11.2, 0 0 M0 30 C0 23.91, 0 17.81, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(687.3839212496633 410.6159708481148) rotate(0 23.999999999999943 10)">
+            <text x="24" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">连接器</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(671.30127250046 363.66948418654545) rotate(0 42.473216773184106 15.683364755242678)">
+            <path d="M0 0 L84.95 0 L84.95 31.37 L0 31.37" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C29.12 0, 58.24 0, 84.95 0 M0 0 C26.72 0, 53.45 0, 84.95 0 M84.95 0 C84.95 10.45, 84.95 20.9, 84.95 31.37 M84.95 0 C84.95 7.31, 84.95 14.63, 84.95 31.37 M84.95 31.37 C58.42 31.37, 31.89 31.37, 0 31.37 M84.95 31.37 C56.29 31.37, 27.62 31.37, 0 31.37 M0 31.37 C0 22.27, 0 13.17, 0 0 M0 31.37 C0 24.22, 0 17.08, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(681.774489273644 369.3528489417881) rotate(0 32.00000000000006 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">短信服务</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(671.3707672213321 324.1501529172566) rotate(0 42.54946792525226 15.694947208721373)">
+            <path d="M0 0 L85.1 0 L85.1 31.39 L0 31.39" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C33.3 0, 66.61 0, 85.1 0 M0 0 C26.38 0, 52.77 0, 85.1 0 M85.1 0 C85.1 8.66, 85.1 17.32, 85.1 31.39 M85.1 0 C85.1 6.36, 85.1 12.72, 85.1 31.39 M85.1 31.39 C58.17 31.39, 31.23 31.39, 0 31.39 M85.1 31.39 C66.79 31.39, 48.47 31.39, 0 31.39 M0 31.39 C0 23.28, 0 15.18, 0 0 M0 31.39 C0 21.23, 0 11.06, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(691.9202656641625 329.845100125978) rotate(0 21.999969482421818 10)">
+            <text x="21.999969482421875" y="14"
+                  font-family="Comic Shanns, monospace, Segoe UI Emoji" font-size="16px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">Kafka</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(670.8128790454418 285.8489096721436) rotate(0 42.65371000656023 16.048212039821408)">
+            <path d="M0 0 L85.31 0 L85.31 32.1 L0 32.1" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C25.78 0, 51.55 0, 85.31 0 M0 0 C31.35 0, 62.7 0, 85.31 0 M85.31 0 C85.31 8, 85.31 16.01, 85.31 32.1 M85.31 0 C85.31 8.14, 85.31 16.28, 85.31 32.1 M85.31 32.1 C63.98 32.1, 42.66 32.1, 0 32.1 M85.31 32.1 C56.36 32.1, 27.41 32.1, 0 32.1 M0 32.1 C0 24.71, 0 17.31, 0 0 M0 32.1 C0 20.87, 0 9.64, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(688.6666012590333 291.897121711965) rotate(0 24.79998779296875 10)">
+            <text x="24.79998779296875" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">钉钉OA</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(669.8785611314947 245.85083699240238) rotate(0 42.45391268405285 15.214275389355748)">
+            <path d="M0 0 L84.91 0 L84.91 30.43 L0 30.43" stroke="none" stroke-width="0"
+                  fill="#ffffff"></path>
+            <path
+                  d="M0 0 C32.44 0, 64.88 0, 84.91 0 M0 0 C22.8 0, 45.61 0, 84.91 0 M84.91 0 C84.91 8.35, 84.91 16.7, 84.91 30.43 M84.91 0 C84.91 6.64, 84.91 13.28, 84.91 30.43 M84.91 30.43 C56.25 30.43, 27.59 30.43, 0 30.43 M84.91 30.43 C52.12 30.43, 19.34 30.43, 0 30.43 M0 30.43 C0 23.31, 0 16.2, 0 0 M0 30.43 C0 24.13, 0 17.84, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(677.1325226436726 251.06511238175813) rotate(0 35.19995117187494 10)">
+            <text x="35.199951171875" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">DeepSeek</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(760.8296640764183 405.5960353704884) rotate(0 53.16296912604366 15)">
+            <path d="M0 0 L106.33 0 L106.33 30 L0 30" stroke="none" stroke-width="0" fill="#fd7e14"></path>
+            <path
+                  d="M0 0 C36.61 0, 73.23 0, 106.33 0 M0 0 C27.97 0, 55.94 0, 106.33 0 M106.33 0 C106.33 8.94, 106.33 17.88, 106.33 30 M106.33 0 C106.33 11.42, 106.33 22.84, 106.33 30 M106.33 30 C84.19 30, 62.06 30, 0 30 M106.33 30 C75.19 30, 44.05 30, 0 30 M0 30 C0 21.02, 0 12.03, 0 0 M0 30 C0 20.26, 0 10.51, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(773.992633202462 410.5960353704884) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">数据库插件</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(764.8218627052256 365.4493212044374) rotate(0 51.14075279307008 15)">
+            <path d="M0 0 L102.28 0 L102.28 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C39.23 0, 78.47 0, 102.28 0 M0 0 C25.97 0, 51.95 0, 102.28 0 M102.28 0 C102.28 8.36, 102.28 16.72, 102.28 30 M102.28 0 C102.28 6.7, 102.28 13.41, 102.28 30 M102.28 30 C74.9 30, 47.51 30, 0 30 M102.28 30 C76.56 30, 50.84 30, 0 30 M0 30 C0 23.77, 0 17.53, 0 0 M0 30 C0 22.95, 0 15.91, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(775.9626154982957 370.4493212044374) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">达梦数据库</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(766.3295120663684 326.90484643627167) rotate(0 51.14075279307008 15)">
+            <path d="M0 0 L102.28 0 L102.28 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C37.77 0, 75.54 0, 102.28 0 M0 0 C36.47 0, 72.93 0, 102.28 0 M102.28 0 C102.28 6.87, 102.28 13.73, 102.28 30 M102.28 0 C102.28 10.33, 102.28 20.66, 102.28 30 M102.28 30 C76.93 30, 51.59 30, 0 30 M102.28 30 C75.63 30, 48.99 30, 0 30 M0 30 C0 23.2, 0 16.39, 0 0 M0 30 C0 18.94, 0 7.89, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(785.4702648594384 331.90484643627167) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">人大金仓</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(764.9222439687073 287.2581081787175) rotate(0 51.14075279307008 15)">
+            <path d="M0 0 L102.28 0 L102.28 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C38.28 0, 76.56 0, 102.28 0 M0 0 C31.73 0, 63.46 0, 102.28 0 M102.28 0 C102.28 11.8, 102.28 23.59, 102.28 30 M102.28 0 C102.28 6.55, 102.28 13.09, 102.28 30 M102.28 30 C80.26 30, 58.24 30, 0 30 M102.28 30 C63.35 30, 24.42 30, 0 30 M0 30 C0 18.62, 0 7.24, 0 0 M0 30 C0 19.4, 0 8.8, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(784.0629967617774 292.2581081787175) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">华为高斯</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(764.2041318530287 247.05734256309933) rotate(0 51.14075279307008 15)">
+            <path d="M0 0 L102.28 0 L102.28 30 L0 30" stroke="none" stroke-width="0" fill="#ffffff"></path>
+            <path
+                  d="M0 0 C33.49 0, 66.99 0, 102.28 0 M0 0 C38.36 0, 76.72 0, 102.28 0 M102.28 0 C102.28 11.46, 102.28 22.93, 102.28 30 M102.28 0 C102.28 9.03, 102.28 18.06, 102.28 30 M102.28 30 C70.33 30, 38.37 30, 0 30 M102.28 30 C77.02 30, 51.77 30, 0 30 M0 30 C0 21.35, 0 12.71, 0 0 M0 30 C0 18.77, 0 7.54, 0 0"
+                  stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(775.7449395777394 252.05734256309933) rotate(0 39.599945068359375 10)">
+            <text x="39.599945068359375" y="14"
+                  font-family="Comic Shanns, monospace, Segoe UI Emoji" font-size="16px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">OceanBase</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(918.0237449293918 10) rotate(0 92.40178542383956 240.06396745582572)">
+            <path
+                  d="M32 0 C81.19 1.1, 126.76 3.1, 152.8 0 C171.85 1.59, 181.43 11.95, 184.8 32 C180.2 167.53, 181.6 305.65, 184.8 448.13 C184.1 468.14, 172.1 481.49, 152.8 480.13 C114.03 482.54, 70.22 480.06, 32 480.13 C13.4 478.67, 0.83 468.78, 0 448.13 C0.18 318.36, -3.07 186, 0 32 C2.99 7.83, 8.27 2.98, 32 0"
+                  stroke="none" stroke-width="0" fill="#ebfbee"></path>
+            <path
+                  d="M32 0 C79.46 1.85, 122.85 1.91, 152.8 0 M32 0 C78.95 1.99, 124.99 1.99, 152.8 0 M152.8 0 C175.47 -1.55, 184.23 9.78, 184.8 32 M152.8 0 C172.21 1.66, 186.13 12.44, 184.8 32 M184.8 32 C186.37 177.59, 185.25 320.41, 184.8 448.13 M184.8 32 C183.19 121.7, 182.72 211.32, 184.8 448.13 M184.8 448.13 C184.82 469.29, 174.34 480.97, 152.8 480.13 M184.8 448.13 C184.19 467.6, 172.01 482.03, 152.8 480.13 M152.8 480.13 C119.92 480.7, 87.29 481.76, 32 480.13 M152.8 480.13 C107.02 480.8, 59.27 481.44, 32 480.13 M32 480.13 C11.43 480.24, 1.42 470.73, 0 448.13 M32 480.13 C10.2 478.29, -0.25 471.67, 0 448.13 M0 448.13 C-2.08 323.36, -1.69 196.17, 0 32 M0 448.13 C-1.14 331.58, -1.8 214.36, 0 32 M0 32 C-0.77 12.07, 10.74 -1.25, 32 0 M0 32 C-0.79 9.36, 9.02 -0.71, 32 0"
+                  stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+      </g>
+      <g transform="translate(970.4255303532314 15) rotate(0 40 12.5)">
+            <text x="40" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">部署集成</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(929.1655677667482 56.73227439949119) rotate(0 77.63179358117452 120.35831861982794)">
+            <path
+                  d="M0 0 C38.78 1.76, 75.96 1.24, 155.26 0 M155.26 0 C155.63 61.22, 154.91 122.22, 155.26 240.72 M155.26 240.72 C97.89 242.57, 40.08 242.77, 0 240.72 M0 240.72 C0.31 153.11, 0.45 65.69, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(934.1655677667482 61.73227439949119) rotate(0 40 12.5)">
+            <text x="0" y="17.619999999999997"
+                  font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji" font-size="20px"
+                  fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr"
+                  dominant-baseline="alphabetic">应用部署</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(941.8314004738272 96.9164714600663) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C32.35 0, 64.7 0, 120.41 0 M0 0 C33.72 0, 67.43 0, 120.41 0 M120.41 0 C120.41 11.86, 120.41 23.73, 120.41 30 M120.41 0 C120.41 6.83, 120.41 13.66, 120.41 30 M120.41 30 C81.59 30, 42.77 30, 0 30 M120.41 30 C94.1 30, 67.78 30, 0 30 M0 30 C0 22.25, 0 14.51, 0 0 M0 30 C0 18.21, 0 6.41, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(970.0384317238272 101.9164714600663) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">源码导出</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(940.311238847248 146.37788793079454) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C38.37 0, 76.74 0, 120.41 0 M0 0 C41.41 0, 82.82 0, 120.41 0 M120.41 0 C120.41 9.46, 120.41 18.93, 120.41 30 M120.41 0 C120.41 8.23, 120.41 16.46, 120.41 30 M120.41 30 C89.11 30, 57.82 30, 0 30 M120.41 30 C73.64 30, 26.87 30, 0 30 M0 30 C0 22.34, 0 14.68, 0 0 M0 30 C0 23.11, 0 16.21, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(968.518270097248 151.37788793079454) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">独立部署</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(942.1721263556469 196.53198888654026) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C45.78 0, 91.56 0, 120.41 0 M0 0 C24.16 0, 48.32 0, 120.41 0 M120.41 0 C120.41 7.56, 120.41 15.12, 120.41 30 M120.41 0 C120.41 10.13, 120.41 20.26, 120.41 30 M120.41 30 C88.84 30, 57.27 30, 0 30 M120.41 30 C81.11 30, 41.8 30, 0 30 M0 30 C0 23.12, 0 16.24, 0 0 M0 30 C0 22.76, 0 15.53, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(970.3791576056469 201.53198888654026) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">日志监控</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(943.4451681118956 248.3709980490861) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C38.87 0, 77.74 0, 120.41 0 M0 0 C32.8 0, 65.6 0, 120.41 0 M120.41 0 C120.41 7.7, 120.41 15.4, 120.41 30 M120.41 0 C120.41 9.15, 120.41 18.31, 120.41 30 M120.41 30 C76.77 30, 33.12 30, 0 30 M120.41 30 C95.69 30, 70.97 30, 0 30 M0 30 C0 23.72, 0 17.44, 0 0 M0 30 C0 23.68, 0 17.36, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(971.6521993618956 253.3709980490861) rotate(0 32 10)">
+            <text x="32" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">代码仓库</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(934.1266863756587 316.59753925448064) rotate(0 74.50535279744577 68.5211815775119)">
+            <path
+                  d="M0 0 C50.45 -2.81, 99.92 -2, 149.01 0 M149.01 0 C151.21 35.62, 148.92 74.11, 149.01 137.04 M149.01 137.04 C102.32 134.01, 53.41 134.59, 0 137.04 M0 137.04 C-2.76 90.42, 0.15 42.92, 0 0"
+                  stroke="#1e1e1e" stroke-width="1.5" fill="none" stroke-dasharray="8 9"></path>
+      </g>
+      <g transform="translate(939.1266863756587 321.59753925448064) rotate(0 64 9.999999999999972)">
+            <text x="0" y="14.096" font-family="Excalifont, Xiaolai, sans-serif, Segoe UI Emoji"
+                  font-size="16px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">源码风格结构定制</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(946.5753531360838 349.96721867866495) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C45.22 0, 90.44 0, 120.41 0 M0 0 C28.45 0, 56.9 0, 120.41 0 M120.41 0 C120.41 9.45, 120.41 18.9, 120.41 30 M120.41 0 C120.41 7.46, 120.41 14.93, 120.41 30 M120.41 30 C94.72 30, 69.02 30, 0 30 M120.41 30 C83.23 30, 46.05 30, 0 30 M0 30 C0 18.38, 0 6.77, 0 0 M0 30 C0 23.78, 0 17.55, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(966.7823843860838 354.96721867866495) rotate(0 40 10)">
+            <text x="40" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">前端翻译器</text>
+      </g>
+      <g stroke-linecap="round"
+            transform="translate(948.0880262817448 394.05565008993074) rotate(0 60.20703125 15)">
+            <path d="M0 0 L120.41 0 L120.41 30 L0 30" stroke="none" stroke-width="0" fill="#40c057"></path>
+            <path
+                  d="M0 0 C46.54 0, 93.08 0, 120.41 0 M0 0 C42.82 0, 85.64 0, 120.41 0 M120.41 0 C120.41 10.47, 120.41 20.93, 120.41 30 M120.41 0 C120.41 10.92, 120.41 21.83, 120.41 30 M120.41 30 C87.64 30, 54.87 30, 0 30 M120.41 30 C95.33 30, 70.25 30, 0 30 M0 30 C0 18.75, 0 7.49, 0 0 M0 30 C0 20.71, 0 11.41, 0 0"
+                  stroke="#ffffff" stroke-width="1" fill="none"></path>
+      </g>
+      <g transform="translate(960.2950575317448 399.05565008993074) rotate(0 48 10)">
+            <text x="48" y="14" font-family="Comic Shanns, monospace, Segoe UI Emoji"
+                  font-size="16px" fill="#ffffff" text-anchor="middle" style="white-space: pre;"
+                  direction="ltr" dominant-baseline="alphabetic">服务端翻译器</text>
+      </g>
+</svg>

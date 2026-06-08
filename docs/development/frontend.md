@@ -1,7 +1,7 @@
 # 前端扩展
 作者：杨村长
 
-<video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/3650423a04964665b78851e1944e6b47.mp4?wsSecret=2e20309858618adbe7cea247737d0e61&wsTime=1756693857" controls="controls" style="max-width: 100%;">
+<video src="https://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/3650423a04964665b78851e1944e6b47.mp4?wsSecret=8a31417141ae37338b31e64d7c891d5b&wsTime=1991028695" controls="controls" style="max-width: 100%;">
 </video>
 
 ## 一、概念原理

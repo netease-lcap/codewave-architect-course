@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 开始学习
-      link: /introduction
+      link: /howtouse.md
     - theme: alt
       text: GitHub
       link: https://github.com/netease-lcap/codewave-architect-course
@@ -34,6 +34,7 @@ features:
     title: 平台定制
     details: 平台定制、IDE定制
     link: /platform
+    
 ---
 <style module>
 :root {

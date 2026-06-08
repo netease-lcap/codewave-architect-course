@@ -11,7 +11,10 @@ importers:
       vitepress:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.23.4)(@types/node@24.3.1)(postcss@8.5.3)(search-insights@2.17.3)
+<<<<<<< HEAD
     devDependencies:
+=======
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
       vitepress-export-pdf:
         specifier: ^1.0.0
         version: 1.0.0(esbuild@0.21.5)(vitepress@1.6.3(@algolia/client-search@5.23.4)(@types/node@24.3.1)(postcss@8.5.3)(search-insights@2.17.3))
@@ -621,10 +624,17 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
 
+<<<<<<< HEAD
   b4a@1.7.1:
     resolution: {integrity: sha512-ZovbrBV0g6JxK5cGUF1Suby1vLfKjv4RWi8IxoaO/Mon8BDD9I21RxjHFtgQ+kskJqLAVyQZly3uMBui+vhc8Q==}
     peerDependencies:
       react-native-b4a: '*'
+=======
+  b4a@1.7.0:
+    resolution: {integrity: sha512-KtsH1alSKomfNi/yDAFaD8PPFfi0LxJCEbPuzogcXrMF+yH40Z1ykTDo2vyxuQfN1FLjv0LFM7CadLHEPrVifw==}
+    peerDependencies:
+      react-native-b4a: ^0.0.0
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
     peerDependenciesMeta:
       react-native-b4a:
         optional: true
@@ -635,8 +645,13 @@ packages:
   bare-events@2.6.1:
     resolution: {integrity: sha512-AuTJkq9XmE6Vk0FJVNq5QxETrSA/vKHarWVBG5l/JbdCL1prJemiyJqUS0jrlXO0MftuPq4m3YVYhoNc5+aE/g==}
 
+<<<<<<< HEAD
   bare-fs@4.4.1:
     resolution: {integrity: sha512-B7VdbD19fypJh6jCXgYge06pxj3UvMv+x8IOZjTSqpiy/ib3UHhwe8Zm7wqxHe7QI3CrySjui4YIRBvocuBthg==}
+=======
+  bare-fs@4.3.3:
+    resolution: {integrity: sha512-W+ZpiQx1i0dm073So22v3jColDtvyqSTyUYEnooYwKcl+SHuqnQGKyuHdwigQffWJV5ghKtskVH7ydAkBVKQZQ==}
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
     engines: {bare: '>=1.16.0'}
     peerDependencies:
       bare-buffer: '*'
@@ -2053,14 +2068,22 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+<<<<<<< HEAD
   b4a@1.7.1: {}
+=======
+  b4a@1.7.0: {}
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
 
   balanced-match@1.0.2: {}
 
   bare-events@2.6.1:
     optional: true
 
+<<<<<<< HEAD
   bare-fs@4.4.1:
+=======
+  bare-fs@4.3.3:
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
     dependencies:
       bare-events: 2.6.1
       bare-path: 3.0.0
@@ -2813,7 +2836,11 @@ snapshots:
       pump: 3.0.3
       tar-stream: 3.1.7
     optionalDependencies:
+<<<<<<< HEAD
       bare-fs: 4.4.1
+=======
+      bare-fs: 4.3.3
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
       bare-path: 3.0.0
     transitivePeerDependencies:
       - bare-buffer
@@ -2821,7 +2848,11 @@ snapshots:
 
   tar-stream@3.1.7:
     dependencies:
+<<<<<<< HEAD
       b4a: 1.7.1
+=======
+      b4a: 1.7.0
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
       fast-fifo: 1.3.2
       streamx: 2.22.1
     transitivePeerDependencies:
@@ -2829,7 +2860,11 @@ snapshots:
 
   text-decoder@1.2.3:
     dependencies:
+<<<<<<< HEAD
       b4a: 1.7.1
+=======
+      b4a: 1.7.0
+>>>>>>> 06ac421b96477114590041747bd3011d686e61bf
     transitivePeerDependencies:
       - react-native-b4a
 

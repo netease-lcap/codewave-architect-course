@@ -12,11 +12,11 @@ import com.netease.lowcode.core.annotation.NaslLogic;
 @Component
 public class MyComponent {
 
-    @Value("${myHost}")
+//    @Value("${myHost}")
     private String myHost;
 
 
-    @Value("${spring.mongo.host}")
+//    @Value("${spring.mongo.host}")
     private  String mongoHost;
 
     /**

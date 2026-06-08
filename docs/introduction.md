@@ -1,5 +1,10 @@
 # Codewave架构师课程
 
+<!-- ![](a2.svg) -->
+
+<object data="a2.svg" type="image/svg+xml" style="max-width: 100%;"></object>
+
+
 ## 一、背景
 CodeWave平台在复杂企业应用中存在落地困难的现象。主要问题归纳为：
 
