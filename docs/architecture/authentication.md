@@ -1,5 +1,5 @@
 # 认证&鉴权
-作者：许冠杰
+作者: 许建平
 
 <video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/f2ed43a7ce044521ac2916541bd75456.mp4?wsSecret=72bed5c7624e3212bdef934f9dd6e414&wsTime=1756783180" controls="controls" style="max-width: 100%;">
 </video>
