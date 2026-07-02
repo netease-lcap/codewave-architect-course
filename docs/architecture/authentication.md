@@ -1,9 +1,5 @@
 # 认证&鉴权
-<<<<<<< HEAD
 作者: 许建平
-=======
-作者：许建平
->>>>>>> 06ac421b96477114590041747bd3011d686e61bf
 
 <video src="http://jdvodmrvvfqeg.vod.126.net/jdvodmrvvfqeg/f2ed43a7ce044521ac2916541bd75456.mp4?wsSecret=9cf23a8b9957245356049567db79cdbf&wsTime=1764744883" controls="controls" style="max-width: 100%;">
 </video>

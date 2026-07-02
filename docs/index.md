@@ -3,15 +3,18 @@
 layout: home
 
 hero:
-  name: "Codewave架构师课程"
+  name: "Codewave最佳实践"
 #   text: "A VitePress Site"
-  tagline: 让低代码融入企业架构体系
+  tagline: SpecDriven智能开发助力企业应用提效
 #   image:
 #     src: /logo.png
 #     alt: VitePress
   actions:
     - theme: brand
-      text: 开始学习
+      text: SpecDriven智能开发
+      link: /specdriven/
+    - theme: alt
+      text: 架构师指南
       link: /howtouse.md
     - theme: alt
       text: GitHub

@@ -9,7 +9,8 @@ module.exports = {
 
         outline: [2, 4], // 显示 h2 和 h3 标题
         nav: [
-            { text: '学习指南', link: '/howtouse/' },
+            { text: 'SpecDriven智能开发', link: '/specdriven/' },
+            { text: '架构师指南', link: '/howtouse/' },
             { text: 'GitHub', link: 'https://github.com/netease-lcap/codewave-architect-course' },
             // { text: '应用开发', link: '/development' },
             // { text: '部署集成', link: '/deployment' },
@@ -17,6 +18,7 @@ module.exports = {
             // { text: '最佳实践', link: '/practice/index' }
         ],
         sidebar: {
+            '/specdriven/': require('../specdriven/sidebar.js'),
             '/practice/': require('../practice/sidebar.js'),
             '/':
                 [
